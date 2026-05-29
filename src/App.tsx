@@ -5,7 +5,8 @@ type Lang = 'en' | 'es'
 const c = {
   en: {
     nav: ['Home', 'Program', 'Package', 'Book', 'Contact'],
-    toggle: 'Español',
+    toggle: 'ES',
+    languageLabel: 'Language',
     eyebrow: 'Spanish literacy for early readers',
     title: 'A warm phonetic reading and writing program for young Spanish learners.',
     intro: [
@@ -29,7 +30,8 @@ const c = {
   },
   es: {
     nav: ['Inicio', 'Programa', 'Paquete', 'Libro', 'Contacto'],
-    toggle: 'English',
+    toggle: 'EN',
+    languageLabel: 'Idioma',
     eyebrow: 'Lectoescritura en español para primeros lectores',
     title: 'Un programa cálido y fonético para aprender a leer y escribir en español.',
     intro: [
@@ -57,14 +59,17 @@ export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const copy = c[lang]
   return (
-    <div className="page">
+    <div className="page" data-language={lang}>
       <a className="skip-link" href="#main">Skip to main content</a>
       <header className="site-header">
         <div className="brand">Lanny Books</div>
         <nav className="nav" aria-label="Main navigation">
           {copy.nav.map((item, i) => <a key={item} href={['#home','#program','#package','#book','#contact'][i]}>{item}</a>)}
         </nav>
-        <button className="language-toggle" onClick={() => setLang(lang === 'en' ? 'es' : 'en')}>{copy.toggle}</button>
+        <div className="language-switch" data-testid="language-toggle-wrapper">
+          <span>{copy.languageLabel}</span>
+          <button id="language-toggle" data-testid="language-toggle" className="language-toggle" aria-label="Toggle language between English and Spanish" onClick={() => setLang(lang === 'en' ? 'es' : 'en')}>EN / ES</button>
+        </div>
       </header>
       <main id="main">
         <section id="home" className="section hero">
