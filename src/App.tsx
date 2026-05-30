@@ -32,10 +32,10 @@ const logoPaths: Record<string, string> = {
 }
 
 const formats = [
-  { id: 'amazon', name: 'Amazon', className: 'amazon' },
-  { id: 'kindle', name: 'Kindle', className: 'kindle' },
-  { id: 'audible', name: 'Audible', className: 'audible' },
-  { id: 'bn', name: 'Barnes & Noble', className: 'bn' }
+  { id: 'kindle', name: 'Kindle', className: 'kindle', price: '$9.99' },
+  { id: 'epub', name: 'EPUB', className: 'epub', price: '$9.99' },
+  { id: 'pdf', name: 'PDF', className: 'pdf', price: '$12.99' },
+  { id: 'audible', name: 'Audible', className: 'audible', price: '$14.95' }
 ] as const
 
 const copy = {
@@ -86,7 +86,7 @@ const copy = {
       {
         variant: 'book',
         name: 'Student Book Only',
-        price: '',
+        price: '$20',
         desc: 'The 92-page student book on its own — for families and classrooms that only need the reading and writing activities.'
       },
       {
@@ -98,10 +98,10 @@ const copy = {
     ] as Route[],
 
     offerLabel: 'Complete offer',
-    formatsTitle: 'Additional purchase formats',
+    formatsTitle: 'Digital & audio editions',
     formatsNote:
-      'Example buttons showing how each retail format would appear. Purchase links are not connected yet.',
-    formatTags: ['PDF', 'eBook', 'Audiobook', 'Bookstore'],
+      'Indicative pricing for the digital and audio editions, sold separately from the physical kit. Purchase links connect as each edition goes live.',
+    formatTags: ['eBook', 'ePub', 'Printable', 'Audiobook'],
 
     packageLabel: 'Package',
     includedTitle: 'What the package includes',
@@ -239,7 +239,7 @@ const copy = {
       {
         variant: 'book',
         name: 'Solo el libro del alumno',
-        price: '',
+        price: '$20',
         desc: 'El libro del alumno de 92 páginas por separado, para familias y aulas que solo necesitan las actividades de lectura y escritura.'
       },
       {
@@ -251,10 +251,10 @@ const copy = {
     ] as Route[],
 
     offerLabel: 'Oferta completa',
-    formatsTitle: 'Formatos adicionales de compra',
+    formatsTitle: 'Ediciones digitales y de audio',
     formatsNote:
-      'Botones de ejemplo que muestran cómo se vería cada formato de venta. Los enlaces de compra aún no están conectados.',
-    formatTags: ['PDF', 'Libro electrónico', 'Audiolibro', 'Librería'],
+      'Precios indicativos de las ediciones digitales y de audio, vendidas por separado del kit físico. Los enlaces de compra se conectan a medida que cada edición esté disponible.',
+    formatTags: ['Libro electrónico', 'ePub', 'Imprimible', 'Audiolibro'],
 
     packageLabel: 'Paquete',
     includedTitle: 'Qué incluye el paquete',
@@ -364,6 +364,20 @@ function FormatGlyph({ id }: { id: string }) {
           <line x1="9" y1="13" x2="13" y2="13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       )
+    case 'epub':
+      return (
+        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M12 5.5C9.5 4 6.5 3.7 4 4.2v13.2c2.5-.5 5.5-.2 8 1.3 2.5-1.5 5.5-1.8 8-1.3V4.2c-2.5-.5-5.5-.2-8 1.3z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+          <line x1="12" y1="5.5" x2="12" y2="18.7" stroke="currentColor" strokeWidth="1.7" />
+        </svg>
+      )
+    case 'pdf':
+      return (
+        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M7 2.5h7l4 4V21a1 1 0 01-1 1H7a1 1 0 01-1-1V3.5a1 1 0 011-1z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+          <path d="M14 2.5V6.5h4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+        </svg>
+      )
     case 'audible':
       return (
         <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
@@ -410,6 +424,7 @@ function BrandLogo({ id, name, tag }: { id: string; name: string; tag: string })
         onError={() => setFailed(true)}
       />
       <span className="formatLinkText">
+        <strong>{name}</strong>
         <small>{tag}</small>
       </span>
     </>
@@ -606,13 +621,13 @@ export default function App() {
                   <span className="routeBadge">{t.bestValue}</span>
                 ) : null}
                 <h3>{route.name}</h3>
-                {route.variant === 'package' ? (
+                {route.price ? (
                   <div className="price">{route.price}</div>
                 ) : (
                   <div className="contactPrice">{t.contactCta}</div>
                 )}
                 <p className="routeDesc">{route.desc}</p>
-                {route.variant === 'package' ? (
+                {route.price ? (
                   <button
                     className="button primary"
                     type="button"
@@ -638,9 +653,10 @@ export default function App() {
                   key={format.id}
                   className={`formatLink ${format.className}`}
                   href="#contact"
-                  aria-label={`${format.name} (example)`}
+                  aria-label={`${format.name} — ${format.price}`}
                 >
                   <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
+                  <span className="formatPrice">{format.price}</span>
                 </a>
               ))}
             </div>
