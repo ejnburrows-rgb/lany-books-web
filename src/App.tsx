@@ -12,17 +12,9 @@ type Route = {
 }
 
 const imagePaths = {
-  hero: '/images/gretel/gretel-hero.png',
-  cover: '/images/gretel/WB%20Cover%20HD.png'
+  kit: '/images/gretel/kit.png',
+  cover: '/images/gretel/student-book-cover.png'
 }
-
-const productImages = [
-  '/images/gretel/flipchart.png',
-  '/images/gretel/student-book.png',
-  '/images/gretel/syllabic-charts.png',
-  '/images/gretel/homework.png',
-  '/images/gretel/evaluations.png'
-]
 
 const logoPaths: Record<string, string> = {
   amazon: '/images/brands/amazon.svg',
@@ -532,22 +524,12 @@ export default function App() {
 
           <div className="heroArt">
             <ImageFrame
-              src={imagePaths.hero}
-              alt="Gretel standing and holding La Cartilla de Gretel"
-              label="Gretel hero illustration pending"
+              src={imagePaths.cover}
+              alt="La Cartilla de Gretel — Libro del alumno cover"
+              label="Cover photo loading"
               className="heroImage"
               aspect="3 / 4"
             />
-            <div className="coverBadge">
-              <ImageFrame
-                src={imagePaths.cover}
-                alt="Official La Cartilla de Gretel cover"
-                label="Book cover pending"
-                className="coverImage"
-                aspect="3 / 4"
-              />
-              <strong>{t.purchase}</strong>
-            </div>
           </div>
         </section>
 
@@ -578,16 +560,18 @@ export default function App() {
             <p className="lead">{t.showcaseLead}</p>
           </div>
 
-          <div className="galleryGrid">
-            {t.gallery.map(([title, body], index) => (
+          <div className="kitShowcase">
+            <ImageFrame
+              src={imagePaths.kit}
+              alt="The complete La Cartilla de Gretel kit: flipchart, student book, syllabic charts, homework, evaluations, audio CD, felt vowel dolls, teacher's guide, and canvas carrying bag"
+              label="Full kit photo loading"
+              className="kitImage"
+            />
+          </div>
+
+          <div className="galleryGrid textOnly">
+            {t.gallery.map(([title, body]) => (
               <figure className="galleryCard" key={title}>
-                <ImageFrame
-                  src={productImages[index]}
-                  alt={title}
-                  label={`${title} image pending`}
-                  className="galleryImg"
-                  aspect="3 / 4"
-                />
                 <figcaption>
                   <h3>{title}</h3>
                   <p>{body}</p>
@@ -608,7 +592,7 @@ export default function App() {
               <ImageFrame
                 src={imagePaths.cover}
                 alt="La Cartilla de Gretel cover"
-                label="Official book cover pending"
+                label="Cover photo loading"
                 aspect="3 / 4"
               />
             </div>

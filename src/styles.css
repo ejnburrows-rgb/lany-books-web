@@ -264,6 +264,35 @@ nav a:hover {
   color: #14343d;
 }
 
+.kitShowcase {
+  margin-top: 2.4rem;
+  border-radius: 2.5rem;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 34px 95px rgba(20, 52, 61, 0.14);
+  padding: 1rem;
+  border: 1px solid rgba(20, 52, 61, 0.08);
+}
+
+.kitImage {
+  width: 100%;
+  border-radius: 2rem;
+  object-fit: contain;
+  background: #fff;
+}
+
+.kitShowcase .imageFallback {
+  min-height: 320px;
+  border-radius: 2rem;
+}
+
+.galleryGrid.textOnly {
+  margin-top: 1.6rem;
+}
+
+.galleryGrid.textOnly .galleryCard {
+  padding: 1.4rem 1.4rem;
+}
+
 .trustStrip {
   display: flex;
   flex-wrap: wrap;
