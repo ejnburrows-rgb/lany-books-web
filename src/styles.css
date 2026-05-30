@@ -252,8 +252,9 @@ nav a:hover {
 }
 
 .coverImage,
-.productCover img {
-  border-radius: 0.8rem;
+.buyCover img,
+.buyCover .imageFallback {
+  border-radius: 0.9rem;
 }
 
 .coverBadge strong {
@@ -308,38 +309,96 @@ nav a:hover {
   padding-top: 2rem;
 }
 
-.productCard {
+.buyTop {
   display: grid;
-  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
-  gap: 2rem;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(20, 52, 61, 0.08);
-  border-radius: 2rem;
-  padding: clamp(1rem, 3vw, 2rem);
-  box-shadow: 0 34px 95px rgba(20, 52, 61, 0.12);
+  margin-bottom: 2.6rem;
 }
 
-.productCover {
+.buyCover {
   border-radius: 1.6rem;
   padding: 0.85rem;
   background: #fff;
   box-shadow: 0 22px 55px rgba(20, 52, 61, 0.16);
 }
 
+.routesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.routeCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(20, 52, 61, 0.1);
+  border-radius: 1.6rem;
+  padding: 1.7rem 1.6rem;
+  box-shadow: 0 22px 55px rgba(20, 52, 61, 0.08);
+}
+
+.routeCard.package {
+  border: 2px solid #e9bf67;
+  box-shadow: 0 30px 72px rgba(233, 191, 103, 0.28);
+}
+
+.routeBadge {
+  position: absolute;
+  top: -0.85rem;
+  left: 1.6rem;
+  background: #e9bf67;
+  color: #14343d;
+  font-weight: 900;
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+}
+
+.routeCard h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  color: #14343d;
+}
+
+.contactPrice {
+  font-weight: 900;
+  color: #9a7231;
+  font-size: 1.02rem;
+}
+
+.routeDesc {
+  color: #4b6a6f;
+  line-height: 1.65;
+  font-size: 1rem;
+  margin: 0;
+  flex: 1;
+}
+
+.routeCard .button {
+  margin-top: 0.4rem;
+}
+
 .price {
   display: inline-flex;
-  margin: 1rem 0;
+  margin: 0.4rem 0;
   border-radius: 999px;
   background: #e9bf67;
   color: #14343d;
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 1rem;
   font-weight: 950;
   font-size: 1.2rem;
 }
 
 .formatBox {
-  margin-top: 1.5rem;
+  margin-top: 2.4rem;
   padding: 1rem;
   border-radius: 1.2rem;
   background: #f8fbef;
@@ -720,8 +779,9 @@ footer strong {
 
   .hero,
   .split,
-  .productCard,
-  .schoolsCard {
+  .schoolsCard,
+  .buyTop,
+  .routesGrid {
     grid-template-columns: 1fr;
   }
 

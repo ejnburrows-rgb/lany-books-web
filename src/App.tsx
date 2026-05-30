@@ -4,6 +4,13 @@ type Lang = 'en' | 'es'
 
 type Credit = [string, string]
 
+type Route = {
+  variant: 'package' | 'book' | 'online'
+  name: string
+  price: string
+  desc: string
+}
+
 const imagePaths = {
   hero: '/images/gretel/gretel-hero.png',
   cover: '/images/gretel/WB%20Cover%20HD.png'
@@ -63,11 +70,34 @@ const copy = {
       'This is a completely controlled method. No letters or phonetic sounds are used until they have been fully introduced.'
     ],
 
+    buyLabel: 'Ways to order',
+    buyTitle: 'Choose how you want it.',
+    buyLead:
+      'La Cartilla de Gretel is sold physically as a complete package or as the student book on its own — and online through our store.',
+    contactCta: 'Contact for more information',
+    bestValue: 'Complete kit',
+    routes: [
+      {
+        variant: 'package',
+        name: 'Complete Package',
+        price: '$150',
+        desc: 'The full physical teaching kit — flipchart and easel, 92-page student book, reproducible syllabic and vowel charts, homework, evaluations with answer keys, audio CD, Teacher’s Guide, and a durable canvas carrying bag.'
+      },
+      {
+        variant: 'book',
+        name: 'Student Book Only',
+        price: '',
+        desc: 'The 92-page student book on its own — for families and classrooms that only need the reading and writing activities.'
+      },
+      {
+        variant: 'online',
+        name: 'Order Online',
+        price: '',
+        desc: 'Available to purchase through our online store. Reach out and we’ll share current ordering details and availability.'
+      }
+    ] as Route[],
+
     offerLabel: 'Complete offer',
-    packageTitle: 'La Cartilla de Gretel Complete Package',
-    packageLead:
-      'A complete teaching package for schools, teachers, and families who want a structured Spanish literacy method.',
-    price: '$150',
     formatsTitle: 'Additional purchase formats',
     formatsNote:
       'Example buttons showing how each retail format would appear. Purchase links are not connected yet.',
@@ -193,11 +223,34 @@ const copy = {
       'Es un método completamente controlado. No se utilizan letras ni sonidos fonéticos hasta que hayan sido introducidos completamente.'
     ],
 
+    buyLabel: 'Formas de pedir',
+    buyTitle: 'Elija cómo lo quiere.',
+    buyLead:
+      'La Cartilla de Gretel se vende físicamente como paquete completo o como el libro del alumno por separado, y en línea a través de nuestra tienda.',
+    contactCta: 'Contacte para más información',
+    bestValue: 'Kit completo',
+    routes: [
+      {
+        variant: 'package',
+        name: 'Paquete completo',
+        price: '$150',
+        desc: 'El kit físico completo de enseñanza: rotafolio y caballete, libro del alumno de 92 páginas, carteles reproducibles de sílabas y vocales, tareas, evaluaciones con claves, CD de audio, guía del maestro y una resistente bolsa de lona.'
+      },
+      {
+        variant: 'book',
+        name: 'Solo el libro del alumno',
+        price: '',
+        desc: 'El libro del alumno de 92 páginas por separado, para familias y aulas que solo necesitan las actividades de lectura y escritura.'
+      },
+      {
+        variant: 'online',
+        name: 'Comprar en línea',
+        price: '',
+        desc: 'Disponible para compra en nuestra tienda en línea. Contáctenos y le compartiremos los detalles de pedido y la disponibilidad.'
+      }
+    ] as Route[],
+
     offerLabel: 'Oferta completa',
-    packageTitle: 'Paquete completo de La Cartilla de Gretel',
-    packageLead:
-      'Un paquete completo de enseñanza para escuelas, maestros y familias que desean un método estructurado de lectoescritura en español.',
-    price: '$150',
     formatsTitle: 'Formatos adicionales de compra',
     formatsNote:
       'Botones de ejemplo que muestran cómo se vería cada formato de venta. Los enlaces de compra aún no están conectados.',
@@ -530,8 +583,13 @@ export default function App() {
         </section>
 
         <section id="buy" className="section productSection">
-          <div className="productCard">
-            <div className="productCover">
+          <div className="buyTop">
+            <div className="buyHeader">
+              <p className="eyebrow">{t.buyLabel}</p>
+              <h2>{t.buyTitle}</h2>
+              <p className="lead">{t.buyLead}</p>
+            </div>
+            <div className="buyCover">
               <ImageFrame
                 src={imagePaths.cover}
                 alt="La Cartilla de Gretel cover"
@@ -539,46 +597,54 @@ export default function App() {
                 aspect="3 / 4"
               />
             </div>
+          </div>
 
-            <div>
-              <p className="eyebrow">{t.offerLabel}</p>
-              <h2>{t.packageTitle}</h2>
-              <p className="lead">{t.packageLead}</p>
+          <div className="routesGrid">
+            {t.routes.map((route) => (
+              <article className={`routeCard ${route.variant}`} key={route.name}>
+                {route.variant === 'package' ? (
+                  <span className="routeBadge">{t.bestValue}</span>
+                ) : null}
+                <h3>{route.name}</h3>
+                {route.variant === 'package' ? (
+                  <div className="price">{route.price}</div>
+                ) : (
+                  <div className="contactPrice">{t.contactCta}</div>
+                )}
+                <p className="routeDesc">{route.desc}</p>
+                {route.variant === 'package' ? (
+                  <button
+                    className="button primary"
+                    type="button"
+                    onClick={() => setCart((current) => current + 1)}
+                  >
+                    {t.addToCart}
+                    {cart > 0 ? ` (${cart})` : ''}
+                  </button>
+                ) : (
+                  <a className="button secondary" href="#contact">
+                    {t.contactCta}
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
 
-              <div className="price">{t.price}</div>
-
-              <div className="actions">
-                <button
-                  className="button primary"
-                  type="button"
-                  onClick={() => setCart((current) => current + 1)}
+          <div className="formatBox">
+            <h3>{t.formatsTitle}</h3>
+            <div className="formatLinks">
+              {formats.map((format, index) => (
+                <a
+                  key={format.id}
+                  className={`formatLink ${format.className}`}
+                  href="#contact"
+                  aria-label={`${format.name} (example)`}
                 >
-                  {t.addToCart}
-                  {cart > 0 ? ` (${cart})` : ''}
-                </button>
-
-                <a className="button secondary" href="#contact">
-                  {t.requestInfo}
+                  <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
                 </a>
-              </div>
-
-              <div className="formatBox">
-                <h3>{t.formatsTitle}</h3>
-                <div className="formatLinks">
-                  {formats.map((format, index) => (
-                    <a
-                      key={format.id}
-                      className={`formatLink ${format.className}`}
-                      href="#contact"
-                      aria-label={`${format.name} (example)`}
-                    >
-                      <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
-                    </a>
-                  ))}
-                </div>
-                <p>{t.formatsNote}</p>
-              </div>
+              ))}
             </div>
+            <p>{t.formatsNote}</p>
           </div>
         </section>
 
