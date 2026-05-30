@@ -13,10 +13,10 @@ const imagePaths = {
 }
 
 const logoPaths: Record<string, string> = {
-  amazon: '/images/brands/amazon.png',
-  kindle: '/images/brands/kindle.png',
-  audible: '/images/brands/audible.png',
-  bn: '/images/brands/barnes-noble.png'
+  amazon: '/images/brands/amazon.svg',
+  kindle: '/images/brands/kindle.svg',
+  audible: '/images/brands/audible.svg',
+  bn: '/images/brands/barnes-noble.svg'
 }
 
 const formats = [
