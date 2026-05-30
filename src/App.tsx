@@ -2,53 +2,558 @@ import { useState } from 'react'
 
 type Lang = 'en' | 'es'
 
-const img = {
+type Credit = [string, string]
+
+const imagePaths = {
   hero: '/images/gretel/hero.webp',
-  cover: '/book-samples/cover-stand-in.jpg'
+  cover: '/images/gretel/book-cover.webp',
+  reading: '/images/gretel/reading.webp',
+  holding: '/images/gretel/holding-book.webp',
+  hugging: '/images/gretel/hugging-book.webp'
 }
 
-const content = {
+const copy = {
   en: {
-    nav: ['Home', 'Program', 'Package', 'Author', 'Buy'],
-    heroTitle: 'La Cartilla de Gretel',
-    heroSub: 'A complete phonetic Spanish reading and writing program for Kindergarten, First Grade, and Second Grade.',
-    heroText: 'Created for families, teachers, and schools, this complete program moves children from letter sounds to syllables, words, sentences, paragraphs, and poems.',
-    purchase: 'Purchase Now', add: 'Add to Cart', included: 'View What’s Included', request: 'Request Information',
+    nav: ['Home', 'Program', 'Package', 'Author', 'Contact'],
+    navAria: 'Main navigation',
+    brandAria: 'LANY Books home',
+    toggle: 'Español',
+    eyebrow: 'LANY Books presents',
+    title: 'La Cartilla de Gretel',
+    subtitle:
+      'A complete phonetic Spanish reading and writing program for Kindergarten, First Grade, and Second Grade.',
+    heroText:
+      'A warm, structured, classroom-ready program that guides children from letter sounds to syllables, words, sentences, paragraphs, and poems.',
+    purchase: 'Purchase Now',
+    addToCart: 'Add to Cart',
+    viewIncluded: 'View What’s Included',
+    requestInfo: 'Request Information',
+
+    programLabel: 'Program',
     methodTitle: 'A controlled phonetic method that builds confidence step by step.',
-    intro: ['La Cartilla de Gretel is an easy-to-follow program for students in Kindergarten, First Grade, or Second Grade. This method emphasizes the mechanics of reading and writing in Spanish and uses sound associations to help students remember vowel and consonant sounds.', 'The student learns from the simple to the complex: letter sounds, syllable sounds, words, sentences, paragraphs, and poems. No letters or phonetic sounds are used until they have been fully introduced.'],
-    packageTitle: 'Complete Package', price: '$150',
-    packageLead: 'A full classroom-ready package with student materials, presentation tools, reproducible practice, evaluations, audio support, answer keys, and the Teacher’s Guide.',
-    components: ['17" × 22" flipchart and easel', 'Reproducible syllabic and vowel charts', 'Answer key to the syllabic charts', '92-page Student Book', 'Reproducible homework pages', 'Audio CD of all poems included in the flipchart', 'Reproducible evaluations', 'Evaluation answer key', 'Teacher’s Guide', 'Durable canvas carrying bag with organized folders'],
+    methodText: [
+      'La Cartilla de Gretel is an easy-to-follow program for students in Kindergarten, First Grade, or Second Grade. This method emphasizes the mechanics of reading and writing in Spanish.',
+      'The program uses sound associations to help students remember vowel and consonant sounds. It takes the child from the simple to the complex: letter sounds, syllables, words, sentences, paragraphs, and poems.',
+      'This is a completely controlled method. No letters or phonetic sounds are used until they have been fully introduced.'
+    ],
+
+    offerLabel: 'Complete offer',
+    packageTitle: 'La Cartilla de Gretel Complete Package',
+    packageLead:
+      'A complete teaching package for schools, teachers, and families who want a structured Spanish literacy method.',
+    price: '$150',
+    formatsTitle: 'Additional purchase formats',
+    formatsNote:
+      'Real purchase links can be connected when the official URLs are available.',
     formats: ['Amazon PDF', 'Kindle', 'Audible', 'Barnes & Noble'],
-    authorTitle: 'About Leonor Lopetegui',
-    author: ['Leonor Lopetegui dedicated more than 50 years to teaching and educational leadership, with a lifelong focus on Spanish literacy and bilingual education.', 'Her work supported children, teachers, and families through a structured, loving, and practical approach to Spanish reading and writing.', 'La Cartilla de Gretel reflects that legacy: a phonetic, classroom-tested method designed to help young readers succeed step by step.'],
-    honors: ['More than 50 years in education', 'Recognized for contributions to Hispanic and bilingual education', 'Author of educational materials for Spanish literacy', 'Presented and contributed to bilingual education communities'],
-    credits: [['Author','Leonor Lopetegui'],['Illustrator','Estela de Armas Plasencia'],['Contributors','Silvia Diez and Aída Fernández'],['Digital adaptation','Emilio José Novo'],['Imprint','Lanny Books']],
-    form: 'For parents, teachers, schools, distributors, and bookstores. This form is front-end only until a form service is connected.'
+
+    packageLabel: 'Package',
+    includedTitle: 'What the package includes',
+    includedLead:
+      'Everything needed to present the method, guide classroom instruction, send home practice, and evaluate progress.',
+    components: [
+      '17" × 22" flipchart and easel',
+      'Reproducible syllabic and vowel charts',
+      'Answer key to the syllabic charts',
+      '92-page Student Book',
+      'Reproducible homework pages',
+      'Audio CD of all poems included in the flipchart',
+      'Reproducible evaluations',
+      'Evaluation answer key',
+      'Teacher’s Guide',
+      'Durable canvas carrying bag with organized folders'
+    ],
+    packageNote:
+      'The flipchart comes in its own easel, and all components come neatly organized in corresponding folders and a durable canvas carrying bag.',
+
+    presentationLabel: 'Presentation',
+    showcaseTitle: 'A beautiful literacy package for school and home.',
+    showcaseLead:
+      'The visual presentation centers the book cover and Gretel artwork, not cheap scan-heavy pamphlet images.',
+    showcaseCards: [
+      ['Student Book', 'A 92-page student workbook for structured reading and writing practice.'],
+      ['Flipchart', 'A large 17" × 22" classroom presentation tool with easel.'],
+      ['Homework', 'Reproducible practice pages for home and classroom reinforcement.'],
+      ['Evaluations', 'Reproducible evaluations with answer key support.'],
+      ['Audio CD', 'Audio support for the poems included in the flipchart.'],
+      ['Teacher’s Guide', 'Teacher support for presenting the program with structure and clarity.']
+    ],
+
+    authorLegacyLabel: 'Author legacy',
+    authorTitle: 'About the Author',
+    authorLead: 'Veteran educator, author, and creator of La Cartilla de Gretel.',
+    authorText: [
+      'Leonor Lopetegui dedicated more than 50 years to teaching and educational leadership, with a lifelong focus on Spanish literacy and bilingual education.',
+      'Her work supported children, teachers, and families through a structured, loving, and practical approach to Spanish reading and writing.',
+      'La Cartilla de Gretel reflects that legacy: a phonetic, classroom-tested method designed to help young readers succeed step by step.'
+    ],
+    dedicationLabel: 'In the author’s words',
+    dedicationParas: [
+      'To my daughter Nora Bethsy, to my nieces Sofía M. Destefano and Alexa G. Flores, and to all the children who study Spanish.',
+      'This book was born in the classroom, and to the classroom I want it to return. My students showed the way; of them I have been both teacher and pupil. With the same love with which it was created, I want to place it in the hands of the children who will come to our classrooms to learn to read very well.'
+    ],
+    dedicationAttribution: '— Leonor Lopetegui, the author',
+    honorsTitle: 'Recognitions and legacy',
+    honors: [
+      'More than 50 years as an educator',
+      'Lifelong focus on Spanish literacy and bilingual education',
+      'Created the controlled phonetic method behind La Cartilla de Gretel'
+    ],
+
+    creditsLabel: 'LANY Books',
+    creditsTitle: 'Official credits',
+    credits: [
+      ['Author', 'Leonor Lopetegui'],
+      ['Illustrator', 'Estela de Armas Plasencia'],
+      ['Contributors', 'Silvia Diez and Aída Fernández'],
+      ['Digital adaptation', 'Emilio José Novo'],
+      ['Imprint', 'LANY Books']
+    ] as Credit[],
+
+    interestFormLabel: 'Interest form',
+    contactTitle: 'Request information',
+    contactLead:
+      'For parents, teachers, schools, distributors, and bookstores. This form is front-end only until a form service is connected.',
+    name: 'Name',
+    email: 'Email',
+    role: 'Interested as',
+    roles: ['Parent', 'Teacher', 'School', 'Distributor or bookstore'],
+    message: 'Message',
+    footer: 'Spanish literacy, thoughtfully presented by LANY Books.'
   },
+
   es: {
-    nav: ['Inicio', 'Programa', 'Paquete', 'Autora', 'Comprar'],
-    heroTitle: 'La Cartilla de Gretel',
-    heroSub: 'Un programa completo y fonético de lectura y escritura en español para Kindergarten, Primer Grado y Segundo Grado.',
-    heroText: 'Creado para familias, maestros y escuelas, este programa lleva al niño desde los sonidos de las letras hasta sílabas, palabras, oraciones, párrafos y poemas.',
-    purchase: 'Comprar ahora', add: 'Agregar al carrito', included: 'Ver qué incluye', request: 'Solicitar información',
+    nav: ['Inicio', 'Programa', 'Paquete', 'Autora', 'Contacto'],
+    navAria: 'Navegación principal',
+    brandAria: 'Inicio de LANY Books',
+    toggle: 'English',
+    eyebrow: 'LANY Books presenta',
+    title: 'La Cartilla de Gretel',
+    subtitle:
+      'Un programa completo y fonético de lectura y escritura en español para Kindergarten, Primer Grado y Segundo Grado.',
+    heroText:
+      'Un programa cálido, estructurado y listo para el aula que guía al niño desde los sonidos de las letras hasta sílabas, palabras, oraciones, párrafos y poemas.',
+    purchase: 'Comprar ahora',
+    addToCart: 'Agregar al carrito',
+    viewIncluded: 'Ver qué incluye',
+    requestInfo: 'Solicitar información',
+
+    programLabel: 'Programa',
     methodTitle: 'Un método fonético controlado que desarrolla confianza paso a paso.',
-    intro: ['La Cartilla de Gretel es un programa fácil de seguir para estudiantes de Kindergarten, Primer Grado y Segundo Grado. Este método enfatiza la mecánica de la lectura y la escritura en español y utiliza asociaciones de sonidos para ayudar al estudiante a recordar vocales y consonantes.', 'El estudiante aprende de lo simple a lo complejo: sonidos de letras, sonidos silábicos, palabras, oraciones, párrafos y poemas. No se utilizan letras ni sonidos fonéticos hasta que hayan sido introducidos completamente.'],
-    packageTitle: 'Paquete completo', price: '$150',
-    packageLead: 'Un paquete completo listo para el aula con materiales del alumno, herramientas de presentación, práctica reproducible, evaluaciones, apoyo de audio, claves de respuestas y Guía del Maestro.',
-    components: ['Rotafolio de 17" × 22" con caballete', 'Carteles reproducibles de sílabas y vocales', 'Clave de respuestas de los carteles silábicos', 'Libro del alumno de 92 páginas', 'Tareas reproducibles', 'CD de audio con todos los poemas incluidos en el rotafolio', 'Evaluaciones reproducibles', 'Clave de respuestas de las evaluaciones', 'Guía del maestro', 'Bolsa de lona resistente con carpetas organizadas'],
+    methodText: [
+      'La Cartilla de Gretel es un programa fácil de seguir para estudiantes de Kindergarten, Primer Grado y Segundo Grado. Este método enfatiza la mecánica de la lectura y la escritura en español.',
+      'El programa utiliza asociaciones de sonidos para ayudar al estudiante a recordar vocales y consonantes. Lleva al niño de lo simple a lo complejo: sonidos de letras, sílabas, palabras, oraciones, párrafos y poemas.',
+      'Es un método completamente controlado. No se utilizan letras ni sonidos fonéticos hasta que hayan sido introducidos completamente.'
+    ],
+
+    offerLabel: 'Oferta completa',
+    packageTitle: 'Paquete completo de La Cartilla de Gretel',
+    packageLead:
+      'Un paquete completo de enseñanza para escuelas, maestros y familias que desean un método estructurado de lectoescritura en español.',
+    price: '$150',
+    formatsTitle: 'Formatos adicionales de compra',
+    formatsNote:
+      'Los enlaces reales de compra se pueden conectar cuando estén disponibles las URLs oficiales.',
     formats: ['PDF en Amazon', 'Kindle', 'Audible', 'Barnes & Noble'],
-    authorTitle: 'Acerca de Leonor Lopetegui',
-    author: ['Leonor Lopetegui dedicó más de 50 años a la enseñanza y al liderazgo educativo, con un enfoque de vida en la lectoescritura en español y la educación bilingüe.', 'Su labor apoyó a niños, maestros y familias mediante un enfoque estructurado, amoroso y práctico para la lectura y escritura en español.', 'La Cartilla de Gretel refleja ese legado: un método fonético, probado en el aula, diseñado para ayudar al lector joven paso a paso.'],
-    honors: ['Más de 50 años en la educación', 'Reconocida por sus aportes a la educación hispana y bilingüe', 'Autora de materiales educativos para la lectoescritura en español', 'Participación y aporte a comunidades de educación bilingüe'],
-    credits: [['Autora','Leonor Lopetegui'],['Ilustradora','Estela de Armas Plasencia'],['Colaboradoras','Silvia Diez y Aída Fernández'],['Adaptación digital','Emilio José Novo'],['Sello','Lanny Books']],
-    form: 'Para padres, maestros, escuelas, distribuidores y librerías. Este formulario es solo visual hasta conectar un servicio de formularios.'
+
+    packageLabel: 'Paquete',
+    includedTitle: 'Qué incluye el paquete',
+    includedLead:
+      'Todo lo necesario para presentar el método, guiar la instrucción, enviar práctica al hogar y evaluar el progreso.',
+    components: [
+      'Rotafolio de 17" × 22" con caballete',
+      'Carteles reproducibles de sílabas y vocales',
+      'Clave de respuestas de los carteles silábicos',
+      'Libro del alumno de 92 páginas',
+      'Tareas reproducibles',
+      'CD de audio con todos los poemas incluidos en el rotafolio',
+      'Evaluaciones reproducibles',
+      'Clave de respuestas de las evaluaciones',
+      'Guía del maestro',
+      'Bolsa de lona resistente con carpetas organizadas'
+    ],
+    packageNote:
+      'El rotafolio viene con su propio caballete, y todos los componentes vienen organizados cuidadosamente en carpetas correspondientes y en una resistente bolsa de lona.',
+
+    presentationLabel: 'Presentación',
+    showcaseTitle: 'Un paquete hermoso de lectoescritura para la escuela y el hogar.',
+    showcaseLead:
+      'La presentación visual se centra en la portada del libro y las ilustraciones de Gretel, no en imágenes baratas de páginas escaneadas.',
+    showcaseCards: [
+      ['Libro del alumno', 'Libro del alumno de 92 páginas para práctica estructurada de lectura y escritura.'],
+      ['Rotafolio', 'Herramienta grande de presentación para el aula de 17" × 22" con caballete.'],
+      ['Tareas', 'Páginas reproducibles para práctica en casa y refuerzo en el aula.'],
+      ['Evaluaciones', 'Evaluaciones reproducibles con apoyo de clave de respuestas.'],
+      ['CD de audio', 'Apoyo auditivo para los poemas incluidos en el rotafolio.'],
+      ['Guía del maestro', 'Apoyo para presentar el programa con estructura y claridad.']
+    ],
+
+    authorLegacyLabel: 'Legado de la autora',
+    authorTitle: 'Acerca de la autora',
+    authorLead: 'Educadora veterana, autora y creadora de La Cartilla de Gretel.',
+    authorText: [
+      'Leonor Lopetegui dedicó más de 50 años a la enseñanza y al liderazgo educativo, con un enfoque de vida en la lectoescritura en español y la educación bilingüe.',
+      'Su labor apoyó a niños, maestros y familias mediante un enfoque estructurado, amoroso y práctico para la lectura y escritura en español.',
+      'La Cartilla de Gretel refleja ese legado: un método fonético, probado en el aula, diseñado para ayudar al lector joven paso a paso.'
+    ],
+    dedicationLabel: 'En palabras de la autora',
+    dedicationParas: [
+      'A mi hija Nora Bethsy, a mis sobrinas Sofía M. Destefano y Alexa G. Flores, y a todos los niños que estudian español.',
+      'Este libro ha nacido en las aulas y a ellas quiero que vuelva. Mis alumnos señalaron el camino; de ellos he sido maestra y discípula. Con el mismo amor que fue creado, deseo ponerlo en las manos de los niños y niñas que vendrán a nuestras aulas para que aprendan a leer muy bien.'
+    ],
+    dedicationAttribution: '— Leonor Lopetegui, la autora',
+    honorsTitle: 'Reconocimientos y legado',
+    honors: [
+      'Más de 50 años como educadora',
+      'Enfoque de vida en la lectoescritura en español y la educación bilingüe',
+      'Creadora del método fonético controlado de La Cartilla de Gretel'
+    ],
+
+    creditsLabel: 'LANY Books',
+    creditsTitle: 'Créditos oficiales',
+    credits: [
+      ['Autora', 'Leonor Lopetegui'],
+      ['Ilustradora', 'Estela de Armas Plasencia'],
+      ['Colaboradoras', 'Silvia Diez y Aída Fernández'],
+      ['Adaptación digital', 'Emilio José Novo'],
+      ['Sello', 'LANY Books']
+    ] as Credit[],
+
+    interestFormLabel: 'Formulario de interés',
+    contactTitle: 'Solicitar información',
+    contactLead:
+      'Para padres, maestros, escuelas, distribuidores y librerías. Este formulario es solo visual hasta conectar un servicio de formularios.',
+    name: 'Nombre',
+    email: 'Correo electrónico',
+    role: 'Interés como',
+    roles: ['Padre o madre', 'Maestro', 'Escuela', 'Distribuidor o librería'],
+    message: 'Mensaje',
+    footer: 'Lectoescritura en español, presentada cuidadosamente por LANY Books.'
   }
+}
+
+function ImageFrame({
+  src,
+  alt,
+  label,
+  className = '',
+  aspect
+}: {
+  src: string
+  alt: string
+  label: string
+  className?: string
+  aspect?: string
+}) {
+  const [failed, setFailed] = useState(false)
+  const style = aspect ? { aspectRatio: aspect } : undefined
+
+  if (failed) {
+    return (
+      <div
+        className={`imageFallback ${className}`}
+        style={style}
+        role="img"
+        aria-label={alt}
+      >
+        <span>{label}</span>
+      </div>
+    )
+  }
+
+  return (
+    <img
+      className={className}
+      style={style}
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
+  )
 }
 
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [cart, setCart] = useState(0)
-  const t = content[lang]
-  return <div className="site"><header><a className="brand" href="#home">Lanny <span>Books</span></a><nav>{t.nav.map((n,i)=><a href={['#home','#program','#package','#author','#buy'][i]} key={n}>{n}</a>)}</nav><button onClick={()=>setLang(lang==='en'?'es':'en')}>EN / ES</button></header><main><section id="home" className="hero"><div><p className="eyebrow">Lanny Books presents</p><h1>{t.heroTitle}</h1><h2>{t.heroSub}</h2><p>{t.heroText}</p><div className="actions"><a className="primary" href="#buy">{t.purchase}</a><a className="secondary" href="#package">{t.included}</a></div></div><div className="heroArt"><img src={img.hero} alt="Gretel reading La Cartilla de Gretel"/><div className="coverBadge"><img src={img.cover} alt="Official cover of La Cartilla de Gretel"/><strong>{t.purchase}</strong></div></div></section><section id="program" className="split"><div><p className="eyebrow">Program</p><h2>{t.methodTitle}</h2></div><div>{t.intro.map(p=><p key={p}>{p}</p>)}</div></section><section id="buy" className="product"><img src={img.cover} alt="La Cartilla de Gretel cover"/><div><p className="eyebrow">Complete offer</p><h2>{t.packageTitle}</h2><p>{t.packageLead}</p><div className="price">{t.price}</div><button className="primary" onClick={()=>setCart(cart+1)}>{t.add}{cart?` (${cart})`:''}</button><div className="formats">{t.formats.map(f=><a href="#contact" key={f}>{f}</a>)}</div></div></section><section id="package"><p className="eyebrow">Package</p><h2>{lang==='en'?'What the package includes':'Qué incluye el paquete'}</h2><ul className="components">{t.components.map(c=><li key={c}>{c}</li>)}</ul><img className="wideArt" src={img.hero} alt="Gretel presentation art"/></section><section id="author" className="split"><div><p className="eyebrow">Legacy</p><h2>{t.authorTitle}</h2>{t.author.map(p=><p key={p}>{p}</p>)}</div><div className="panel"><h3>{lang==='en'?'Recognitions and legacy':'Reconocimientos y legado'}</h3><ul>{t.honors.map(h=><li key={h}>{h}</li>)}</ul></div></section><section className="credits"><h2>{lang==='en'?'Official credits':'Créditos oficiales'}</h2>{t.credits.map(([a,b])=><div className="credit" key={a}><span>{a}</span><strong>{b}</strong></div>)}</section><section id="contact" className="split"><div><h2>{t.request}</h2><p>{t.form}</p></div><form><input placeholder={lang==='en'?'Name':'Nombre'}/><input placeholder="Email"/><select><option>{lang==='en'?'Parent':'Padre o madre'}</option><option>{lang==='en'?'Teacher':'Maestro'}</option><option>{lang==='en'?'School':'Escuela'}</option></select><textarea placeholder={lang==='en'?'Message':'Mensaje'}/><button className="primary" type="button">{t.request}</button></form></section></main><footer><strong>Lanny Books</strong><span>La Cartilla de Gretel · Emilio José Novo</span></footer></div>
+  const t = copy[lang]
+  const navTargets = ['#home', '#program', '#package', '#author', '#contact']
+
+  return (
+    <div className="site">
+      <header className="topbar">
+        <a className="brand" href="#home" aria-label={t.brandAria}>
+          <span>LANY</span>
+          <span>Books</span>
+        </a>
+
+        <nav aria-label={t.navAria}>
+          {t.nav.map((item, index) => (
+            <a key={item} href={navTargets[index]}>
+              {item}
+            </a>
+          ))}
+        </nav>
+
+        <div className="headerActions">
+          <a className="smallButton dark" href="#buy">
+            {t.purchase}
+          </a>
+          <button
+            className="smallButton gold"
+            type="button"
+            onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
+          >
+            {t.toggle}
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section id="home" className="hero">
+          <div className="heroCopy">
+            <p className="eyebrow">{t.eyebrow}</p>
+            <h1>{t.title}</h1>
+            <p className="heroSubtitle">{t.subtitle}</p>
+            <p className="heroText">{t.heroText}</p>
+
+            <div className="actions">
+              <a className="button primary" href="#buy">
+                {t.purchase}
+              </a>
+              <a className="button secondary" href="#package">
+                {t.viewIncluded}
+              </a>
+              <a className="button soft" href="#contact">
+                {t.requestInfo}
+              </a>
+            </div>
+          </div>
+
+          <div className="heroArt">
+            <ImageFrame
+              src={imagePaths.hero}
+              alt="Gretel holding La Cartilla de Gretel"
+              label="Gretel hero image pending"
+              className="heroImage"
+              aspect="4 / 5"
+            />
+            <div className="coverBadge">
+              <ImageFrame
+                src={imagePaths.cover}
+                alt="Official La Cartilla de Gretel cover"
+                label="Book cover pending"
+                className="coverImage"
+                aspect="3 / 4"
+              />
+              <strong>{t.purchase}</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="program" className="section split">
+          <div>
+            <p className="eyebrow">{t.programLabel}</p>
+            <h2>{t.methodTitle}</h2>
+          </div>
+          <div className="textStack">
+            {t.methodText.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+
+        <section id="buy" className="section productSection">
+          <div className="productCard">
+            <div className="productCover">
+              <ImageFrame
+                src={imagePaths.cover}
+                alt="La Cartilla de Gretel cover"
+                label="Official book cover pending"
+                aspect="3 / 4"
+              />
+            </div>
+
+            <div>
+              <p className="eyebrow">{t.offerLabel}</p>
+              <h2>{t.packageTitle}</h2>
+              <p className="lead">{t.packageLead}</p>
+
+              <div className="price">{t.price}</div>
+
+              <div className="actions">
+                <button
+                  className="button primary"
+                  type="button"
+                  onClick={() => setCart((current) => current + 1)}
+                >
+                  {t.addToCart}
+                  {cart > 0 ? ` (${cart})` : ''}
+                </button>
+
+                <a className="button secondary" href="#contact">
+                  {t.requestInfo}
+                </a>
+              </div>
+
+              <div className="formatBox">
+                <h3>{t.formatsTitle}</h3>
+                <div className="formatLinks">
+                  {t.formats.map((format) => (
+                    <a key={format} href="#contact">
+                      {format}
+                    </a>
+                  ))}
+                </div>
+                <p>{t.formatsNote}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="package" className="section">
+          <p className="eyebrow">{t.packageLabel}</p>
+          <h2>{t.includedTitle}</h2>
+          <p className="lead">{t.includedLead}</p>
+
+          <ul className="components">
+            {t.components.map((component) => (
+              <li key={component}>{component}</li>
+            ))}
+          </ul>
+
+          <p className="packageNote">{t.packageNote}</p>
+        </section>
+
+        <section className="section showcase">
+          <div className="showcaseHeader">
+            <p className="eyebrow">{t.presentationLabel}</p>
+            <h2>{t.showcaseTitle}</h2>
+            <p className="lead">{t.showcaseLead}</p>
+          </div>
+
+          <div className="visualGrid">
+            <ImageFrame
+              src={imagePaths.holding}
+              alt="Gretel holding the book"
+              label="Gretel holding book image pending"
+              aspect="1 / 1"
+            />
+            <ImageFrame
+              src={imagePaths.reading}
+              alt="Gretel reading the book"
+              label="Gretel reading image pending"
+              aspect="1 / 1"
+            />
+            <ImageFrame
+              src={imagePaths.hugging}
+              alt="Gretel hugging the book"
+              label="Gretel book presentation image pending"
+              aspect="1 / 1"
+            />
+          </div>
+
+          <div className="cardsGrid">
+            {t.showcaseCards.map(([title, body]) => (
+              <article className="infoCard" key={title}>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="author" className="section split">
+          <div>
+            <p className="eyebrow">{t.authorLegacyLabel}</p>
+            <h2>{t.authorTitle}</h2>
+            <p className="lead">{t.authorLead}</p>
+
+            <div className="textStack">
+              {t.authorText.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+
+            <figure className="dedication">
+              <p className="dedicationLabel">{t.dedicationLabel}</p>
+              <blockquote>
+                {t.dedicationParas.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </blockquote>
+              <figcaption>{t.dedicationAttribution}</figcaption>
+            </figure>
+          </div>
+
+          <div className="panel">
+            <h3>{t.honorsTitle}</h3>
+            <ul>
+              {t.honors.map((honor) => (
+                <li key={honor}>{honor}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="section credits">
+          <p className="eyebrow">{t.creditsLabel}</p>
+          <h2>{t.creditsTitle}</h2>
+
+          <div className="creditPanel">
+            {t.credits.map(([label, value]) => (
+              <div className="creditRow" key={label}>
+                <span>{label}</span>
+                <strong>{value}</strong>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="section split contact">
+          <div>
+            <p className="eyebrow">{t.interestFormLabel}</p>
+            <h2>{t.contactTitle}</h2>
+            <p className="lead">{t.contactLead}</p>
+          </div>
+
+          <form className="form">
+            <label>
+              {t.name}
+              <input type="text" />
+            </label>
+
+            <label>
+              {t.email}
+              <input type="email" />
+            </label>
+
+            <label>
+              {t.role}
+              <select>
+                {t.roles.map((role) => (
+                  <option key={role}>{role}</option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              {t.message}
+              <textarea />
+            </label>
+
+            <button className="button primary" type="button">
+              {t.requestInfo}
+            </button>
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <strong>LANY Books</strong>
+        <span>{t.footer}</span>
+      </footer>
+    </div>
+  )
 }
