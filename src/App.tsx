@@ -12,6 +12,13 @@ const imagePaths = {
   hugging: '/images/gretel/hugging-book.jpg'
 }
 
+const logoPaths: Record<string, string> = {
+  amazon: '/images/brands/amazon.png',
+  kindle: '/images/brands/kindle.png',
+  audible: '/images/brands/audible.png',
+  bn: '/images/brands/barnes-noble.png'
+}
+
 const formats = [
   { id: 'amazon', name: 'Amazon', className: 'amazon' },
   { id: 'kindle', name: 'Kindle', className: 'kindle' },
@@ -239,7 +246,7 @@ const copy = {
   }
 }
 
-function FormatLogo({ id }: { id: string }) {
+function FormatGlyph({ id }: { id: string }) {
   switch (id) {
     case 'amazon':
       return (
@@ -275,6 +282,38 @@ function FormatLogo({ id }: { id: string }) {
     default:
       return null
   }
+}
+
+function BrandLogo({ id, name, tag }: { id: string; name: string; tag: string }) {
+  const [failed, setFailed] = useState(false)
+
+  if (failed || !logoPaths[id]) {
+    return (
+      <>
+        <FormatGlyph id={id} />
+        <span className="formatLinkText">
+          <strong>{name}</strong>
+          <small>{tag}</small>
+        </span>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <img
+        className="formatLogoImg"
+        src={logoPaths[id]}
+        alt={name}
+        loading="lazy"
+        decoding="async"
+        onError={() => setFailed(true)}
+      />
+      <span className="formatLinkText">
+        <small>{tag}</small>
+      </span>
+    </>
+  )
 }
 
 function ImageFrame({
@@ -452,11 +491,7 @@ export default function App() {
                       href="#contact"
                       aria-label={`${format.name} (example)`}
                     >
-                      <FormatLogo id={format.id} />
-                      <span className="formatLinkText">
-                        <strong>{format.name}</strong>
-                        <small>{t.formatTags[index]}</small>
-                      </span>
+                      <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
                     </a>
                   ))}
                 </div>

@@ -345,6 +345,14 @@ nav a:hover {
   flex: none;
 }
 
+.formatLogoImg {
+  flex: none;
+  height: 22px;
+  width: auto;
+  max-width: 104px;
+  object-fit: contain;
+}
+
 .formatLinkText {
   display: grid;
   line-height: 1.05;
@@ -358,7 +366,6 @@ nav a:hover {
 .formatLinkText small {
   font-weight: 800;
   font-size: 0.68rem;
-  color: #8090927d;
   color: #809092;
   text-transform: uppercase;
   letter-spacing: 0.05em;
