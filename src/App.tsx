@@ -5,11 +5,11 @@ type Lang = 'en' | 'es'
 type Credit = [string, string]
 
 const imagePaths = {
-  hero: '/images/gretel/hero.jpg',
-  cover: '/images/gretel/book-cover.jpg',
-  reading: '/images/gretel/reading.jpg',
-  holding: '/images/gretel/holding-book.jpg',
-  hugging: '/images/gretel/hugging-book.jpg'
+  hero: '/images/gretel/Gretel%20pose%201.png',
+  cover: '/images/gretel/WB%20Cover%20HD.png',
+  reading: '/images/gretel/Pose%207.png',
+  holding: '/images/gretel/Gretel%20pose%201.png',
+  hugging: '/images/gretel/Pose%207.png'
 }
 
 const logoPaths: Record<string, string> = {
