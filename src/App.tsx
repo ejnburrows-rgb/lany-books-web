@@ -5,12 +5,17 @@ type Lang = 'en' | 'es'
 type Credit = [string, string]
 
 const imagePaths = {
-  hero: '/images/gretel/Gretel%20pose%201.png',
-  cover: '/images/gretel/WB%20Cover%20HD.png',
-  reading: '/images/gretel/Pose%207.png',
-  holding: '/images/gretel/Gretel%20pose%201.png',
-  hugging: '/images/gretel/Pose%207.png'
+  hero: '/images/gretel/gretel-hero.png',
+  cover: '/images/gretel/WB%20Cover%20HD.png'
 }
+
+const productImages = [
+  '/images/gretel/flipchart.png',
+  '/images/gretel/student-book.png',
+  '/images/gretel/syllabic-charts.png',
+  '/images/gretel/homework.png',
+  '/images/gretel/evaluations.png'
+]
 
 const logoPaths: Record<string, string> = {
   amazon: '/images/brands/amazon.svg',
@@ -28,7 +33,7 @@ const formats = [
 
 const copy = {
   en: {
-    nav: ['Home', 'Program', 'Package', 'Author', 'Contact'],
+    nav: ['Home', 'Program', 'Materials', 'Package', 'Author', 'Contact'],
     navAria: 'Main navigation',
     brandAria: 'LANY Books home',
     toggle: 'Español',
@@ -42,6 +47,13 @@ const copy = {
     addToCart: 'Add to Cart',
     viewIncluded: 'View What’s Included',
     requestInfo: 'Request Information',
+
+    trust: [
+      'Created by a 50-year veteran educator',
+      'Controlled phonetic method',
+      'For Kindergarten – 2nd Grade',
+      'Complete bilingual package'
+    ],
 
     programLabel: 'Program',
     methodTitle: 'A controlled phonetic method that builds confidence step by step.',
@@ -66,7 +78,7 @@ const copy = {
     includedLead:
       'Everything needed to present the method, guide classroom instruction, send home practice, and evaluate progress.',
     components: [
-      '17" × 22" flipchart and easel',
+      '17\" × 22\" flipchart and easel',
       'Reproducible syllabic and vowel charts',
       'Answer key to the syllabic charts',
       '92-page Student Book',
@@ -80,17 +92,16 @@ const copy = {
     packageNote:
       'The flipchart comes in its own easel, and all components come neatly organized in corresponding folders and a durable canvas carrying bag.',
 
-    presentationLabel: 'Presentation',
-    showcaseTitle: 'A beautiful literacy package for school and home.',
+    presentationLabel: 'Inside the package',
+    showcaseTitle: 'A closer look at the materials children actually use.',
     showcaseLead:
-      'The visual presentation centers the book cover and Gretel artwork, not cheap scan-heavy pamphlet images.',
-    showcaseCards: [
-      ['Student Book', 'A 92-page student workbook for structured reading and writing practice.'],
-      ['Flipchart', 'A large 17" × 22" classroom presentation tool with easel.'],
-      ['Homework', 'Reproducible practice pages for home and classroom reinforcement.'],
-      ['Evaluations', 'Reproducible evaluations with answer key support.'],
-      ['Audio CD', 'Audio support for the poems included in the flipchart.'],
-      ['Teacher’s Guide', 'Teacher support for presenting the program with structure and clarity.']
+      'The flipchart, student book, syllabic charts, homework, and evaluations that make the method work — straight from the program.',
+    gallery: [
+      ['17\" × 22\" Flipchart', 'The classroom centerpiece. Each lesson introduces a sound through memorable visual association, then builds syllables, words, and poems.'],
+      ['92-Page Student Book', 'Reading and writing activities that reinforce every flipchart lesson, from tracing letters to forming full sentences.'],
+      ['Reproducible Syllabic Charts', 'Blackline masters of vowel and syllable practice that students use to build as many words and sentences as possible.'],
+      ['Reproducible Homework', 'Take-home pages built on the class poems, explained in both Spanish and English so families can help.'],
+      ['Evaluations & Answer Keys', 'One reproducible evaluation per letter to test letter, syllable, and word recognition — with teacher answer keys.']
     ],
 
     authorLegacyLabel: 'Author legacy',
@@ -137,7 +148,7 @@ const copy = {
   },
 
   es: {
-    nav: ['Inicio', 'Programa', 'Paquete', 'Autora', 'Contacto'],
+    nav: ['Inicio', 'Programa', 'Materiales', 'Paquete', 'Autora', 'Contacto'],
     navAria: 'Navegación principal',
     brandAria: 'Inicio de LANY Books',
     toggle: 'English',
@@ -151,6 +162,13 @@ const copy = {
     addToCart: 'Agregar al carrito',
     viewIncluded: 'Ver qué incluye',
     requestInfo: 'Solicitar información',
+
+    trust: [
+      'Creado por una educadora con más de 50 años',
+      'Método fonético controlado',
+      'Para Kindergarten – 2.º Grado',
+      'Paquete bilingüe completo'
+    ],
 
     programLabel: 'Programa',
     methodTitle: 'Un método fonético controlado que desarrolla confianza paso a paso.',
@@ -175,7 +193,7 @@ const copy = {
     includedLead:
       'Todo lo necesario para presentar el método, guiar la instrucción, enviar práctica al hogar y evaluar el progreso.',
     components: [
-      'Rotafolio de 17" × 22" con caballete',
+      'Rotafolio de 17\" × 22\" con caballete',
       'Carteles reproducibles de sílabas y vocales',
       'Clave de respuestas de los carteles silábicos',
       'Libro del alumno de 92 páginas',
@@ -189,17 +207,16 @@ const copy = {
     packageNote:
       'El rotafolio viene con su propio caballete, y todos los componentes vienen organizados cuidadosamente en carpetas correspondientes y en una resistente bolsa de lona.',
 
-    presentationLabel: 'Presentación',
-    showcaseTitle: 'Un paquete hermoso de lectoescritura para la escuela y el hogar.',
+    presentationLabel: 'Dentro del paquete',
+    showcaseTitle: 'Una mirada de cerca a los materiales que los niños realmente usan.',
     showcaseLead:
-      'La presentación visual se centra en la portada del libro y las ilustraciones de Gretel, no en imágenes baratas de páginas escaneadas.',
-    showcaseCards: [
-      ['Libro del alumno', 'Libro del alumno de 92 páginas para práctica estructurada de lectura y escritura.'],
-      ['Rotafolio', 'Herramienta grande de presentación para el aula de 17" × 22" con caballete.'],
-      ['Tareas', 'Páginas reproducibles para práctica en casa y refuerzo en el aula.'],
-      ['Evaluaciones', 'Evaluaciones reproducibles con apoyo de clave de respuestas.'],
-      ['CD de audio', 'Apoyo auditivo para los poemas incluidos en el rotafolio.'],
-      ['Guía del maestro', 'Apoyo para presentar el programa con estructura y claridad.']
+      'El rotafolio, el libro del alumno, los carteles silábicos, las tareas y las evaluaciones que hacen funcionar el método, directamente del programa.',
+    gallery: [
+      ['Rotafolio de 17\" × 22\"', 'El centro del aula. Cada lección presenta un sonido mediante asociación visual y luego construye sílabas, palabras y poemas.'],
+      ['Libro del alumno de 92 páginas', 'Actividades de lectura y escritura que refuerzan cada lección del rotafolio, desde trazar letras hasta formar oraciones completas.'],
+      ['Carteles silábicos reproducibles', 'Plantillas de práctica de vocales y sílabas que los estudiantes usan para formar la mayor cantidad de palabras y oraciones posible.'],
+      ['Tareas reproducibles', 'Páginas para el hogar basadas en los poemas de la clase, explicadas en español e inglés para que las familias ayuden.'],
+      ['Evaluaciones y claves de respuestas', 'Una evaluación reproducible por letra para evaluar el reconocimiento de letras, sílabas y palabras, con claves para el maestro.']
     ],
 
     authorLegacyLabel: 'Legado de la autora',
@@ -362,7 +379,7 @@ export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [cart, setCart] = useState(0)
   const t = copy[lang]
-  const navTargets = ['#home', '#program', '#package', '#author', '#contact']
+  const navTargets = ['#home', '#program', '#materials', '#package', '#author', '#contact']
 
   return (
     <div className="site">
@@ -418,10 +435,10 @@ export default function App() {
           <div className="heroArt">
             <ImageFrame
               src={imagePaths.hero}
-              alt="Gretel holding La Cartilla de Gretel"
-              label="Gretel hero image pending"
+              alt="Gretel standing and holding La Cartilla de Gretel"
+              label="Gretel hero illustration pending"
               className="heroImage"
-              aspect="4 / 5"
+              aspect="3 / 4"
             />
             <div className="coverBadge">
               <ImageFrame
@@ -436,6 +453,14 @@ export default function App() {
           </div>
         </section>
 
+        <section className="trustStrip" aria-label="Why families and teachers choose La Cartilla de Gretel">
+          {t.trust.map((item) => (
+            <span className="trustItem" key={item}>
+              {item}
+            </span>
+          ))}
+        </section>
+
         <section id="program" className="section split">
           <div>
             <p className="eyebrow">{t.programLabel}</p>
@@ -444,6 +469,32 @@ export default function App() {
           <div className="textStack">
             {t.methodText.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+
+        <section id="materials" className="section showcase">
+          <div className="showcaseHeader">
+            <p className="eyebrow">{t.presentationLabel}</p>
+            <h2>{t.showcaseTitle}</h2>
+            <p className="lead">{t.showcaseLead}</p>
+          </div>
+
+          <div className="galleryGrid">
+            {t.gallery.map(([title, body], index) => (
+              <figure className="galleryCard" key={title}>
+                <ImageFrame
+                  src={productImages[index]}
+                  alt={title}
+                  label={`${title} image pending`}
+                  className="galleryImg"
+                  aspect="3 / 4"
+                />
+                <figcaption>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </section>
@@ -513,44 +564,6 @@ export default function App() {
           </ul>
 
           <p className="packageNote">{t.packageNote}</p>
-        </section>
-
-        <section className="section showcase">
-          <div className="showcaseHeader">
-            <p className="eyebrow">{t.presentationLabel}</p>
-            <h2>{t.showcaseTitle}</h2>
-            <p className="lead">{t.showcaseLead}</p>
-          </div>
-
-          <div className="visualGrid">
-            <ImageFrame
-              src={imagePaths.holding}
-              alt="Gretel holding the book"
-              label="Gretel holding book image pending"
-              aspect="1 / 1"
-            />
-            <ImageFrame
-              src={imagePaths.reading}
-              alt="Gretel reading the book"
-              label="Gretel reading image pending"
-              aspect="1 / 1"
-            />
-            <ImageFrame
-              src={imagePaths.hugging}
-              alt="Gretel hugging the book"
-              label="Gretel book presentation image pending"
-              aspect="1 / 1"
-            />
-          </div>
-
-          <div className="cardsGrid">
-            {t.showcaseCards.map(([title, body]) => (
-              <article className="infoCard" key={title}>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </article>
-            ))}
-          </div>
         </section>
 
         <section id="author" className="section split">
