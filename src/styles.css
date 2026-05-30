@@ -152,6 +152,12 @@ nav a:hover {
   border: 1px solid rgba(20, 52, 61, 0.08);
 }
 
+.button.gold {
+  background: #e9bf67;
+  color: #14343d;
+  box-shadow: 0 22px 48px rgba(233, 191, 103, 0.3);
+}
+
 .hero,
 .section {
   padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem);
@@ -447,6 +453,84 @@ nav a:hover {
   color: #315861;
 }
 
+.schoolsSection {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.schoolsCard {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(233, 191, 103, 0.22), transparent 18rem),
+    linear-gradient(135deg, #14343d 0%, #1d4a55 100%);
+  color: #fdf6e6;
+  border-radius: 2.2rem;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+  box-shadow: 0 40px 100px rgba(20, 52, 61, 0.28);
+}
+
+.schoolsIntro .eyebrow {
+  color: #f0cd83;
+}
+
+.schoolsIntro h2 {
+  color: #ffffff;
+}
+
+.schoolsIntro .lead {
+  color: rgba(253, 246, 230, 0.86);
+}
+
+.schoolsNote {
+  margin-top: 1.1rem;
+  margin-bottom: 0;
+  color: rgba(253, 246, 230, 0.6);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.schoolsPanel {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1.5rem;
+  padding: 1.6rem;
+}
+
+.schoolsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.schoolsList li {
+  position: relative;
+  padding-left: 1.9rem;
+  color: rgba(253, 246, 230, 0.92);
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.schoolsList li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #e9bf67;
+  color: #14343d;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
 .showcaseHeader {
   max-width: 950px;
 }
@@ -636,7 +720,8 @@ footer strong {
 
   .hero,
   .split,
-  .productCard {
+  .productCard,
+  .schoolsCard {
     grid-template-columns: 1fr;
   }
 

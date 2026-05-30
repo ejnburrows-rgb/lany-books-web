@@ -33,7 +33,7 @@ const formats = [
 
 const copy = {
   en: {
-    nav: ['Home', 'Program', 'Materials', 'Package', 'Author', 'Contact'],
+    nav: ['Home', 'Program', 'Materials', 'Package', 'Schools', 'Author', 'Contact'],
     navAria: 'Main navigation',
     brandAria: 'LANY Books home',
     toggle: 'Español',
@@ -92,6 +92,21 @@ const copy = {
     packageNote:
       'The flipchart comes in its own easel, and all components come neatly organized in corresponding folders and a durable canvas carrying bag.',
 
+    schoolsLabel: 'For schools & teachers',
+    schoolsTitle: 'Bulk orders, purchase orders, and classroom sets.',
+    schoolsLead:
+      'We work directly with schools, districts, dual-language programs, and bookstores. Request a quote, ask for a W-9, or submit a purchase order — and ask about volume pricing for classroom and grade-level sets.',
+    schoolsPoints: [
+      'Volume pricing for classroom and grade-level sets',
+      'Purchase orders (PO) and invoicing for schools and districts',
+      'W-9 and vendor onboarding documents on request',
+      'Quotes for dual-language and bilingual programs',
+      'Bookstore and distributor wholesale inquiries'
+    ],
+    schoolsCta: 'Request a school quote',
+    schoolsNote:
+      'Purchase orders and quote requests are handled through the form below until a dedicated ordering portal is connected.',
+
     presentationLabel: 'Inside the package',
     showcaseTitle: 'A closer look at the materials children actually use.',
     showcaseLead:
@@ -148,7 +163,7 @@ const copy = {
   },
 
   es: {
-    nav: ['Inicio', 'Programa', 'Materiales', 'Paquete', 'Autora', 'Contacto'],
+    nav: ['Inicio', 'Programa', 'Materiales', 'Paquete', 'Escuelas', 'Autora', 'Contacto'],
     navAria: 'Navegación principal',
     brandAria: 'Inicio de LANY Books',
     toggle: 'English',
@@ -206,6 +221,21 @@ const copy = {
     ],
     packageNote:
       'El rotafolio viene con su propio caballete, y todos los componentes vienen organizados cuidadosamente en carpetas correspondientes y en una resistente bolsa de lona.',
+
+    schoolsLabel: 'Para escuelas y maestros',
+    schoolsTitle: 'Pedidos por volumen, órdenes de compra y juegos para el aula.',
+    schoolsLead:
+      'Trabajamos directamente con escuelas, distritos, programas de lenguaje dual y librerías. Solicite una cotización, pida un formulario W-9 o envíe una orden de compra, y pregunte por precios por volumen para juegos por aula y por grado.',
+    schoolsPoints: [
+      'Precios por volumen para juegos por aula y por grado',
+      'Órdenes de compra (PO) y facturación para escuelas y distritos',
+      'Documentos W-9 y de alta de proveedor a solicitud',
+      'Cotizaciones para programas de lenguaje dual y bilingüe',
+      'Consultas mayoristas de librerías y distribuidores'
+    ],
+    schoolsCta: 'Solicitar cotización escolar',
+    schoolsNote:
+      'Las órdenes de compra y cotizaciones se gestionan mediante el formulario de abajo hasta conectar un portal de pedidos dedicado.',
 
     presentationLabel: 'Dentro del paquete',
     showcaseTitle: 'Una mirada de cerca a los materiales que los niños realmente usan.',
@@ -379,7 +409,7 @@ export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [cart, setCart] = useState(0)
   const t = copy[lang]
-  const navTargets = ['#home', '#program', '#materials', '#package', '#author', '#contact']
+  const navTargets = ['#home', '#program', '#materials', '#package', '#schools', '#author', '#contact']
 
   return (
     <div className="site">
@@ -564,6 +594,30 @@ export default function App() {
           </ul>
 
           <p className="packageNote">{t.packageNote}</p>
+        </section>
+
+        <section id="schools" className="section schoolsSection">
+          <div className="schoolsCard">
+            <div className="schoolsIntro">
+              <p className="eyebrow">{t.schoolsLabel}</p>
+              <h2>{t.schoolsTitle}</h2>
+              <p className="lead">{t.schoolsLead}</p>
+              <div className="actions">
+                <a className="button gold" href="#contact">
+                  {t.schoolsCta}
+                </a>
+              </div>
+              <p className="schoolsNote">{t.schoolsNote}</p>
+            </div>
+
+            <div className="schoolsPanel">
+              <ul className="schoolsList">
+                {t.schoolsPoints.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section id="author" className="section split">
