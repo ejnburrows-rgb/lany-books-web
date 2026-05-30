@@ -5,12 +5,19 @@ type Lang = 'en' | 'es'
 type Credit = [string, string]
 
 const imagePaths = {
-  hero: '/images/gretel/hero.webp',
-  cover: '/images/gretel/book-cover.webp',
-  reading: '/images/gretel/reading.webp',
-  holding: '/images/gretel/holding-book.webp',
-  hugging: '/images/gretel/hugging-book.webp'
+  hero: '/images/gretel/hero.jpg',
+  cover: '/images/gretel/book-cover.jpg',
+  reading: '/images/gretel/reading.jpg',
+  holding: '/images/gretel/holding-book.jpg',
+  hugging: '/images/gretel/hugging-book.jpg'
 }
+
+const formats = [
+  { id: 'amazon', name: 'Amazon', className: 'amazon' },
+  { id: 'kindle', name: 'Kindle', className: 'kindle' },
+  { id: 'audible', name: 'Audible', className: 'audible' },
+  { id: 'bn', name: 'Barnes & Noble', className: 'bn' }
+] as const
 
 const copy = {
   en: {
@@ -44,8 +51,8 @@ const copy = {
     price: '$150',
     formatsTitle: 'Additional purchase formats',
     formatsNote:
-      'Real purchase links can be connected when the official URLs are available.',
-    formats: ['Amazon PDF', 'Kindle', 'Audible', 'Barnes & Noble'],
+      'Example buttons showing how each retail format would appear. Purchase links are not connected yet.',
+    formatTags: ['PDF', 'eBook', 'Audiobook', 'Bookstore'],
 
     packageLabel: 'Package',
     includedTitle: 'What the package includes',
@@ -153,8 +160,8 @@ const copy = {
     price: '$150',
     formatsTitle: 'Formatos adicionales de compra',
     formatsNote:
-      'Los enlaces reales de compra se pueden conectar cuando estén disponibles las URLs oficiales.',
-    formats: ['PDF en Amazon', 'Kindle', 'Audible', 'Barnes & Noble'],
+      'Botones de ejemplo que muestran cómo se vería cada formato de venta. Los enlaces de compra aún no están conectados.',
+    formatTags: ['PDF', 'Libro electrónico', 'Audiolibro', 'Librería'],
 
     packageLabel: 'Paquete',
     includedTitle: 'Qué incluye el paquete',
@@ -229,6 +236,44 @@ const copy = {
     roles: ['Padre o madre', 'Maestro', 'Escuela', 'Distribuidor o librería'],
     message: 'Mensaje',
     footer: 'Lectoescritura en español, presentada cuidadosamente por LANY Books.'
+  }
+}
+
+function FormatLogo({ id }: { id: string }) {
+  switch (id) {
+    case 'amazon':
+      return (
+        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M3 14.5c5 4 13 4 18 0" fill="none" stroke="#FF9900" strokeWidth="2.4" strokeLinecap="round" />
+          <path d="M17 13l4 1.4-1.4 3.7" fill="none" stroke="#FF9900" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )
+    case 'kindle':
+      return (
+        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <rect x="5" y="2.5" width="14" height="19" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
+          <line x1="9" y1="7" x2="15" y2="7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <line x1="9" y1="10" x2="15" y2="10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <line x1="9" y1="13" x2="13" y2="13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
+      )
+    case 'audible':
+      return (
+        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M5 13.2v-1.2a7 7 0 0114 0v1.2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <rect x="3.4" y="12.8" width="4" height="6.4" rx="1.4" fill="currentColor" />
+          <rect x="16.6" y="12.8" width="4" height="6.4" rx="1.4" fill="currentColor" />
+        </svg>
+      )
+    case 'bn':
+      return (
+        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M12 6c-2-1.4-5-1.9-8-1.4v12.8c3-.5 6 0 8 1.4 2-1.4 5-1.9 8-1.4V4.6c-3-.5-6 0-8 1.4z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+          <line x1="12" y1="6" x2="12" y2="18.8" stroke="currentColor" strokeWidth="1.7" />
+        </svg>
+      )
+    default:
+      return null
   }
 }
 
@@ -400,9 +445,18 @@ export default function App() {
               <div className="formatBox">
                 <h3>{t.formatsTitle}</h3>
                 <div className="formatLinks">
-                  {t.formats.map((format) => (
-                    <a key={format} href="#contact">
-                      {format}
+                  {formats.map((format, index) => (
+                    <a
+                      key={format.id}
+                      className={`formatLink ${format.className}`}
+                      href="#contact"
+                      aria-label={`${format.name} (example)`}
+                    >
+                      <FormatLogo id={format.id} />
+                      <span className="formatLinkText">
+                        <strong>{format.name}</strong>
+                        <small>{t.formatTags[index]}</small>
+                      </span>
                     </a>
                   ))}
                 </div>
