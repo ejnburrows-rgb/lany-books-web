@@ -16,6 +16,11 @@ const imagePaths = {
   cover: '/images/gretel/student-book-cover.png'
 }
 
+const flipchartPages = [
+  '/images/gretel/flipchart-page-1.png',
+  '/images/gretel/flipchart-page-2.png'
+]
+
 const logoPaths: Record<string, string> = {
   amazon: '/images/brands/amazon.svg',
   kindle: '/images/brands/kindle.svg',
@@ -133,6 +138,11 @@ const copy = {
     showcaseTitle: 'A closer look at the materials children actually use.',
     showcaseLead:
       'The flipchart, student book, syllabic charts, homework, and evaluations that make the method work — straight from the program.',
+    flipchartLabel: 'Real pages from the flipchart',
+    flipchartCaptions: [
+      'Lesson page for the letter M — sound association, syllables, and vocabulary (mamá, amo, mimo, Meme, Mumú).',
+      'Lesson page for the vowel E — the class poem with vocabulary (elefante, espejo, estrella, escalera).'
+    ],
     gallery: [
       ['17\" × 22\" Flipchart', 'The classroom centerpiece. Each lesson introduces a sound through memorable visual association, then builds syllables, words, and poems.'],
       ['92-Page Student Book', 'Reading and writing activities that reinforce every flipchart lesson, from tracing letters to forming full sentences.'],
@@ -286,6 +296,11 @@ const copy = {
     showcaseTitle: 'Una mirada de cerca a los materiales que los niños realmente usan.',
     showcaseLead:
       'El rotafolio, el libro del alumno, los carteles silábicos, las tareas y las evaluaciones que hacen funcionar el método, directamente del programa.',
+    flipchartLabel: 'Páginas reales del rotafolio',
+    flipchartCaptions: [
+      'Página de la lección de la letra M: asociación de sonido, sílabas y vocabulario (mamá, amo, mimo, Meme, Mumú).',
+      'Página de la lección de la vocal E: el poema de la clase con vocabulario (elefante, espejo, estrella, escalera).'
+    ],
     gallery: [
       ['Rotafolio de 17\" × 22\"', 'El centro del aula. Cada lección presenta un sonido mediante asociación visual y luego construye sílabas, palabras y poemas.'],
       ['Libro del alumno de 92 páginas', 'Actividades de lectura y escritura que refuerzan cada lección del rotafolio, desde trazar letras hasta formar oraciones completas.'],
@@ -567,6 +582,24 @@ export default function App() {
               label="Full kit photo loading"
               className="kitImage"
             />
+          </div>
+
+          <div className="flipchartBlock">
+            <p className="flipchartLabel">{t.flipchartLabel}</p>
+            <div className="flipchartGrid">
+              {flipchartPages.map((src, index) => (
+                <figure className="flipchartCard" key={src}>
+                  <ImageFrame
+                    src={src}
+                    alt={t.flipchartCaptions[index]}
+                    label="Flipchart page loading"
+                    className="flipchartImg"
+                    aspect="3 / 4"
+                  />
+                  <figcaption>{t.flipchartCaptions[index]}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
 
           <div className="galleryGrid textOnly">

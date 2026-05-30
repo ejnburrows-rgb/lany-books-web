@@ -285,6 +285,51 @@ nav a:hover {
   border-radius: 2rem;
 }
 
+.flipchartBlock {
+  margin-top: 2.6rem;
+}
+
+.flipchartLabel {
+  margin: 0 0 1.2rem;
+  color: #8a6a2b;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.flipchartGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.flipchartCard {
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(20, 52, 61, 0.08);
+  border-radius: 1.6rem;
+  padding: 1rem;
+  box-shadow: 0 22px 55px rgba(20, 52, 61, 0.1);
+}
+
+.flipchartImg {
+  width: 100%;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(20, 52, 61, 0.07);
+}
+
+.flipchartCard figcaption {
+  padding: 0 0.45rem 0.45rem;
+  color: #4b6a6f;
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
 .galleryGrid.textOnly {
   margin-top: 1.6rem;
 }
@@ -833,7 +878,8 @@ footer strong {
   }
 
   .components,
-  .galleryGrid {
+  .galleryGrid,
+  .flipchartGrid {
     grid-template-columns: 1fr;
   }
 
