@@ -189,7 +189,32 @@ const copy = {
     role: 'Interested as',
     roles: ['Parent', 'Teacher', 'School', 'Distributor or bookstore'],
     message: 'Message',
-    footer: 'Spanish literacy, thoughtfully presented by LANY Books.'
+    footer: 'Spanish literacy, thoughtfully presented by LANY Books.',
+
+    faqLabel: 'Frequently asked questions',
+    faqTitle: 'Common questions',
+    faqItems: [
+      {
+        q: 'What grades is La Cartilla de Gretel designed for?',
+        a: 'Kindergarten, First Grade, and Second Grade.'
+      },
+      {
+        q: 'What is included in the complete package?',
+        a: 'The full kit: 17" × 22" flipchart and easel, 92-page student book, reproducible syllabic and vowel charts, homework pages, evaluations with answer keys, audio CD, Teacher\'s Guide, and a durable canvas carrying bag.'
+      },
+      {
+        q: 'Is the student book sold separately?',
+        a: 'Yes. The 92-page student book is available on its own for families and classrooms that only need the reading and writing activities.'
+      },
+      {
+        q: 'How does the phonetic method work?',
+        a: 'The program uses sound associations to help students remember vowel and consonant sounds, progressing from letter sounds to syllables, words, sentences, paragraphs, and poems.'
+      },
+      {
+        q: 'Do you work with schools and bookstores?',
+        a: 'Yes. We accept purchase orders, provide W-9 documentation, and offer volume pricing for classroom and grade-level sets.'
+      }
+    ]
   },
 
   es: {
@@ -346,7 +371,32 @@ const copy = {
     role: 'Interés como',
     roles: ['Padre o madre', 'Maestro', 'Escuela', 'Distribuidor o librería'],
     message: 'Mensaje',
-    footer: 'Lectoescritura en español, presentada cuidadosamente por LANY Books.'
+    footer: 'Lectoescritura en español, presentada cuidadosamente por LANY Books.',
+
+    faqLabel: 'Preguntas frecuentes',
+    faqTitle: 'Preguntas comunes',
+    faqItems: [
+      {
+        q: '¿Para qué grados es La Cartilla de Gretel?',
+        a: 'Está diseñada para Kindergarten, Primer Grado y Segundo Grado.'
+      },
+      {
+        q: '¿Qué incluye el paquete completo?',
+        a: 'El paquete incluye rotafolio de 17 × 22 pulgadas con caballete, libro del alumno de 92 páginas, carteles reproducibles de sílabas y vocales, tareas, evaluaciones con claves, CD de audio, guía del maestro y bolsa de lona resistente.'
+      },
+      {
+        q: '¿Se puede comprar solo el libro del alumno?',
+        a: 'Sí, el libro del alumno está disponible por separado para familias y aulas que solo necesitan las actividades de lectura y escritura.'
+      },
+      {
+        q: '¿Cómo funciona el método fonético?',
+        a: 'El método usa asociaciones de sonidos para ayudar a los estudiantes a recordar vocales y consonantes, avanzando de letras a sílabas, palabras, oraciones, párrafos y poemas.'
+      },
+      {
+        q: '¿Trabajan con escuelas y librerías?',
+        a: 'Sí. Aceptamos órdenes de compra, proporcionamos documentación W-9 y ofrecemos precios por volumen para juegos por aula y por grado.'
+      }
+    ]
   }
 }
 
@@ -480,6 +530,7 @@ function ImageFrame({
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [cart, setCart] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
   const t = copy[lang]
   const navTargets = ['#home', '#program', '#materials', '#package', '#schools', '#author', '#contact']
 
@@ -491,9 +542,21 @@ export default function App() {
           <span>Books</span>
         </a>
 
-        <nav aria-label={t.navAria}>
+        <button
+          className={`menuToggle ${menuOpen ? 'open' : ''}`}
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="primaryNav"
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <nav id="primaryNav" className={`primaryNav ${menuOpen ? 'open' : ''}`} aria-label={t.navAria}>
           {t.nav.map((item, index) => (
-            <a key={item} href={navTargets[index]}>
+            <a key={item} href={navTargets[index]} onClick={() => setMenuOpen(false)}>
               {item}
             </a>
           ))}
@@ -759,6 +822,20 @@ export default function App() {
                 <span>{label}</span>
                 <strong>{value}</strong>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="faq" className="section faqSection">
+          <p className="eyebrow">{t.faqLabel}</p>
+          <h2>{t.faqTitle}</h2>
+
+          <div className="faqList">
+            {t.faqItems.map((item, index) => (
+              <details className="faqItem" key={index}>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
             ))}
           </div>
         </section>

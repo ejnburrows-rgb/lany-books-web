@@ -10,14 +10,9 @@ body {
   margin: 0;
   background: #fff8e8;
   color: #14343d;
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 button,
@@ -33,6 +28,7 @@ button {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -60,6 +56,7 @@ a {
   padding: 1rem clamp(1rem, 5vw, 5rem);
   background: rgba(255, 248, 232, 0.92);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(20, 52, 61, 0.1);
 }
 
@@ -76,23 +73,56 @@ a {
   color: #9a7231;
 }
 
-nav {
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.6rem;
+  border: 0;
+  background: transparent;
+}
+
+.menuToggle span {
+  display: block;
+  width: 1.6rem;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: #14343d;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menuToggle.open span:nth-child(1) {
+  transform: translateY(0.53rem) rotate(45deg);
+}
+
+.menuToggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle.open span:nth-child(3) {
+  transform: translateY(-0.53rem) rotate(-45deg);
+}
+
+.primaryNav {
   display: flex;
   gap: 0.45rem;
   flex-wrap: wrap;
   justify-content: center;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
 }
 
-nav a {
+.primaryNav a {
   padding: 0.65rem 0.85rem;
   border-radius: 999px;
   color: #315861;
   font-size: 0.92rem;
-  transition: background 0.15s ease;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-nav a:hover {
+.primaryNav a:hover {
   background: #fff;
+  color: #14343d;
 }
 
 .headerActions {
@@ -109,10 +139,12 @@ nav a:hover {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .smallButton {
   padding: 0.78rem 1rem;
+  font-size: 0.92rem;
 }
 
 .smallButton.dark {
@@ -127,7 +159,6 @@ nav a:hover {
 
 .button {
   padding: 1rem 1.3rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .button:hover {
@@ -166,13 +197,13 @@ nav a:hover {
 .hero {
   min-height: calc(100vh - 78px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.95fr);
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
 }
 
 .eyebrow {
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   color: #8a6a2b;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -182,7 +213,7 @@ nav a:hover {
 
 .hero h1,
 .section h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   line-height: 0.96;
   letter-spacing: -0.045em;
   color: #12343d;
@@ -190,20 +221,21 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: clamp(4rem, 10vw, 8.5rem);
+  font-size: clamp(3.6rem, 10vw, 8.5rem);
 }
 
 .section h2 {
-  font-size: clamp(2.35rem, 5vw, 5rem);
+  font-size: clamp(2.2rem, 5vw, 5rem);
   max-width: 980px;
 }
 
 .heroSubtitle {
-  font-size: clamp(1.25rem, 2vw, 1.8rem);
-  line-height: 1.35;
+  font-size: clamp(1.15rem, 2vw, 1.75rem);
+  line-height: 1.4;
   color: #244b54;
-  font-weight: 750;
+  font-weight: 650;
   max-width: 850px;
+  margin: 0.6rem 0 0;
 }
 
 .heroText,
@@ -220,7 +252,7 @@ nav a:hover {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin-top: 2.2rem;
 }
 
 .heroArt {
@@ -239,8 +271,13 @@ nav a:hover {
   width: 100%;
   border-radius: 2rem;
   object-fit: contain;
-  max-height: 70vh;
+  max-height: 68vh;
   margin: 0 auto;
+  transition: transform 0.4s ease;
+}
+
+.heroArt:hover .heroImage {
+  transform: scale(1.01);
 }
 
 .coverBadge {
@@ -283,6 +320,11 @@ nav a:hover {
   border-radius: 2rem;
   object-fit: contain;
   background: #fff;
+  transition: transform 0.4s ease;
+}
+
+.kitShowcase:hover .kitImage {
+  transform: scale(1.01);
 }
 
 .kitShowcase .imageFallback {
@@ -318,6 +360,12 @@ nav a:hover {
   border-radius: 1.6rem;
   padding: 1rem;
   box-shadow: 0 22px 55px rgba(20, 52, 61, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.flipchartCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 65px rgba(20, 52, 61, 0.16);
 }
 
 .flipchartImg {
@@ -357,7 +405,7 @@ nav a:hover {
 
 .trustItem {
   position: relative;
-  font-weight: 850;
+  font-weight: 800;
   color: #315861;
   font-size: 0.92rem;
   letter-spacing: 0.01em;
@@ -429,6 +477,12 @@ nav a:hover {
   border-radius: 1.6rem;
   padding: 1.7rem 1.6rem;
   box-shadow: 0 22px 55px rgba(20, 52, 61, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.routeCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 68px rgba(20, 52, 61, 0.14);
 }
 
 .routeCard.package {
@@ -522,7 +576,7 @@ nav a:hover {
   padding: 0.6rem 0.95rem;
   color: #14343d;
   box-shadow: 0 10px 24px rgba(20, 52, 61, 0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .formatLink:hover {
@@ -717,7 +771,7 @@ nav a:hover {
   border-radius: 1.6rem;
   padding: 1rem;
   box-shadow: 0 22px 55px rgba(20, 52, 61, 0.1);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .galleryCard:hover {
@@ -806,6 +860,15 @@ textarea {
   padding: 1rem;
   background: #fff;
   color: #14343d;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e9bf67;
+  box-shadow: 0 0 0 3px rgba(233, 191, 103, 0.25);
 }
 
 textarea {
@@ -879,17 +942,148 @@ footer strong {
   font-weight: 850;
 }
 
+.faqSection {
+  max-width: 850px;
+}
+
+.faqList {
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.faqItem {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(20, 52, 61, 0.08);
+  border-radius: 1.3rem;
+  padding: 0;
+  box-shadow: 0 14px 36px rgba(20, 52, 61, 0.07);
+  transition: box-shadow 0.25s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 0 20px 48px rgba(20, 52, 61, 0.12);
+}
+
+.faqItem summary {
+  padding: 1.2rem 1.3rem;
+  font-weight: 800;
+  color: #14343d;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e9bf67;
+  flex: none;
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] summary::after {
+  content: "−";
+}
+
+.faqItem p {
+  margin: 0;
+  padding: 0 1.3rem 1.2rem;
+  color: #4b6a6f;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
 @media (max-width: 940px) {
-  nav {
-    display: none;
+  .menuToggle {
+    display: flex;
   }
 
-  .hero,
-  .split,
-  .schoolsCard,
-  .buyTop,
-  .routesGrid {
+  .primaryNav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 248, 232, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(20, 52, 61, 0.08);
+    padding: 0 1rem;
+  }
+
+  .primaryNav.open {
+    max-height: 320px;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .primaryNav a {
+    padding: 0.9rem 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(20, 52, 61, 0.06);
+  }
+
+  .primaryNav a:last-child {
+    border-bottom: none;
+  }
+
+  .primaryNav {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .primaryNav.open {
+    max-height: 320px;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .topbar {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .hero {
     grid-template-columns: 1fr;
+    text-align: center;
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+
+  .heroCopy {
+    order: 1;
+  }
+
+  .heroArt {
+    order: 0;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .heroImage {
+    max-height: 50vh;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .heroSubtitle {
+    max-width: 100%;
   }
 
   .components,
@@ -899,7 +1093,7 @@ footer strong {
   }
 
   .hero h1 {
-    font-size: clamp(3.2rem, 16vw, 5rem);
+    font-size: clamp(3rem, 14vw, 5rem);
   }
 
   .coverBadge {
@@ -912,11 +1106,26 @@ footer strong {
 
   .topbar {
     align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .headerActions {
+    margin-left: auto;
   }
 }
 
 @media (min-width: 941px) and (max-width: 1180px) {
   .galleryGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 941px) {
+  .menuToggle {
+    display: none;
+  }
+
+  .primaryNav {
+    display: flex !important;
   }
 }
