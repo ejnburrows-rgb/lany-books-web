@@ -12,13 +12,12 @@ type Route = {
 }
 
 const imagePaths = {
-  kit: '/images/gretel/Cartilla%20Bundle.png',
-  cover: '/images/gretel/858d9ee7-4b63-4047-9fb8-70924dfa82dc.png'
+  kit: '/images/gretel/Cartilla Bundle.png',
+  cover: '/images/gretel/WB Cover HD.png'
 }
 
 const flipchartPages = [
-  '/images/gretel/269199ca-16a9-42f2-9321-fd901aae5176.png',
-  '/images/gretel/778f2c1e-5506-4fae-aa58-81402b7795f9.png'
+  '/images/gretel/Pose 7.png'
 ]
 
 const logoPaths: Record<string, string> = {
@@ -140,8 +139,7 @@ const copy = {
       'The flipchart, student book, syllabic charts, homework, and evaluations that make the method work — straight from the program.',
     flipchartLabel: 'Real pages from the flipchart',
     flipchartCaptions: [
-      'A real lesson page from the 17\" × 22\" flipchart. Each new sound is introduced through a memorable picture the whole class can name together.',
-      'From picture to print — the same sound builds into syllables, words, and short readings, exactly as children see it in class.'
+      'A real lesson page from the 17" × 22" flipchart. Each new sound is introduced through a memorable picture the whole class can name together.'
     ],
     gallery: [
       ['17\" × 22\" Flipchart', 'The classroom centerpiece. Each lesson introduces a sound through memorable visual association, then builds syllables, words, and poems.'],
@@ -298,8 +296,7 @@ const copy = {
       'El rotafolio, el libro del alumno, los carteles silábicos, las tareas y las evaluaciones que hacen funcionar el método, directamente del programa.',
     flipchartLabel: 'Páginas reales del rotafolio',
     flipchartCaptions: [
-      'Una página real de la lección del rotafolio de 17\" × 22\". Cada sonido nuevo se presenta con una imagen memorable que toda la clase puede nombrar.',
-      'De la imagen a la lectura: el mismo sonido se construye en sílabas, palabras y lecturas breves, tal como lo ven los niños en clase.'
+      'Una página real de la lección del rotafolio de 17" × 22". Cada sonido nuevo se presenta con una imagen memorable que toda la clase puede nombrar.'
     ],
     gallery: [
       ['Rotafolio de 17\" × 22\"', 'El centro del aula. Cada lección presenta un sonido mediante asociación visual y luego construye sílabas, palabras y poemas.'],
