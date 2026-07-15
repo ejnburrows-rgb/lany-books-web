@@ -812,20 +812,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section credits">
-          <p className="eyebrow">{t.creditsLabel}</p>
-          <h2>{t.creditsTitle}</h2>
-
-          <div className="creditPanel">
-            {t.credits.map(([label, value]) => (
-              <div className="creditRow" key={label}>
-                <span>{label}</span>
-                <strong>{value}</strong>
-              </div>
-            ))}
-          </div>
-        </section>
-
         <section id="faq" className="section faqSection">
           <p className="eyebrow">{t.faqLabel}</p>
           <h2>{t.faqTitle}</h2>
