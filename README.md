@@ -34,6 +34,16 @@ npm run build
 npm run preview
 ```
 
+## ✉️ Contact form (environment variable)
+
+The interest form posts to [Formspree](https://formspree.io). Set one variable:
+
+1. Create a free Formspree form and copy its endpoint URL.
+2. Copy `.env.example` to `.env` and paste the URL into `VITE_FORM_ENDPOINT` for local dev.
+3. Add the same `VITE_FORM_ENDPOINT` variable in **Vercel → Project → Settings → Environment Variables**, then redeploy.
+
+Until the variable is set, the form shows an on-screen error instead of sending. No secret is stored in the code.
+
 ## 📁 Project structure
 
 ```

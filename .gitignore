@@ -38,3 +38,6 @@ logs/
 
 # Vercel
 .vercel
+
+# TS incremental build cache
+tsconfig.tsbuildinfo

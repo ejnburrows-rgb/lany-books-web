@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 
 type Lang = 'en' | 'es'
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 type Credit = [string, string]
 
@@ -183,12 +185,15 @@ const copy = {
     interestFormLabel: 'Interest form',
     contactTitle: 'Request information',
     contactLead:
-      'For parents, teachers, schools, distributors, and bookstores. This form is front-end only until a form service is connected.',
+      'For parents, teachers, schools, distributors, and bookstores. Send us a message and we will be in touch.',
     name: 'Name',
     email: 'Email',
     role: 'Interested as',
     roles: ['Parent', 'Teacher', 'School', 'Distributor or bookstore'],
     message: 'Message',
+    formSending: 'Sending…',
+    formSuccess: 'Thank you. Your message has been sent; we will be in touch.',
+    formError: 'Something went wrong. Please try again, or email us directly.',
     footer: 'Spanish literacy, thoughtfully presented by LANY Books.',
 
     faqLabel: 'Frequently asked questions',
@@ -365,12 +370,15 @@ const copy = {
     interestFormLabel: 'Formulario de interés',
     contactTitle: 'Solicitar información',
     contactLead:
-      'Para padres, maestros, escuelas, distribuidores y librerías. Este formulario es solo visual hasta conectar un servicio de formularios.',
+      'Para padres, maestros, escuelas, distribuidores y librerías. Envíenos un mensaje y nos pondremos en contacto.',
     name: 'Nombre',
     email: 'Correo electrónico',
     role: 'Interés como',
     roles: ['Padre o madre', 'Maestro', 'Escuela', 'Distribuidor o librería'],
     message: 'Mensaje',
+    formSending: 'Enviando…',
+    formSuccess: 'Gracias. Su mensaje fue enviado; nos pondremos en contacto.',
+    formError: 'Algo salió mal. Intente de nuevo o escríbanos directamente.',
     footer: 'Lectoescritura en español, presentada cuidadosamente por LANY Books.',
 
     faqLabel: 'Preguntas frecuentes',
@@ -531,8 +539,36 @@ export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [cart, setCart] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle')
   const t = copy[lang]
   const navTargets = ['#home', '#program', '#materials', '#package', '#schools', '#author', '#contact']
+
+  const formEndpoint = import.meta.env.VITE_FORM_ENDPOINT as string | undefined
+
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    if (!formEndpoint) {
+      setFormStatus('error')
+      return
+    }
+    setFormStatus('sending')
+    try {
+      const response = await fetch(formEndpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      })
+      if (response.ok) {
+        setFormStatus('success')
+        form.reset()
+      } else {
+        setFormStatus('error')
+      }
+    } catch {
+      setFormStatus('error')
+    }
+  }
 
   return (
     <div className="site">
@@ -833,20 +869,29 @@ export default function App() {
             <p className="lead">{t.contactLead}</p>
           </div>
 
-          <form className="form">
+          <form className="form" onSubmit={handleContactSubmit}>
+            <input
+              type="text"
+              name="_gotcha"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ display: 'none' }}
+            />
+
             <label>
               {t.name}
-              <input type="text" />
+              <input type="text" name="name" required />
             </label>
 
             <label>
               {t.email}
-              <input type="email" />
+              <input type="email" name="email" required />
             </label>
 
             <label>
               {t.role}
-              <select>
+              <select name="role">
                 {t.roles.map((role) => (
                   <option key={role}>{role}</option>
                 ))}
@@ -855,11 +900,22 @@ export default function App() {
 
             <label>
               {t.message}
-              <textarea />
+              <textarea name="message" />
             </label>
 
-            <button className="button primary" type="button">
-              {t.requestInfo}
+            {formStatus === 'success' ? (
+              <p className="formStatus success" role="status">
+                {t.formSuccess}
+              </p>
+            ) : null}
+            {formStatus === 'error' ? (
+              <p className="formStatus error" role="alert">
+                {t.formError}
+              </p>
+            ) : null}
+
+            <button className="button primary" type="submit" disabled={formStatus === 'sending'}>
+              {formStatus === 'sending' ? t.formSending : t.requestInfo}
             </button>
           </form>
         </section>
