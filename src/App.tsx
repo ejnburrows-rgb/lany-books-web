@@ -34,6 +34,17 @@ const formats = [
   { id: 'audible', name: 'Audible', className: 'audible', price: '$14.95' }
 ] as const
 
+// Real store URLs. Paste each edition's purchase link here as it goes live.
+// Any entry left as '' shows a "coming soon" tag and routes to the contact
+// form instead — never invent a link. `online` is the "Order Online" route.
+const purchaseUrls: Record<string, string> = {
+  kindle: '',
+  epub: '',
+  pdf: '',
+  audible: '',
+  online: ''
+}
+
 const copy = {
   en: {
     nav: ['Home', 'Program', 'Materials', 'Package', 'Schools', 'Author', 'Contact'],
@@ -71,6 +82,8 @@ const copy = {
     buyLead:
       'La Cartilla de Gretel is sold physically as a complete package or as the student book on its own — and online through our store.',
     contactCta: 'Contact for more information',
+    comingSoon: 'Coming soon',
+    orderOnlineCta: 'Order online',
     bestValue: 'Complete kit',
     routes: [
       {
@@ -253,6 +266,8 @@ const copy = {
     buyLead:
       'La Cartilla de Gretel se vende físicamente como paquete completo o como el libro del alumno por separado, y en línea a través de nuestra tienda.',
     contactCta: 'Contacte para más información',
+    comingSoon: 'Próximamente',
+    orderOnlineCta: 'Comprar en línea',
     bestValue: 'Kit completo',
     routes: [
       {
@@ -713,6 +728,15 @@ export default function App() {
                     {t.addToCart}
                     {cart > 0 ? ` (${cart})` : ''}
                   </button>
+                ) : purchaseUrls.online ? (
+                  <a
+                    className="button secondary"
+                    href={purchaseUrls.online}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.orderOnlineCta}
+                  </a>
                 ) : (
                   <a className="button secondary" href="#contact">
                     {t.contactCta}
@@ -725,17 +749,27 @@ export default function App() {
           <div className="formatBox">
             <h3>{t.formatsTitle}</h3>
             <div className="formatLinks">
-              {formats.map((format, index) => (
-                <a
-                  key={format.id}
-                  className={`formatLink ${format.className}`}
-                  href="#contact"
-                  aria-label={`${format.name} — ${format.price}`}
-                >
-                  <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
-                  <span className="formatPrice">{format.price}</span>
-                </a>
-              ))}
+              {formats.map((format, index) => {
+                const url = purchaseUrls[format.id]
+                const live = Boolean(url)
+                return (
+                  <a
+                    key={format.id}
+                    className={`formatLink ${format.className}${live ? '' : ' soon'}`}
+                    href={live ? url : '#contact'}
+                    target={live ? '_blank' : undefined}
+                    rel={live ? 'noopener noreferrer' : undefined}
+                    aria-label={
+                      live
+                        ? `${format.name} — ${format.price}`
+                        : `${format.name} — ${t.comingSoon}`
+                    }
+                  >
+                    <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
+                    <span className="formatPrice">{live ? format.price : t.comingSoon}</span>
+                  </a>
+                )
+              })}
             </div>
             <p>{t.formatsNote}</p>
           </div>
