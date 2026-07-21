@@ -34,6 +34,15 @@ npm run build
 npm run preview
 ```
 
+## 🛡️ Error monitoring (Sentry — optional)
+
+Runtime errors are reported to [Sentry](https://sentry.io) when a DSN is set:
+
+1. Create a free Sentry project and copy its DSN.
+2. Add `VITE_SENTRY_DSN` in **Vercel → Settings → Environment Variables**, then redeploy.
+
+Monitoring is a no-op until the DSN is set, and only reports from deployed builds — never local dev. See `.env.example`.
+
 ## 📁 Project structure
 
 ```
