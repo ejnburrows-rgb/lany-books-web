@@ -1,21 +1,12 @@
 import { useState } from 'react'
 
 const logoPaths: Record<string, string> = {
-  amazon: '/images/brands/amazon.svg',
   kindle: '/images/brands/kindle.svg',
-  audible: '/images/brands/audible.svg',
-  bn: '/images/brands/barnes-noble.svg'
+  audible: '/images/brands/audible.svg'
 }
 
 function FormatGlyph({ id }: { id: string }) {
   switch (id) {
-    case 'amazon':
-      return (
-        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <path d="M3 14.5c5 4 13 4 18 0" fill="none" stroke="#FF9900" strokeWidth="2.4" strokeLinecap="round" />
-          <path d="M17 13l4 1.4-1.4 3.7" fill="none" stroke="#FF9900" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
     case 'kindle':
       return (
         <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
@@ -45,13 +36,6 @@ function FormatGlyph({ id }: { id: string }) {
           <path d="M5 13.2v-1.2a7 7 0 0114 0v1.2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           <rect x="3.4" y="12.8" width="4" height="6.4" rx="1.4" fill="currentColor" />
           <rect x="16.6" y="12.8" width="4" height="6.4" rx="1.4" fill="currentColor" />
-        </svg>
-      )
-    case 'bn':
-      return (
-        <svg className="formatGlyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <path d="M12 6c-2-1.4-5-1.9-8-1.4v12.8c3-.5 6 0 8 1.4 2-1.4 5-1.9 8-1.4V4.6c-3-.5-6 0-8 1.4z" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-          <line x1="12" y1="6" x2="12" y2="18.8" stroke="currentColor" strokeWidth="1.7" />
         </svg>
       )
     default:
