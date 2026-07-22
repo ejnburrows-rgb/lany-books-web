@@ -22,7 +22,7 @@ export const copy = {
     heroText:
       'A warm, structured, classroom-ready program that guides children from letter sounds to syllables, words, sentences, paragraphs, and poems.',
     purchase: 'Purchase Now',
-    addToCart: 'Add to Cart',
+    orderCta: 'Contact to order',
     viewIncluded: 'View What’s Included',
     requestInfo: 'Request Information',
 
@@ -204,7 +204,7 @@ export const copy = {
     heroText:
       'Un programa cálido, estructurado y listo para el aula que guía al niño desde los sonidos de las letras hasta sílabas, palabras, oraciones, párrafos y poemas.',
     purchase: 'Comprar ahora',
-    addToCart: 'Agregar al carrito',
+    orderCta: 'Contactar para pedir',
     viewIncluded: 'Ver qué incluye',
     requestInfo: 'Solicitar información',
 
