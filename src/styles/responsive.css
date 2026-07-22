@@ -290,7 +290,8 @@ footer strong {
   }
 
   .primaryNav.open {
-    max-height: 320px;
+    /* 7 nav items × ~3rem each needs at least 380px — keep headroom for larger font sizes */
+    max-height: 440px;
     padding: 0.5rem 1rem 1rem;
   }
 
@@ -374,6 +375,48 @@ footer strong {
     flex-wrap: wrap;
   }
 
+  .headerActions {
+    margin-left: auto;
+  }
+
+  /* --- grids missing mobile collapse rules (added QA pass) --- */
+
+  /* Buy section: stack cover below header copy */
+  .buyTop {
+    grid-template-columns: 1fr;
+  }
+
+  .buyCover {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* Pricing cards: single column so cards are fully readable */
+  .routesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Schools dark card: stack intro above bullet list */
+  .schoolsCard {
+    grid-template-columns: 1fr;
+  }
+
+  /* Split layout used by Program, Author, and Contact sections */
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Very narrow screens: hide the two header action buttons.
+   The hamburger nav already contains "Purchase Now" and the lang toggle,
+   so nothing is lost. Prevents topbar overflow at 375px. */
+@media (max-width: 480px) {
+  .headerActions {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 940px) {
   .headerActions {
     margin-left: auto;
   }
