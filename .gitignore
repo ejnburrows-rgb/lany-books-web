@@ -38,8 +38,6 @@ logs/
 
 # Vercel
 .vercel
-/.netlify
-netlify.log
 
 # TS incremental build cache
 tsconfig.tsbuildinfo
