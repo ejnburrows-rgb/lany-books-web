@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import { copy, type Lang } from './copy'
 import { BrandLogo, ImageFrame } from './components'
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 const imagePaths = {
   kit: '/images/gretel/Cartilla Bundle.png',
@@ -32,8 +34,36 @@ const purchaseUrls: Record<string, string> = {
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle')
   const t = copy[lang]
   const navTargets = ['#home', '#program', '#materials', '#package', '#schools', '#author', '#contact']
+
+  const formEndpoint = import.meta.env.VITE_FORM_ENDPOINT as string | undefined
+
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    if (!formEndpoint) {
+      setFormStatus('error')
+      return
+    }
+    setFormStatus('sending')
+    try {
+      const response = await fetch(formEndpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      })
+      if (response.ok) {
+        setFormStatus('success')
+        form.reset()
+      } else {
+        setFormStatus('error')
+      }
+    } catch {
+      setFormStatus('error')
+    }
+  }
 
   return (
     <div className="site">
@@ -348,20 +378,29 @@ export default function App() {
             <p className="lead">{t.contactLead}</p>
           </div>
 
-          <form className="form">
+          <form className="form" onSubmit={handleContactSubmit}>
+            <input
+              type="text"
+              name="_gotcha"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ display: 'none' }}
+            />
+
             <label>
               {t.name}
-              <input type="text" />
+              <input type="text" name="name" required />
             </label>
 
             <label>
               {t.email}
-              <input type="email" />
+              <input type="email" name="email" required />
             </label>
 
             <label>
               {t.role}
-              <select>
+              <select name="role">
                 {t.roles.map((role) => (
                   <option key={role}>{role}</option>
                 ))}
@@ -370,11 +409,22 @@ export default function App() {
 
             <label>
               {t.message}
-              <textarea />
+              <textarea name="message" />
             </label>
 
-            <button className="button primary" type="button">
-              {t.requestInfo}
+            {formStatus === 'success' ? (
+              <p className="formStatus success" role="status">
+                {t.formSuccess}
+              </p>
+            ) : null}
+            {formStatus === 'error' ? (
+              <p className="formStatus error" role="alert">
+                {t.formError}
+              </p>
+            ) : null}
+
+            <button className="button primary" type="submit" disabled={formStatus === 'sending'}>
+              {formStatus === 'sending' ? t.formSending : t.requestInfo}
             </button>
           </form>
         </section>

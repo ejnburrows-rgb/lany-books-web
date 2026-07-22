@@ -160,12 +160,15 @@ export const copy = {
     interestFormLabel: 'Interest form',
     contactTitle: 'Request information',
     contactLead:
-      'For parents, teachers, schools, distributors, and bookstores. This form is front-end only until a form service is connected.',
+      'For parents, teachers, schools, distributors, and bookstores. Send us a message and we will be in touch.',
     name: 'Name',
     email: 'Email',
     role: 'Interested as',
     roles: ['Parent', 'Teacher', 'School', 'Distributor or bookstore'],
     message: 'Message',
+    formSending: 'Sending…',
+    formSuccess: 'Thank you. Your message has been sent; we will be in touch.',
+    formError: 'Something went wrong. Please try again, or email us directly.',
     footer: 'Spanish literacy, thoughtfully presented by LANY Books.',
 
     faqLabel: 'Frequently asked questions',
@@ -344,12 +347,15 @@ export const copy = {
     interestFormLabel: 'Formulario de interés',
     contactTitle: 'Solicitar información',
     contactLead:
-      'Para padres, maestros, escuelas, distribuidores y librerías. Este formulario es solo visual hasta conectar un servicio de formularios.',
+      'Para padres, maestros, escuelas, distribuidores y librerías. Envíenos un mensaje y nos pondremos en contacto.',
     name: 'Nombre',
     email: 'Correo electrónico',
     role: 'Interés como',
     roles: ['Padre o madre', 'Maestro', 'Escuela', 'Distribuidor o librería'],
     message: 'Mensaje',
+    formSending: 'Enviando…',
+    formSuccess: 'Gracias. Su mensaje fue enviado; nos pondremos en contacto.',
+    formError: 'Algo salió mal. Intente de nuevo o escríbanos directamente.',
     footer: 'Lectoescritura en español, presentada cuidadosamente por LANY Books.',
 
     faqLabel: 'Preguntas frecuentes',
