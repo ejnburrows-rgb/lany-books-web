@@ -46,6 +46,8 @@ export const copy = {
     buyLead:
       'La Cartilla de Gretel is sold physically as a complete package or as the student book on its own — and online through our store.',
     contactCta: 'Contact for more information',
+    comingSoon: 'Coming soon',
+    orderOnlineCta: 'Order online',
     bestValue: 'Complete kit',
     routes: [
       {
@@ -228,6 +230,8 @@ export const copy = {
     buyLead:
       'La Cartilla de Gretel se vende físicamente como paquete completo o como el libro del alumno por separado, y en línea a través de nuestra tienda.',
     contactCta: 'Contacte para más información',
+    comingSoon: 'Próximamente',
+    orderOnlineCta: 'Comprar en línea',
     bestValue: 'Kit completo',
     routes: [
       {
