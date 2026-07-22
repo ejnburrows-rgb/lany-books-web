@@ -20,7 +20,6 @@ const formats = [
 
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
-  const [cart, setCart] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const t = copy[lang]
   const navTargets = ['#home', '#program', '#materials', '#package', '#schools', '#author', '#contact']
@@ -196,14 +195,9 @@ export default function App() {
                 )}
                 <p className="routeDesc">{route.desc}</p>
                 {route.price ? (
-                  <button
-                    className="button primary"
-                    type="button"
-                    onClick={() => setCart((current) => current + 1)}
-                  >
-                    {t.addToCart}
-                    {cart > 0 ? ` (${cart})` : ''}
-                  </button>
+                  <a className="button primary" href="#contact">
+                    {t.orderCta}
+                  </a>
                 ) : (
                   <a className="button secondary" href="#contact">
                     {t.contactCta}
