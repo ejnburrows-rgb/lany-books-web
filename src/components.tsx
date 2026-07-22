@@ -1,10 +1,5 @@
 import { useState } from 'react'
 
-const logoPaths: Record<string, string> = {
-  kindle: '/images/brands/kindle.svg',
-  audible: '/images/brands/audible.svg'
-}
-
 function FormatGlyph({ id }: { id: string }) {
   switch (id) {
     case 'kindle':
@@ -43,31 +38,12 @@ function FormatGlyph({ id }: { id: string }) {
   }
 }
 
+// BrandLogo always uses the inline SVG glyph — no external image files needed.
+// Previously pointed at /images/brands/*.svg which did not exist, causing 404s on every load.
 export function BrandLogo({ id, name, tag }: { id: string; name: string; tag: string }) {
-  const [failed, setFailed] = useState(false)
-
-  if (failed || !logoPaths[id]) {
-    return (
-      <>
-        <FormatGlyph id={id} />
-        <span className="formatLinkText">
-          <strong>{name}</strong>
-          <small>{tag}</small>
-        </span>
-      </>
-    )
-  }
-
   return (
     <>
-      <img
-        className="formatLogoImg"
-        src={logoPaths[id]}
-        alt={name}
-        loading="lazy"
-        decoding="async"
-        onError={() => setFailed(true)}
-      />
+      <FormatGlyph id={id} />
       <span className="formatLinkText">
         <strong>{name}</strong>
         <small>{tag}</small>

@@ -5,12 +5,12 @@ import { BrandLogo, ImageFrame } from './components'
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 const imagePaths = {
-  kit: '/images/gretel/Cartilla Bundle.png',
-  cover: '/images/gretel/WB Cover HD.png'
+  kit: '/images/gretel/cartilla-bundle.webp',
+  cover: '/images/gretel/wb-cover-hd.webp'
 }
 
 const flipchartPages = [
-  '/images/gretel/Pose 7.png'
+  '/images/gretel/pose-7.webp'
 ]
 
 const formats = [
