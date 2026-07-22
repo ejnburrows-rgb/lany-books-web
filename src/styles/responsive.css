@@ -1,0 +1,378 @@
+.showcaseHeader {
+  max-width: 950px;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 2.4rem;
+}
+
+.galleryCard {
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(20, 52, 61, 0.08);
+  border-radius: 1.6rem;
+  padding: 1rem;
+  box-shadow: 0 22px 55px rgba(20, 52, 61, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.galleryCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 72px rgba(20, 52, 61, 0.16);
+}
+
+.galleryImg {
+  width: 100%;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(20, 52, 61, 0.07);
+}
+
+.galleryCard figcaption {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0 0.45rem 0.45rem;
+}
+
+.galleryCard h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #14343d;
+  font-size: 1.22rem;
+}
+
+.galleryCard figcaption p {
+  margin: 0;
+  color: #4b6a6f;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.panel h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #14343d;
+  margin: 0 0 0.7rem;
+  font-size: 1.35rem;
+}
+
+.panel ul {
+  display: grid;
+  gap: 1rem;
+  padding-left: 1.2rem;
+  margin: 1rem 0 0;
+}
+
+.creditPanel {
+  max-width: 850px;
+  margin-top: 1.5rem;
+}
+
+.creditRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(20, 52, 61, 0.1);
+  padding: 1rem 0;
+  color: #4b6a6f;
+}
+
+.creditRow strong {
+  color: #14343d;
+  text-align: right;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 850;
+  color: #14343d;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid rgba(20, 52, 61, 0.14);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #fff;
+  color: #14343d;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e9bf67;
+  box-shadow: 0 0 0 3px rgba(233, 191, 103, 0.25);
+}
+
+textarea {
+  min-height: 130px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 2rem clamp(1rem, 5vw, 5rem);
+  border-top: 1px solid rgba(20, 52, 61, 0.1);
+  color: #4b6a6f;
+}
+
+footer strong {
+  color: #14343d;
+}
+
+.dedication {
+  margin: 2rem 0 0;
+}
+
+.dedicationLabel {
+  margin: 0 0 0.75rem;
+  color: #8a6a2b;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 950;
+}
+
+.dedication blockquote {
+  margin: 0;
+  padding: 1.4rem 1.6rem;
+  border-left: 4px solid #e9bf67;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0 1.2rem 1.2rem 0;
+}
+
+.dedication blockquote p {
+  margin: 0 0 0.9rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: #2c4f57;
+  line-height: 1.7;
+}
+
+.dedication blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.dedication figcaption {
+  margin-top: 0.9rem;
+  font-weight: 850;
+  color: #14343d;
+}
+
+.imageFallback {
+  width: 100%;
+  min-height: 180px;
+  border-radius: 1.5rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(145deg, #fff, #f8fbef);
+  border: 1px dashed rgba(20, 52, 61, 0.25);
+  color: #4b6a6f;
+  font-weight: 850;
+}
+
+.faqSection {
+  max-width: 850px;
+}
+
+.faqList {
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.faqItem {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(20, 52, 61, 0.08);
+  border-radius: 1.3rem;
+  padding: 0;
+  box-shadow: 0 14px 36px rgba(20, 52, 61, 0.07);
+  transition: box-shadow 0.25s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 0 20px 48px rgba(20, 52, 61, 0.12);
+}
+
+.faqItem summary {
+  padding: 1.2rem 1.3rem;
+  font-weight: 800;
+  color: #14343d;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e9bf67;
+  flex: none;
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] summary::after {
+  content: "−";
+}
+
+.faqItem p {
+  margin: 0;
+  padding: 0 1.3rem 1.2rem;
+  color: #4b6a6f;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+@media (max-width: 940px) {
+  .menuToggle {
+    display: flex;
+  }
+
+  .primaryNav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 248, 232, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(20, 52, 61, 0.08);
+    padding: 0 1rem;
+  }
+
+  .primaryNav.open {
+    max-height: 320px;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .primaryNav a {
+    padding: 0.9rem 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(20, 52, 61, 0.06);
+  }
+
+  .primaryNav a:last-child {
+    border-bottom: none;
+  }
+
+  .primaryNav {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .primaryNav.open {
+    max-height: 320px;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .topbar {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+
+  .heroCopy {
+    order: 1;
+  }
+
+  .heroArt {
+    order: 0;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .heroImage {
+    max-height: 50vh;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .heroSubtitle {
+    max-width: 100%;
+  }
+
+  .components,
+  .galleryGrid,
+  .flipchartGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .coverBadge {
+    position: relative;
+    width: 55%;
+    margin: -2rem auto 0;
+    right: auto;
+    bottom: auto;
+  }
+
+  .topbar {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .headerActions {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 941px) and (max-width: 1180px) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 941px) {
+  .menuToggle {
+    display: none;
+  }
+
+  .primaryNav {
+    display: flex !important;
+  }
+}
