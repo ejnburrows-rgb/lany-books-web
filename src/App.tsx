@@ -18,6 +18,17 @@ const formats = [
   { id: 'audible', name: 'Audible', className: 'audible', price: '$14.95' }
 ] as const
 
+// Real store URLs. Paste each edition's purchase link here as it goes live.
+// Any entry left as '' shows a "coming soon" tag and routes to the contact
+// form instead — never invent a link. `online` is the "Order Online" route.
+const purchaseUrls: Record<string, string> = {
+  kindle: '',
+  epub: '',
+  pdf: '',
+  audible: '',
+  online: ''
+}
+
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [menuOpen, setMenuOpen] = useState(false)
@@ -198,6 +209,15 @@ export default function App() {
                   <a className="button primary" href="#contact">
                     {t.orderCta}
                   </a>
+                ) : route.variant === 'online' && purchaseUrls.online ? (
+                  <a
+                    className="button secondary"
+                    href={purchaseUrls.online}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.orderOnlineCta}
+                  </a>
                 ) : (
                   <a className="button secondary" href="#contact">
                     {t.contactCta}
@@ -210,17 +230,27 @@ export default function App() {
           <div className="formatBox">
             <h3>{t.formatsTitle}</h3>
             <div className="formatLinks">
-              {formats.map((format, index) => (
-                <a
-                  key={format.id}
-                  className={`formatLink ${format.className}`}
-                  href="#contact"
-                  aria-label={`${format.name} — ${format.price}`}
-                >
-                  <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
-                  <span className="formatPrice">{format.price}</span>
-                </a>
-              ))}
+              {formats.map((format, index) => {
+                const url = purchaseUrls[format.id]
+                const live = Boolean(url)
+                return (
+                  <a
+                    key={format.id}
+                    className={`formatLink ${format.className}${live ? '' : ' soon'}`}
+                    href={live ? url : '#contact'}
+                    target={live ? '_blank' : undefined}
+                    rel={live ? 'noopener noreferrer' : undefined}
+                    aria-label={
+                      live
+                        ? `${format.name} — ${format.price}`
+                        : `${format.name} — ${t.comingSoon}`
+                    }
+                  >
+                    <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
+                    <span className="formatPrice">{live ? format.price : t.comingSoon}</span>
+                  </a>
+                )
+              })}
             </div>
             <p>{t.formatsNote}</p>
           </div>
