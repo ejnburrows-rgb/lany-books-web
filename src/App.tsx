@@ -47,6 +47,7 @@ export default function App() {
           className={`menuToggle ${menuOpen ? 'open' : ''}`}
           type="button"
           aria-expanded={menuOpen}
+          aria-label={t.menuToggleAria}
           aria-controls="primaryNav"
           onClick={() => setMenuOpen((current) => !current)}
         >
@@ -101,15 +102,15 @@ export default function App() {
           <div className="heroArt">
             <ImageFrame
               src={imagePaths.cover}
-              alt="La Cartilla de Gretel — Libro del alumno cover"
-              label="Cover photo loading"
+              alt={t.coverAlt}
+              label={t.coverLoading}
               className="heroImage"
               aspect="3 / 4"
             />
           </div>
         </section>
 
-        <section className="trustStrip" aria-label="Why families and teachers choose La Cartilla de Gretel">
+        <section className="trustStrip" aria-label={t.trustAria}>
           {t.trust.map((item) => (
             <span className="trustItem" key={item}>
               {item}
@@ -139,8 +140,8 @@ export default function App() {
           <div className="kitShowcase">
             <ImageFrame
               src={imagePaths.kit}
-              alt="The complete La Cartilla de Gretel kit: flipchart, student book, syllabic charts, homework, evaluations, audio CD, felt vowel dolls, teacher's guide, and canvas carrying bag"
-              label="Full kit photo loading"
+              alt={t.kitAlt}
+              label={t.kitLoading}
               className="kitImage"
             />
           </div>
@@ -153,7 +154,7 @@ export default function App() {
                   <ImageFrame
                     src={src}
                     alt={t.flipchartCaptions[index]}
-                    label="Flipchart page loading"
+                    label={t.flipchartLoading}
                     className="flipchartImg"
                     aspect="3 / 4"
                   />
@@ -185,8 +186,8 @@ export default function App() {
             <div className="buyCover">
               <ImageFrame
                 src={imagePaths.cover}
-                alt="La Cartilla de Gretel cover"
-                label="Cover photo loading"
+                alt={t.coverAlt}
+                label={t.coverLoading}
                 aspect="3 / 4"
               />
             </div>
@@ -349,28 +350,28 @@ export default function App() {
           </div>
 
           <form className="form">
-            <label>
+            <label htmlFor="contact-name">
               {t.name}
-              <input type="text" />
+              <input id="contact-name" type="text" />
             </label>
 
-            <label>
+            <label htmlFor="contact-email">
               {t.email}
-              <input type="email" />
+              <input id="contact-email" type="email" />
             </label>
 
-            <label>
+            <label htmlFor="contact-role">
               {t.role}
-              <select>
+              <select id="contact-role">
                 {t.roles.map((role) => (
                   <option key={role}>{role}</option>
                 ))}
               </select>
             </label>
 
-            <label>
+            <label htmlFor="contact-message">
               {t.message}
-              <textarea />
+              <textarea id="contact-message" />
             </label>
 
             <button className="button primary" type="button">
