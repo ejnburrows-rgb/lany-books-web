@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LANY Books - Mobile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary": "#635f44",
+                "inverse-primary": "#98cdef",
+                "on-secondary-fixed-variant": "#4b472e",
+                "on-secondary-fixed": "#1e1c07",
+                "on-primary-fixed": "#001e2d",
+                "outline-variant": "#c0c7ce",
+                "on-background": "#1c1b1b",
+                "on-primary-fixed-variant": "#074c69",
+                "surface-tint": "#2c6482",
+                "surface-container-highest": "#e5e2e1",
+                "secondary-container": "#e7e0be",
+                "surface-variant": "#e5e2e1",
+                "on-secondary-container": "#676348",
+                "on-primary": "#ffffff",
+                "tertiary-container": "#7a9a81",
+                "surface-container-high": "#eae7e7",
+                "primary-fixed": "#c5e7ff",
+                "inverse-surface": "#313030",
+                "secondary-fixed": "#eae3c1",
+                "on-tertiary-fixed": "#03210f",
+                "on-surface": "#1c1b1b",
+                "on-error-container": "#93000a",
+                "surface": "#fcf9f8",
+                "on-primary-container": "#002f43",
+                "surface-bright": "#fcf9f8",
+                "on-tertiary-fixed-variant": "#304d38",
+                "on-tertiary-container": "#14311e",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#c9ebce",
+                "error-container": "#ffdad6",
+                "surface-container": "#f0eded",
+                "primary-container": "#6499b9",
+                "tertiary": "#47654f",
+                "background": "#fcf9f8",
+                "primary-fixed-dim": "#98cdef",
+                "on-secondary": "#ffffff",
+                "error": "#ba1a1a",
+                "outline": "#71787e",
+                "inverse-on-surface": "#f3f0ef",
+                "secondary-fixed-dim": "#cdc7a6",
+                "surface-dim": "#dcd9d9",
+                "surface-container-low": "#f6f3f2",
+                "primary": "#2c6482",
+                "tertiary-fixed-dim": "#adcfb3",
+                "on-surface-variant": "#41484d",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary": "#ffffff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "20px",
+                "section-padding-v": "80px",
+                "container-max-width": "1200px",
+                "gutter": "24px",
+                "unit": "8px"
+        },
+        "fontFamily": {
+                "label-md": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ],
+                "body-lg": [
+                        "Hanken Grotesk"
+                ],
+                "headline-sm": [
+                        "Hanken Grotesk"
+                ],
+                "display-lg-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "display-lg": [
+                        "Hanken Grotesk"
+                ],
+                "headline-md": [
+                        "Hanken Grotesk"
+                ],
+                "button": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "800"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ],
+                "button": [
+                        "15px",
+                        {
+                                "lineHeight": "1",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .soft-shadow {
+            box-shadow: 0px 4px 24px rgba(0,0,0,0.06);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation (Mobile Version) -->
+<header class="bg-background dark:bg-background full-width top-0 sticky z-50 transition-all duration-300 ease-in-out border-b border-surface-container-highest">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-mobile py-4">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">
+                LANY Books
+            </div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 font-label-md text-label-md bg-surface-container-low px-3 py-1 rounded-full">
+<button class="font-bold text-primary">EN</button>
+<span class="text-outline-variant">|</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">ES</button>
+</div>
+<button class="text-on-surface-variant flex items-center justify-center p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<button class="md:hidden text-primary bg-primary-container/20 p-2 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<button class="hidden md:flex bg-primary text-on-primary px-6 py-3 rounded-full font-button text-button hover:bg-primary/90 transition-colors">
+                    Get Access
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="px-margin-mobile py-section-padding-v bg-primary-fixed/30 rounded-b-[2rem] overflow-hidden relative">
+<div class="max-w-container-max-width mx-auto flex flex-col gap-8">
+<div class="z-10 flex flex-col gap-4 text-center">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-primary-container">
+                        The Foundation of Lifelong Learning.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">
+                        Traditional pedagogy brought to life through a comprehensive physical learning kit, creating a safe and inspiring environment for young minds.
+                    </p>
+<div class="flex flex-col gap-3 mt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-button text-button hover:bg-primary/90 transition-colors w-full">
+                            Explore The Method
+                        </button>
+<button class="bg-transparent border border-primary text-primary px-8 py-4 rounded-full font-button text-button hover:bg-primary/5 transition-colors w-full">
+                            View Gallery
+                        </button>
+</div>
+</div>
+<div class="relative w-full aspect-square rounded-xl overflow-hidden soft-shadow z-10 mt-6 border-4 border-white">
+<img alt="La Cartilla de Gretel Physical Kit" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd5TskkTy1bIEZliBQ6WzX2OLV7yEPnhuJ70ZcCAkWyJ7ywtMkV_urig1V_txgFr8uKk95eVVBJhLxGNr4BEughax6G4-RyYVyGuVGeI_nECIkzqj_L4f6fGf3LSU1h4Jfm7q5bREQZvkdiBmINz5seWsAHCQGVFq5xiwa93hz97u_CQLs8sKBHjAsDXQ8pO7yW5KdhyFGZvucS0kyeDmMi8lC55cJLYzfrFVgx3lC14Wwu_A2eXHjyurwSBSlA5tj0oBKWFVpA8I"/>
+</div>
+</div>
+<!-- Decorative Blobs -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-fixed/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 z-0"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-primary-container/30 rounded-full blur-2xl translate-y-1/3 -translate-x-1/4 z-0"></div>
+</section>
+<!-- Product Highlight Section -->
+<section class="px-margin-mobile py-section-padding-v">
+<div class="max-w-container-max-width mx-auto flex flex-col gap-8 items-center text-center">
+<span class="font-label-md text-label-md text-primary tracking-wider uppercase">The Core Product</span>
+<h2 class="font-headline-md text-headline-md text-on-background">La Cartilla de Gretel</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">The complete instructional kit includes the transport bag, interactive flipchart, student book, felt dolls, and reproducible pages. Designed for small hands and big imaginations.</p>
+<div class="w-full max-w-lg mx-auto soft-shadow rounded-xl overflow-hidden mt-4">
+<img alt="La Cartilla de Gretel Physical Kit" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACRYMRsG1m9er_RXDTep--gGECUy52DWxmBzydIt3e8l_jxvBXD8N1rZohy-taV230giMp9F8I8gLi66Jj_HmFGP9mYnJAL8K0sVfj5OHh2O-CjsFFshF93AevxMC6dtCRrPKcb4uvpgqzYoPpeG2C-aZd-lEs_jn2ewJcYK-1CFdVwUk8QYmD1adZgmuWq9fdm__1YjBe8E3bccs2zB9KrwQ960SnQnqVPIFntS_aItQ2_l30k3KYY3_nxVZL6EQDI7b2hL2mXZs"/>
+</div>
+</div>
+</section>
+<!-- Legacy / Storytelling Section -->
+<section class="px-margin-mobile py-section-padding-v bg-secondary-container/20">
+<div class="max-w-container-max-width mx-auto flex flex-col gap-10">
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-label-md text-secondary tracking-wider uppercase">Our Legacy</span>
+<h2 class="font-headline-md text-headline-md text-on-background">Roots in Real Classrooms</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Our method isn't born in a lab; it's forged in vibrant, diverse learning environments across the globe. We believe teaching tools should serve the human connection, not replace it.
+                    </p>
+</div>
+<div class="w-full aspect-[4/3] rounded-2xl overflow-hidden soft-shadow">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuqMBgdocei8y1A2YoDNugQMDM_Mp0NMyx0dcon4cKtB28XCcr74OqX0UX-mq2fCZm5PcDURPlTu1TkomatsIRsSnayVCIVX_Z1dX0yW3BvUh3OvxNg-YMEpCZKea7UtBNr14cxI1KZ2oXuBgUgThXRsFaujzVJRYz3V_nhNmyn72sWHRteHgbudWWhNgMoR8aBEo8kYj1zWYzQ9bJsYivbyTAbCP3qf4LxWFdDo1nAXimhC9Q7-OmIqA"/>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-section-padding-v overflow-hidden bg-tertiary-fixed/20">
+<div class="px-margin-mobile flex flex-col gap-4 mb-8 text-center">
+<span class="font-label-md text-label-md text-tertiary-container tracking-wider uppercase">Global Reach</span>
+<h2 class="font-headline-md text-headline-md text-on-background">Learning Everywhere</h2>
+</div>
+<!-- Touch Optimized Slider -->
+<div class="flex overflow-x-auto gap-4 px-margin-mobile pb-8 snap-x snap-mandatory no-scrollbar">
+<div class="snap-center shrink-0 w-[85vw] max-w-sm rounded-2xl overflow-hidden soft-shadow">
+<img alt="" class="w-full aspect-square object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtvurJ_S5rg735F95HSrCJka4c1giivbxfDwH5DqWNCludqkMxFAv6ZOLXyYqYrNy4-ThYgbjaZxq4aKCUM09w3MeZWiKx6pr_aJQF7oBdQue43mmh7fTMU1pnkCpcgvv5pvrA2azcsSXLoWwymk3I5v4oEqa93MJv5qWtvrM5gj7EJUNI9jOCTEhVHphNz9N_xE6q-bky2Ejg-Q_3hO5LU8PSYixke-pA04PdW5cczbCjRnGozyDowf3Y"/>
+</div>
+<div class="snap-center shrink-0 w-[85vw] max-w-sm rounded-2xl overflow-hidden soft-shadow">
+<img alt="" class="w-full aspect-square object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLu8ipCBGhJTBq0wUIGEO-EtBr5UrIfSBHMukSPsgU_KYxL-D3XQQ83_tzrN4ZR3Vp9QeNn8bm8aG7FJyJ4LaZik87kmiSbmmWAnbjF_BwbTaN_gR_LBRlQUhV-fzwL6vcZuy9sRKSIkZDa2IKUeV9OSv3soDgI1jRGesiRbLpqIUsPnRWXRjHti2_YrK-ezQDWcK9uQ8w_sQHsSBUoYNpCSSg_uajnZSYs6i39xZb5W2oMgC6mPOVJHv9g"/>
+</div>
+<div class="snap-center shrink-0 w-[85vw] max-w-sm rounded-2xl overflow-hidden soft-shadow">
+<img alt="" class="w-full aspect-square object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtB7fUmsa102gQf27a6MZS0CgcrqjtE7EKd01d4jkP-s2PA7OrxJCmkX1kvqWIoDo8E72hOq5QwsCqjKR2Y6hFJv57O4ghzcWWqUqiR__vxNjshBQj3gTs8a_MD6ukM0NPf7Sy20NNtIxRvpcTRrkBDkZ8qUuuyPfQ4MAdJSyd4Qd5uStjiUHfE7wbaQKNoamOeRKda1ylSGqJ0JcEDBWR-nrAmf4uGTYeTDsWPEEBSjh368qH4FF-HGZE"/>
+</div>
+<div class="snap-center shrink-0 w-[85vw] max-w-sm rounded-2xl overflow-hidden soft-shadow"><img alt="Teacher and students with flipchart" class="w-full aspect-square object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxt1IErOk6lUmAde83XPry1prktGJKOnGPwqPAjiTEE1m6bLoLq90CliX565riKi6nAD1idjYOfnVV__IgJVFBtpYeiwoh7nktXj42BGEy1OP2sobwZmZCwTlGYv4eTiYlMiqZqYifo_vYx3EvBX_iL5FJoTbuCiFE1pRBJndH2jr6E25B4RYFAPVrGGuf3Oc-MCDRJU_NLsmHD1Oc4BeSPrPa0bqwHLOoDJ6qCk703K3UsG7Dr8oyf5YzMfrBRKb6oJTLTXfSTUI"/></div><div class="snap-center shrink-0 w-[85vw] max-w-sm rounded-2xl overflow-hidden soft-shadow"><img alt="Students sharing a book at a table" class="w-full aspect-square object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeOXPu-xXnsW1e7IhLHpQE9MrAG4rTjjYhDn6eMtE5SCI0dLmsOqG3ZztsMgsSNx1DMeS8V0aYlhT0oU2pNap2uaKX3AehJdtqHsXy74yPMisQ8-xggeGYe1Dv6RrXu0v4wZqz7Rv4whGRoThwInHmq3lG9b0MlLXVNmIM4At0wZemWMF5FFUBXttyD0c8pqm3eO7LtbErQqS5kTAJ7sbqdjKFF4j6P-prKzHvgfUijajht3LUHLzHoLT5GS9pK55EwPoe09bQBmE"/></div><div class="snap-center shrink-0 w-[85vw] max-w-sm rounded-2xl overflow-hidden soft-shadow"><img alt="Teacher and student reading together" class="w-full aspect-square object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGpAc1iRkqq1DzsmgFSJiq2VvYdet0-X82M9KMuSF-AMeSwYqiqmge4ZHOHkNTE6X7mqu5DsW8URAgofDxHnshPibaOclyr7viV_RUfL_LGBcTmujaHt1-QhgAsAYLV0MY6ka9XD-3rdaAjd2bNFtL-Yh3UjQW943nPepL8kESwN3vFtjL9gYxoUSl4suZzCAyGTMg57QYCtzymuN5kNO9XmaWd6j4wZAViK4_-0emBv2JFTaZV-f14b6Ul5_2iTsncOkUIHjvl6c"/></div></div>
+<div class="flex justify-center gap-2 mt-2"><div class="w-2 h-2 rounded-full bg-primary"></div><div class="w-2 h-2 rounded-full bg-surface-dim"></div><div class="w-2 h-2 rounded-full bg-surface-dim"></div><div class="w-2 h-2 rounded-full bg-surface-dim"></div><div class="w-2 h-2 rounded-full bg-surface-dim"></div><div class="w-2 h-2 rounded-full bg-surface-dim"></div></div>
+</section><section class="px-margin-mobile py-section-padding-v bg-surface-container-low">
+<div class="max-w-container-max-width mx-auto flex flex-col gap-8 items-center">
+<div class="text-center">
+<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Retail Partners</span>
+<h2 class="font-headline-md text-headline-md text-on-background mt-2">Available At</h2>
+</div>
+<div class="grid grid-cols-2 gap-6 w-full max-w-md">
+<div class="bg-white p-4 rounded-xl soft-shadow flex items-center justify-center aspect-[3/2]">
+<img alt="Amazon Kindle" class="max-h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqqjSEn-3XCmL1zwQEvB5eIb75qXXqn8T4lzsEATTQkwVWHAw16Da05Fyziy4G5FiU1GMSWZn9waXi5mr-dfKCeRAwU1PU1dWrvqlrI8MMJpe110n8ITabGNMmUPR5TOniztDjgLO0oiuEOiGE0yeEmD3BEAfg_1OclaHe6LKfaH4OUlUfgkmSi_GJwhqh--FFrxHf-ya2TjLHOG9wxvuL2UVakUDC4FtYbQO-hQdkLS9WrhDCgiuKwpL2R7r1tsk_F4W5LKtp78g"/>
+</div>
+<div class="bg-white p-4 rounded-xl soft-shadow flex items-center justify-center aspect-[3/2]">
+<img alt="Rakuten Kobo" class="max-h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChc3044mU2Jm4TNiD338MGgoTXM4twiZ2T4LGdNvVXY0gYJP_pjf8sOVcD7koX3aofNjTJtRiPqfrOBF5IZZICMeZDwU1na4KChBIHLsKM0Wj6TxGexxujMGgy7w7GdVGNe0eqAbERtbHgUzBdSRuK2DG7juPeU5G8xDdFriLqTn09eXD6Pbp0cqePaD9_9RvCghfs1pISbmDSphs-uMhv-3_4tGrerU88rqPuoGIHo694s0_rGEaDHTMmri9LeK_EkdBIYcQpJuA"/>
+</div>
+<div class="bg-white p-4 rounded-xl soft-shadow flex items-center justify-center aspect-[3/2]">
+<img alt="Audible" class="max-h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALg5ebNd5dqvIv72hVY6f46ns6VL_0Ut6NAyleVT-UrJYzijJY8elOJvR57NBozDBiWBTr2syDVsqYywK4eKOq0Fy_8xQbJpKCQngQLfKSWD8BvNuS3Ejw3Gr1gZGf1kQUXUkk2xxSRx1lm81r29Q0PNCgZsuNM_o4icz3VHXwqR7cls1z8HyQpNzSCnMuABbfz7jj4cFEu_-0fCvr_GhVJUcuOpF5fn1XCPjtrUM2yqBSyczY5LLKrl3FgNcQ1eMzX-sxQVlpdkk"/>
+</div>
+<div class="bg-white p-4 rounded-xl soft-shadow flex items-center justify-center aspect-[3/2]">
+<img alt="Barnes &amp; Noble" class="max-h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK6hKv2gvle5D-T7yEN5igxcN3P_G7ix49vza6xEQRlbxBPvy0uMWvIhCfSqUxSfBCyssiNK4ukLrEXOCSlU0Qty7roJlCvpf4s87WPb84O6vkUk-g-hPkESDs4okIdQrsqTUiu9iCzp_w7Mx8rnIWKq32dOXAuYsd58CjKSdS6u3sPC1YMmvTj0vBgw07ZZFXSrGkzFo9pZDffLyh5VSuPKxoQc7yiIq5l7w0GUtRuG39FVCT7TodhQkEjYEFUyAPLhSzvjGbBOQ"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest max-w-[1200px] mx-auto px-margin-mobile py-section-padding-v grid grid-cols-1 md:grid-cols-3 gap-gutter full-width flat no shadows transition-all duration-200">
+<div class="flex flex-col gap-4">
+<div class="font-headline-sm text-headline-sm font-black text-inverse-on-surface">
+                LANY Books
+            </div>
+<p class="font-body-md text-body-md text-surface-variant dark:text-on-surface-variant opacity-80">
+                Bridging traditional pedagogy with engaging physical tools for the next generation of learners.
+            </p>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-label-md text-label-md text-surface-variant dark:text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md text-surface-variant dark:text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-surface-variant dark:text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-label-md text-label-md text-surface-variant dark:text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Help Center</a>
+<a class="font-label-md text-label-md text-surface-variant dark:text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity" href="#">Accessibility</a>
+<div class="mt-4 font-body-md text-body-md text-surface-variant dark:text-on-surface-variant opacity-80 text-sm">
+                 © 2004-2026 Leonor Lopetegui. All rights reserved.
+             </div>
+</div>
+</footer>
+</body></html>

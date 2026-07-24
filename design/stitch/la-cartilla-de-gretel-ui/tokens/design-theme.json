@@ -1,0 +1,121 @@
+{
+  "colorMode": "LIGHT",
+  "font": "PLUS_JAKARTA_SANS",
+  "roundness": "ROUND_EIGHT",
+  "customColor": "#e2574c",
+  "headlineFont": "PLUS_JAKARTA_SANS",
+  "bodyFont": "PLUS_JAKARTA_SANS",
+  "labelFont": "PLUS_JAKARTA_SANS",
+  "namedColors": {
+    "background": "#fef8f3",
+    "error": "#ba1a1a",
+    "error_container": "#ffdad6",
+    "inverse_on_surface": "#f5f0eb",
+    "inverse_primary": "#ffb4ab",
+    "inverse_surface": "#32302d",
+    "on_background": "#1d1b19",
+    "on_error": "#ffffff",
+    "on_error_container": "#93000a",
+    "on_primary": "#ffffff",
+    "on_primary_container": "#fffbff",
+    "on_primary_fixed": "#410002",
+    "on_primary_fixed_variant": "#8c1815",
+    "on_secondary": "#ffffff",
+    "on_secondary_container": "#784709",
+    "on_secondary_fixed": "#2d1600",
+    "on_secondary_fixed_variant": "#6a3c00",
+    "on_surface": "#1d1b19",
+    "on_surface_variant": "#59413e",
+    "on_tertiary": "#ffffff",
+    "on_tertiary_container": "#fdfcff",
+    "on_tertiary_fixed": "#001c39",
+    "on_tertiary_fixed_variant": "#004883",
+    "outline": "#8c716d",
+    "outline_variant": "#e0bfbb",
+    "primary": "#aa2e28",
+    "primary_container": "#cc473d",
+    "primary_fixed": "#ffdad6",
+    "primary_fixed_dim": "#ffb4ab",
+    "secondary": "#875216",
+    "secondary_container": "#feb873",
+    "secondary_fixed": "#ffdcbe",
+    "secondary_fixed_dim": "#feb873",
+    "surface": "#fef8f3",
+    "surface_bright": "#fef8f3",
+    "surface_container": "#f2ede8",
+    "surface_container_high": "#ece7e2",
+    "surface_container_highest": "#e6e2dd",
+    "surface_container_low": "#f8f3ee",
+    "surface_container_lowest": "#ffffff",
+    "surface_dim": "#ded9d4",
+    "surface_tint": "#ad312a",
+    "surface_variant": "#e6e2dd",
+    "tertiary": "#005da7",
+    "tertiary_container": "#2976c7",
+    "tertiary_fixed": "#d4e3ff",
+    "tertiary_fixed_dim": "#a4c9ff"
+  },
+  "designMd": "---\nname: Gretel Storybook System\ncolors:\n  surface: '#fef8f3'\n  surface-dim: '#ded9d4'\n  surface-bright: '#fef8f3'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f8f3ee'\n  surface-container: '#f2ede8'\n  surface-container-high: '#ece7e2'\n  surface-container-highest: '#e6e2dd'\n  on-surface: '#1d1b19'\n  on-surface-variant: '#59413e'\n  inverse-surface: '#32302d'\n  inverse-on-surface: '#f5f0eb'\n  outline: '#8c716d'\n  outline-variant: '#e0bfbb'\n  surface-tint: '#ad312a'\n  primary: '#aa2e28'\n  on-primary: '#ffffff'\n  primary-container: '#cc473d'\n  on-primary-container: '#fffbff'\n  inverse-primary: '#ffb4ab'\n  secondary: '#875216'\n  on-secondary: '#ffffff'\n  secondary-container: '#feb873'\n  on-secondary-container: '#784709'\n  tertiary: '#005da7'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#2976c7'\n  on-tertiary-container: '#fdfcff'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#ffdad6'\n  primary-fixed-dim: '#ffb4ab'\n  on-primary-fixed: '#410002'\n  on-primary-fixed-variant: '#8c1815'\n  secondary-fixed: '#ffdcbe'\n  secondary-fixed-dim: '#feb873'\n  on-secondary-fixed: '#2d1600'\n  on-secondary-fixed-variant: '#6a3c00'\n  tertiary-fixed: '#d4e3ff'\n  tertiary-fixed-dim: '#a4c9ff'\n  on-tertiary-fixed: '#001c39'\n  on-tertiary-fixed-variant: '#004883'\n  background: '#fef8f3'\n  on-background: '#1d1b19'\n  surface-variant: '#e6e2dd'\ntypography:\n  display-hero:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 48px\n    fontWeight: '700'\n    lineHeight: 56px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 32px\n    fontWeight: '700'\n    lineHeight: 40px\n  headline-lg-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 28px\n    fontWeight: '700'\n    lineHeight: 36px\n  body-reading:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 24px\n    fontWeight: '500'\n    lineHeight: 36px\n  body-reading-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 20px\n    fontWeight: '500'\n    lineHeight: 30px\n  label-bold:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 18px\n    fontWeight: '700'\n    lineHeight: 24px\n    letterSpacing: 0.05em\n  alphabet-card:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 64px\n    fontWeight: '700'\n    lineHeight: 72px\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  touch-target-min: 3.5rem\n  gutter: 1.5rem\n  margin-page: 2rem\n  card-gap: 1rem\n  section-padding: 3rem\n---\n\n## Brand & Style\n\nThe brand personality is nurturing, whimsical, and educational, specifically tailored for children aged 4-6. The design system prioritizes a \"calm-tech\" approach, avoiding the overstimulating animations and loud palettes typical of arcade-style apps. Instead, it leverages a storybook aesthetic that feels like a natural extension of a physical literacy primer.\n\nThe visual style is **Tactile / Modern Storybook**. It utilizes soft, hand-drawn line work and a flat design language that avoids complex gradients or glossy finishes. The goal is to evoke an emotional response of security and curiosity, encouraging young learners to explore Spanish literacy at their own pace within a familiar, warm environment.\n\n## Colors\n\nThe palette is derived directly from the illustrative heritage of the product. The primary red (`#E2574C`) is used for active elements and key highlights, reflecting the character's dress. The secondary gold-brown (`#B5793A`) is reserved for navigational accents and grounded elements. A soft storybook blue (`#4A90E2`) is introduced for secondary interactions to maintain a balanced, classic color harmony.\n\nThe background uses a warm, off-white cream (`#FDF8F3`) rather than pure white to reduce eye strain and mimic the texture of paper. All colors are applied with a \"flat-plus\" approach: solid fills with subtle, hand-drawn ink-style borders rather than digital shadows.\n\n## Typography\n\nTypography is the cornerstone of this literacy app. **Plus Jakarta Sans** is selected for its friendly, rounded terminals and open counters, which aid letter recognition for early readers. \n\nKey typographic rules:\n- **High Legibility:** Never use font sizes below 18px to ensure accessibility for young eyes and developing motor skills.\n- **Letter Spacing:** Increased letter spacing for \"alphabet-cards\" to help children distinguish individual characters.\n- **Reading Rhythm:** Large line heights (1.5x) are used for \"body-reading\" to prevent lines of Spanish text from feeling cluttered or overwhelming.\n\n## Layout & Spacing\n\nThe layout follows a **Fixed Grid** philosophy to maintain the \"book-like\" structure across devices. Content is centered within safe margins to ensure the character of Gretel remains a focal point on the screen.\n\n- **Desktop/Tablet:** 12-column grid with wide 32px gutters to allow the storybook illustrations to breathe.\n- **Mobile:** 4-column grid with 16px gutters.\n- **Touch Targets:** A strict minimum touch target of 56px (3.5rem) is enforced for all interactive elements, accommodating the less precise motor skills of 4-6 year olds. \n- **Whitespace:** Generous padding between sections prevents the \"arcade\" look, maintaining a calm, focused learning environment.\n\n## Elevation & Depth\n\nThis system avoids digital shadows in favor of **Tonal Layers** and **Line Art Depth**. \n- **The Ink Line:** Interactive elements are defined by a subtle 2px border in a slightly darker shade of the element's fill color, mimicking hand-drawn ink.\n- **Physicality:** Instead of elevation via shadows, \"pressed\" states for buttons use a slight downward shift (2px) and a darker tonal fill to simulate a physical push.\n- **Layering:** Background elements use the skin tone (`#F6D2B3`) or pale pastel washes to sit \"behind\" the primary red and blue interface components.\n\n## Shapes\n\nThe shape language is consistently **Rounded**. There are no sharp corners in the design system. All containers, buttons, and cards use a 1rem (`rounded-md`) or 1.5rem (`rounded-xl`) corner radius to evoke a soft, safe, and friendly feel. \n\nProgress indicators and letter containers use perfect circles or pill shapes to distinguish them from navigational buttons.\n\n## Components\n\n### Buttons\nButtons are large, pill-shaped, and use the Primary Red (`#E2574C`) for \"Go/Next\" actions. They feature a thick bottom-border (4px) in a darker shade to create a \"squishy\" tactile appearance without using shadows.\n\n### Letter Cards\nLarge, rounded squares (`rounded-xl`) with a Neutral (`#FDF8F3`) background and a 2px ink-style border. The character is centered using the `alphabet-card` typography style.\n\n### Navigation\nSimple, icon-based navigation (Home, Back, Audio). Icons use thick, rounded strokes that match the hand-drawn style of the Gretel character illustrations.\n\n### Input Fields\nUsed sparingly for names. They should appear as \"lined paper\" underscores rather than boxed-in rectangles to feel more like a classroom workbook.\n\n### Progress Indicators\nRepresented by a row of small icons (like the flowers on Gretel\u2019s dress). As the child progresses, the flowers change from a subtle outline to a solid Primary Red fill.",
+  "colorVariant": "FIDELITY",
+  "overridePrimaryColor": "#e2574c",
+  "overrideSecondaryColor": "#b5793a",
+  "overrideTertiaryColor": "#4a90e2",
+  "overrideNeutralColor": "#fdf8f3",
+  "spacingScale": 2,
+  "typography": {
+    "alphabet-card": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "64px",
+      "fontWeight": "700",
+      "lineHeight": "72px"
+    },
+    "body-reading": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "24px",
+      "fontWeight": "500",
+      "lineHeight": "36px"
+    },
+    "body-reading-mobile": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "20px",
+      "fontWeight": "500",
+      "lineHeight": "30px"
+    },
+    "display-hero": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "48px",
+      "fontWeight": "700",
+      "lineHeight": "56px",
+      "letterSpacing": "-0.02em"
+    },
+    "headline-lg": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "32px",
+      "fontWeight": "700",
+      "lineHeight": "40px"
+    },
+    "headline-lg-mobile": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "28px",
+      "fontWeight": "700",
+      "lineHeight": "36px"
+    },
+    "label-bold": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "18px",
+      "fontWeight": "700",
+      "lineHeight": "24px",
+      "letterSpacing": "0.05em"
+    }
+  },
+  "spacing": {
+    "card-gap": "1rem",
+    "gutter": "1.5rem",
+    "margin-page": "2rem",
+    "section-padding": "3rem",
+    "touch-target-min": "3.5rem"
+  },
+  "headlineFontFamily": "Plus Jakarta Sans",
+  "bodyFontFamily": "Plus Jakarta Sans",
+  "labelFontFamily": "Plus Jakarta Sans"
+}

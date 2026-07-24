@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La Cartilla de Gretel - Mobile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#7a9a81",
+                    "secondary-fixed": "#eae3c1",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#cdc7a6",
+                    "on-tertiary-fixed": "#03210f",
+                    "inverse-surface": "#313030",
+                    "on-tertiary-fixed-variant": "#304d38",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#6499b9",
+                    "tertiary": "#47654f",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-fixed": "#c9ebce",
+                    "on-primary-container": "#002f43",
+                    "on-background": "#1c1b1b",
+                    "surface-tint": "#2c6482",
+                    "primary-fixed-dim": "#98cdef",
+                    "surface-container": "#f0eded",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-primary-fixed": "#001e2d",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#1e1c07",
+                    "primary-fixed": "#c5e7ff",
+                    "on-surface-variant": "#41484d",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#14311e",
+                    "outline": "#71787e",
+                    "inverse-primary": "#98cdef",
+                    "surface-variant": "#e5e2e1",
+                    "primary": "#2c6482",
+                    "surface-bright": "#fcf9f8",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#e7e0be",
+                    "secondary": "#635f44",
+                    "on-secondary-container": "#676348",
+                    "surface": "#fcf9f8",
+                    "outline-variant": "#c0c7ce",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-primary-fixed-variant": "#074c69",
+                    "tertiary-fixed-dim": "#adcfb3",
+                    "background": "#fcf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#4b472e",
+                    "surface-container-high": "#eae7e7",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "section-padding-v": "80px",
+                    "container-max-width": "1200px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "button": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "button": ["15px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: #fcf9f8;
+            color: #1c1b1b;
+            overflow-x: hidden;
+        }
+        .dark body, body.dark-mode {
+            background-color: #1c1b1b !important;
+            color: #fcf9f8 !important;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .snap-x {
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .snap-x::-webkit-scrollbar {
+            display: none;
+        }
+        .snap-center {
+            scroll-snap-align: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        html.dark .glass-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    
+    /* Language Toggle Styles */
+    html[lang="es"] .lang-en { display: none !important; }
+    html[lang="en"] .lang-es { display: none !important; }
+    html[lang="es"] .lang-es { display: inline-block; }
+    html[lang="en"] .lang-en { display: inline-block; }
+    
+    /* Block level element overrides for language */
+    html[lang="es"] div.lang-en, html[lang="es"] p.lang-en, html[lang="es"] h1.lang-en, html[lang="es"] h2.lang-en, html[lang="es"] h3.lang-en, html[lang="es"] h4.lang-en { display: none !important; }
+    html[lang="en"] div.lang-es, html[lang="en"] p.lang-es, html[lang="en"] h1.lang-es, html[lang="en"] h2.lang-es, html[lang="en"] h3.lang-es, html[lang="en"] h4.lang-es { display: none !important; }
+    html[lang="es"] div.lang-es, html[lang="es"] p.lang-es, html[lang="es"] h1.lang-es, html[lang="es"] h2.lang-es, html[lang="es"] h3.lang-es, html[lang="es"] h4.lang-es { display: block; }
+    html[lang="en"] div.lang-en, html[lang="en"] p.lang-en, html[lang="en"] h1.lang-en, html[lang="en"] h2.lang-en, html[lang="en"] h3.lang-en, html[lang="en"] h4.lang-en { display: block; }
+  </style>
+</head>
+<body class="bg-background dark:bg-gray-900 text-on-background dark:text-gray-100 transition-colors duration-300">
+<!-- TopNavBar (Shared Component Pivot) -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-surface/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm transition-colors duration-300">
+<div class="flex justify-between items-center px-5 py-4 max-w-container-max-width mx-auto">
+<div class="text-headline-sm font-display-lg leading-none text-primary dark:text-primary-fixed">
+                La Cartilla de Gretel
+            </div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container dark:bg-gray-800 text-on-surface dark:text-gray-200" onclick="toggleLang()">
+<span class="lang-es font-bold text-sm">ES</span>
+<span class="lang-en font-bold text-sm">EN</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container dark:bg-gray-800 text-on-surface dark:text-gray-200" onclick="toggleTheme()">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+<button class="hidden sm:block bg-primary text-on-primary px-4 py-2 rounded-full font-button text-button transition-transform active:scale-95 shadow-md">
+<span class="lang-en">Join Waitlist</span>
+<span class="lang-es">Unirse</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-[72px]">
+<!-- 1. Mobile Hero -->
+<section class="relative h-[707px] flex flex-col justify-end overflow-hidden transition-all duration-700 ease-out opacity-100 translate-y-0">
+<div class="absolute inset-0 z-0">
+<img alt="Young child reading La Cartilla de Gretel in a cozy nook" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADrr5Psk79J84ZLsQQQWB4wApTc_3eabUbhqo2lpbfLvZpkUfkdFm7zIrk6G76XO4kXIMg4IajmfapERnEB7wmZvmfp86shJ0-5-YjtwuG2MFPpxnwImLVPw0zcCuyoZOtAZ14mWw6JSsynJBoBgftv9PNGHTfNLQ2FOCgHEVMpOp15AUrSIppor51DS78hId8uqW4iZRjTA_peqBAOHO6m91nxT1qBvGDh6sa52iJBI5Wc2h4WxGzZizYquXyPlFba5cJqHrhFv4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background dark:from-gray-900 via-background/40 dark:via-gray-900/40 to-transparent transition-colors duration-300"></div>
+</div>
+<div class="relative z-10 px-5 pb-12">
+<span class="inline-block px-3 py-1 bg-primary/10 dark:bg-primary/30 text-primary dark:text-primary-fixed font-label-md text-label-md rounded-full mb-4">
+<span class="lang-en">Educational Excellence</span>
+<span class="lang-es">Excelencia Educativa</span>
+</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed mb-4">
+<span class="lang-en">A 50-Year Legacy... Reimagined for the Digital Age</span>
+<span class="lang-es">Un Legado de 50 Años... Reimaginado para la Era Digital</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-300 max-w-sm">
+<span class="lang-en">Bridging traditional pedagogy with cutting-edge classroom management for the modern educator.</span>
+<span class="lang-es">Uniendo la pedagogía tradicional con tecnología de vanguardia para el educador moderno.</span>
+</p>
+</div>
+</section>
+<!-- 2. CRM Preview (Real Screenshots) -->
+<section class="py-section-padding-v bg-secondary-container/20 dark:bg-gray-800/50 transition-all duration-700 ease-out opacity-100 translate-y-0">
+<div class="px-5 mb-10">
+<h2 class="font-headline-md text-headline-md text-on-background dark:text-white mb-4 text-center">
+<span class="lang-en">Modern Digital Platform</span>
+<span class="lang-es">Plataforma Digital Moderna</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-400 text-center px-4">
+<span class="lang-en">Empowering teachers with actionable insights and automated reporting.</span>
+<span class="lang-es">Empoderando a los profesores con información procesable y reportes automáticos.</span>
+</p>
+</div>
+<div class="flex flex-col gap-12 px-5">
+<!-- Tablero Feature -->
+<div class="space-y-4">
+<div class="rounded-xl overflow-hidden shadow-2xl bg-white dark:bg-gray-800 p-2">
+<img class="w-full h-auto rounded-lg" data-alt="A clean, professional screenshot of the teacher CRM dashboard showing classroom statistics including active students and average progress with soft pastel green and yellow accent colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0S99k1lc4JC8_CFNRovl96SKrnndlsy_cPSgM36lGcMghxzefC5VQ1mXncXF_2tDSBlvPwivSOKXWFEiIbYZcSON9Y_qVo60EU9xpEiN2Xlynl2HMxdZkVduX3KR2-Ep2JNT_edRrz17nXwMUfj4fjCHc8YEaL7-f_Cx3b3CbTnZl65P4m5zT2qxYOy6OWMOLW_nvuOEh3uSOwTwLGxowQIEgBeUqimsPRIBJ5WGgxqtzZl2Ekw_RukohCzFTMGO8rybWlEnQSLE"/>
+</div>
+<div class="text-center px-4">
+<div class="flex justify-center mb-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed text-3xl">dashboard</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm dark:text-white">Tablero de Control</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-400">
+<span class="lang-en">Real-time progress tracking at a glance for your entire classroom.</span>
+<span class="lang-es">Seguimiento del progreso en tiempo real de un vistazo para toda la clase.</span>
+</p>
+</div>
+</div>
+<!-- Progreso Feature -->
+<div class="space-y-4">
+<div class="rounded-xl overflow-hidden shadow-2xl bg-white dark:bg-gray-800 p-2">
+<img class="w-full h-auto rounded-lg" data-alt="A UI screenshot showing a student's individual lesson progress grid with 24 numbered lessons color-coded by completion status using soft green and amber tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkbJT_-EwkPkgbE29lSEdlNNYlK_R8eJs0RxTTxQ9yivvYcGSMIJVf0YyyXUX6li4lkDyB98qYIwR7JLbWAjv2PgrgXMmGMedCVha_xF7znWDySU9PJv5NoJGsCo1zvwnVY2VNME3HHuvEt1BlQOZ_2uGIVuvq4FZIE4M_x8a23LSAknz6RoAyWzGSkejahx3iw6DIIE2v0BpvQu1lWO0JBnOQ1-9dPvLrFMQhkHEGwvAkpcBJiTOgw1x_IMJSrDco1SBPoGUDI6Q"/>
+</div>
+<div class="text-center px-4">
+<div class="flex justify-center mb-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed text-3xl">analytics</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm dark:text-white">
+<span class="lang-en">Individualized Lessons</span>
+<span class="lang-es">Lecciones Individualizadas</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-400">
+<span class="lang-en">Detailed lesson reporting to identify specific learning gaps for every student.</span>
+<span class="lang-es">Reportes detallados para identificar brechas de aprendizaje específicas por alumno.</span>
+</p>
+</div>
+</div>
+<!-- Reporte Feature -->
+<div class="space-y-4">
+<div class="rounded-xl overflow-hidden shadow-2xl bg-white dark:bg-gray-800 p-2 border-4 border-surface-container-highest dark:border-gray-700">
+<img class="w-full h-auto rounded-lg" data-alt="A mobile UI view of a family progress report featuring clean typography, student performance metrics, and a warm, encouraging teacher comment box." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlCcOdkT8QY3DguwC5yQEGRMEVBzaRK4_BJfvPDZY8AriD1k0WxLvdcHjNzI7orP9b156pAcdn1gN1esfob_Ec2Mwbp34jM42SY_iAdTtOfzqafbmXLpdhNSC3IupwRvn7K9faTCmGfb7atZFYDY3dqr-oVy06SF9k_ZYBBonUhf46UzotWQ2bbHTfNgczlt2pQjFnkOtZRMk-ZTIs59uURUsBJDcLbrKO1gaTSECdX1GfpzBgtEKzRgOmc4Ruj72GqX15rgk5SfE"/>
+</div>
+<div class="text-center px-4">
+<div class="flex justify-center mb-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed text-3xl">family_restroom</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm dark:text-white">
+<span class="lang-en">Family-Ready Updates</span>
+<span class="lang-es">Actualizaciones para Familias</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-400">
+<span class="lang-en">Instant, shareable reports designed to keep parents engaged and informed.</span>
+<span class="lang-es">Reportes compartibles diseñados para mantener a los padres informados.</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Upcoming Books (Mobile Carousel) -->
+<section class="py-section-padding-v bg-background dark:bg-gray-900 overflow-hidden transition-all duration-700 ease-out opacity-100 translate-y-0">
+<div class="px-5 mb-8">
+<h2 class="font-headline-md text-headline-md dark:text-white">
+<span class="lang-en">Upcoming Books</span>
+<span class="lang-es">Próximos Libros</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-400">
+<span class="lang-en">Expanding our literary collection for every stage of growth.</span>
+<span class="lang-es">Ampliando nuestra colección para cada etapa de crecimiento.</span>
+</p>
+</div>
+<div class="flex snap-x overflow-x-auto gap-6 px-5 pb-8">
+<!-- Book 1 -->
+<div class="snap-center shrink-0 w-[260px]">
+<div class="bg-primary-container/10 dark:bg-primary-container/20 rounded-2xl p-4 aspect-[3/4] flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-full h-48 bg-white/50 dark:bg-gray-800/50 rounded-lg mb-4 flex items-center justify-center">
+<span class="font-display-lg text-primary/30 dark:text-primary-fixed/50">1</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-1 dark:text-white">Primer Nivel</h4>
+<p class="font-label-md text-label-md text-on-surface-variant dark:text-gray-400">
+<span class="lang-en">Phonetics Mastery</span>
+<span class="lang-es">Dominio Fonético</span>
+</p>
+</div>
+</div>
+<!-- Book 2 -->
+<div class="snap-center shrink-0 w-[260px]">
+<div class="bg-secondary-container/10 dark:bg-secondary-container/20 rounded-2xl p-4 aspect-[3/4] flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-full h-48 bg-white/50 dark:bg-gray-800/50 rounded-lg mb-4 flex items-center justify-center">
+<span class="font-display-lg text-secondary/30 dark:text-secondary-fixed/50">2</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-1 dark:text-white">Segundo Nivel</h4>
+<p class="font-label-md text-label-md text-on-surface-variant dark:text-gray-400">
+<span class="lang-en">Fluency Foundations</span>
+<span class="lang-es">Fundamentos de Fluidez</span>
+</p>
+</div>
+</div>
+<!-- Book 3 -->
+<div class="snap-center shrink-0 w-[260px]">
+<div class="bg-tertiary-fixed/20 dark:bg-tertiary-fixed/10 rounded-2xl p-4 aspect-[3/4] flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-full h-48 bg-white/50 dark:bg-gray-800/50 rounded-lg mb-4 flex items-center justify-center">
+<span class="font-display-lg text-tertiary/30 dark:text-tertiary-fixed/50">C</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-1 dark:text-white">Cuentos</h4>
+<p class="font-label-md text-label-md text-on-surface-variant dark:text-gray-400">
+<span class="lang-en">Imaginative Narratives</span>
+<span class="lang-es">Narrativas Imaginativas</span>
+</p>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-2 mt-4">
+<div class="w-2 h-2 rounded-full bg-primary dark:bg-primary-fixed"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant dark:bg-gray-700"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant dark:bg-gray-700"></div>
+</div>
+</section>
+<!-- 4. Method Section -->
+<section class="py-section-padding-v bg-tertiary-fixed dark:bg-gray-800 text-on-tertiary-fixed dark:text-white relative overflow-hidden transition-all duration-700 ease-out opacity-100 translate-y-0">
+<div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]">auto_stories</span>
+</div>
+<div class="px-5 relative z-10"><div class="flex snap-x overflow-x-auto gap-6 pb-8">
+<!-- Slide 1: Image -->
+<div class="snap-center shrink-0 w-[85vw]">
+<div class="rounded-3xl overflow-hidden shadow-xl">
+<img alt="Teacher using the Gretel method in a bright classroom" class="w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5eIPt4thTHjfBoe73RcG3Y69qpnkTVkKiitTu86n-fdbZGQJtvFNte7g4ZS595USGVlTtCI7viPWknAvPg8UGOZc7mELZYRyjBkp5yrwbx5dDjYVIuZV_NF0Tz56IuLKyihm8cKDbhKJmmRd9FYii633nIDh77b7oaeDY9G_LAaItttf0ZUKpvhh3TQL6BSvIwM6VdiKMYGkJfKQWIbVK3oJzvfJgRcKGoPPwPaK3CCn9j955sPg-fMcufD0A75wxBS8WFvp9yqM"/>
+</div>
+</div>
+<!-- Slide 2: Quote Card -->
+<div class="snap-center shrink-0 w-[85vw]">
+<div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md p-6 rounded-2xl shadow-lg h-full flex flex-col justify-center">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed mb-4 text-4xl">format_quote</span>
+<blockquote class="font-headline-sm text-headline-sm text-on-background dark:text-gray-100 mb-4 italic">
+<span class="lang-en">"A 50-year veteran method that has taught thousands of children the joy of reading."</span>
+<span class="lang-es">"Un método de 50 años que ha enseñado a miles de niños la alegría de leer."</span>
+</blockquote>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary/20 dark:bg-primary-fixed/20 flex items-center justify-center text-primary dark:text-primary-fixed font-bold">LL</div>
+<div>
+<p class="font-label-md text-label-md text-on-background dark:text-white">Leonor Lopetegui</p>
+<p class="text-[12px] text-on-surface-variant dark:text-gray-400 uppercase tracking-wider">
+<span class="lang-en">Method Author</span>
+<span class="lang-es">Autora del Método</span>
+</p>
+</div>
+</div>
+</div>
+</div><div class="snap-center shrink-0 w-[85vw]"><div class="rounded-3xl overflow-hidden shadow-xl"><img alt="Diverse students reading La Cartilla de Gretel together" class="w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6rjowkRjz1mic9_FFi_IqETIAcZUCgC5S2nyyUx2XAOsFAzEAtJLhyE2QLUnTAU-63h4P29enRNT8nYU3MJ24KD3qsNw_moK5ElyxzI-gD3bUMqniK0pbPIcj2f0b1VJ3ziESeOYqPwPMKGCITn4cZA67433O30WLxpBld34wqrIFeAfA3aPA0SdHXdAA0Gk3ydNCLXhGEEM9xTP3Zscy8cwj2Nc5kgy1W2bUGDfeYkMouprEQKGQTeYELzP3ViBuM8g2kuWWqP0"/></div></div>
+</div>
+<div class="flex justify-center gap-2 mt-4">
+<div class="w-2 h-2 rounded-full bg-primary dark:bg-primary-fixed"></div>
+<div class="w-2 h-2 rounded-full bg-white/50 dark:bg-gray-600"><div class="w-2 h-2 rounded-full bg-white/50 dark:bg-gray-600"></div></div>
+</div></div>
+</section>
+<!-- 5. Mobile Waitlist -->
+<section class="py-section-padding-v px-5 bg-background dark:bg-gray-900 transition-all duration-700 ease-out opacity-100 translate-y-0">
+<div class="bg-primary dark:bg-primary-container p-8 rounded-[32px] text-on-primary dark:text-on-primary-container text-center">
+<h2 class="font-display-lg-mobile text-display-lg-mobile mb-4">
+<span class="lang-en">Be the First to Know</span>
+<span class="lang-es">Sé el Primero en Saber</span>
+</h2>
+<p class="font-body-md text-body-md mb-8 opacity-90">
+<span class="lang-en">Join our exclusive waitlist for educators and early-access users of the digital platform.</span>
+<span class="lang-es">Únete a la lista de espera exclusiva para educadores y pioneros de la plataforma digital.</span>
+</p>
+<form class="space-y-4" onsubmit="event.preventDefault(); alert('Subscribed!')">
+<div>
+<input class="w-full px-6 py-4 rounded-xl border-none text-on-surface font-body-md focus:ring-4 focus:ring-primary-container/50 dark:bg-gray-800 dark:text-white" placeholder="Full Name / Nombre Completo" type="text"/>
+</div>
+<div>
+<input class="w-full px-6 py-4 rounded-xl border-none text-on-surface font-body-md focus:ring-4 focus:ring-primary-container/50 dark:bg-gray-800 dark:text-white" placeholder="Email Address / Correo" type="email"/>
+</div>
+<button class="w-full bg-on-primary dark:bg-primary text-primary dark:text-white py-4 rounded-full font-button text-button shadow-lg active:scale-[0.98] transition-transform" type="submit">
+<span class="lang-en">Join Waitlist</span>
+<span class="lang-es">Unirse a la Lista</span>
+</button>
+</form>
+<p class="mt-6 text-[12px] opacity-70">
+<span class="lang-en">No spam. Just updates on our digital evolution.</span>
+<span class="lang-es">Sin spam. Solo actualizaciones de nuestra evolución.</span>
+</p>
+</div>
+</section>
+<!-- Footer (Shared Component Adaptation) -->
+<footer class="bg-tertiary-fixed dark:bg-gray-950 py-12 px-5 transition-colors duration-300">
+<div class="max-w-container-max-width mx-auto flex flex-col items-center gap-8">
+<div class="font-display-lg text-headline-sm text-on-tertiary-fixed dark:text-white">
+                    La Cartilla de Gretel
+                </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-gray-400 hover:text-on-tertiary dark:hover:text-white transition-colors" href="#">Newsletter</a>
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-gray-400 hover:text-on-tertiary dark:hover:text-white transition-colors" href="#">Facebook</a>
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-gray-400 hover:text-on-tertiary dark:hover:text-white transition-colors" href="#">Instagram</a>
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-gray-400 hover:text-on-tertiary dark:hover:text-white transition-colors" href="#">Twitter</a>
+</div>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-gray-500 opacity-60 text-center">
+                    © 2024 La Cartilla de Gretel. All rights reserved.
+                </p>
+</div>
+</footer>
+</main>
+<!-- FAB for quick action (Optional, per design system rules) -->
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center z-50 transition-transform active:scale-90 md:hidden">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+</button>
+<script>
+        // Simple intersection observer for reveal effects
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Theme and Language Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+            }
+        }
+
+        function toggleLang() {
+            const html = document.documentElement;
+            if (html.getAttribute('lang') === 'es') {
+                html.setAttribute('lang', 'en');
+            } else {
+                html.setAttribute('lang', 'es');
+            }
+        }
+    </script>
+</body></html>

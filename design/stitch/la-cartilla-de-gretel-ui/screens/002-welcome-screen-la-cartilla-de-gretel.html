@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La Cartilla de Gretel - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#ece7e2",
+                      "surface": "#fef8f3",
+                      "on-primary-container": "#fffbff",
+                      "primary-fixed": "#ffdad6",
+                      "primary-container": "#cc473d",
+                      "inverse-surface": "#32302d",
+                      "surface-bright": "#fef8f3",
+                      "surface-container-low": "#f8f3ee",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#f2ede8",
+                      "on-background": "#1d1b19",
+                      "surface-dim": "#ded9d4",
+                      "primary-fixed-dim": "#ffb4ab",
+                      "surface-container-highest": "#e6e2dd",
+                      "secondary-fixed": "#ffdcbe",
+                      "on-secondary-fixed": "#2d1600",
+                      "on-tertiary-fixed-variant": "#004883",
+                      "on-primary-fixed": "#410002",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#8c1815",
+                      "secondary-container": "#feb873",
+                      "primary": "#aa2e28",
+                      "on-surface-variant": "#59413e",
+                      "outline-variant": "#e0bfbb",
+                      "on-surface": "#1d1b19",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#875216",
+                      "on-tertiary-fixed": "#001c39",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e6e2dd",
+                      "on-secondary-container": "#784709",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#fdfcff",
+                      "on-error-container": "#93000a",
+                      "background": "#fef8f3",
+                      "surface-tint": "#ad312a",
+                      "tertiary-fixed-dim": "#a4c9ff",
+                      "inverse-primary": "#ffb4ab",
+                      "outline": "#8c716d",
+                      "on-secondary-fixed-variant": "#6a3c00",
+                      "inverse-on-surface": "#f5f0eb",
+                      "tertiary-fixed": "#d4e3ff",
+                      "tertiary-container": "#2976c7",
+                      "secondary-fixed-dim": "#feb873",
+                      "tertiary": "#005da7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-page": "2rem",
+                      "section-padding": "3rem",
+                      "card-gap": "1rem",
+                      "touch-target-min": "3.5rem",
+                      "gutter": "1.5rem"
+              },
+              "fontFamily": {
+                      "display-hero": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "alphabet-card": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-reading-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-reading": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-bold": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "display-hero": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "alphabet-card": [
+                              "64px",
+                              {
+                                      "lineHeight": "72px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-reading-mobile": [
+                              "20px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-reading": [
+                              "24px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-bold": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fef8f3; /* bg-background */
+        }
+        
+        .ink-border {
+            border: 2px solid #e0bfbb; /* outline-variant */
+        }
+        
+        .tactile-button {
+            border-bottom: 4px solid #8c1815; /* on-primary-fixed-variant */
+            transition: all 0.2s ease;
+        }
+        
+        .tactile-button:active {
+            transform: translateY(2px);
+            border-bottom-width: 2px;
+            margin-top: 2px;
+        }
+        
+        .speech-bubble {
+            position: relative;
+            background: #ffffff;
+            border-radius: .75rem;
+            border: 2px solid #e0bfbb;
+        }
+        
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            margin-left: -15px;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: #ffffff transparent;
+            display: block;
+            width: 0;
+        }
+        
+        .speech-bubble:before {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            margin-left: -16px;
+            border-width: 16px 16px 0;
+            border-style: solid;
+            border-color: #e0bfbb transparent;
+            display: block;
+            width: 0;
+        }
+    </style>
+</head>
+<body class="font-body-reading-mobile text-on-surface h-screen flex flex-col overflow-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top App Bar (Semantic Shell, hidden on desktop for this specific welcome view to act as splash, but keeping structure as requested if needed, usually splash hides it, but instructions say generate from JSON) -->
+<header class="bg-background dark:bg-surface-container text-primary dark:text-primary-fixed-dim border-b-2 border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin-page h-touch-target-min flex-shrink-0 z-10 md:hidden">
+<button aria-label="Home" class="flex items-center justify-center w-touch-target-min h-touch-target-min text-primary hover:opacity-90 active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 28px;">home</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed-dim font-extrabold tracking-tight truncate px-2">
+            La Cartilla de Gretel
+        </h1>
+<button aria-label="Audio" class="flex items-center justify-center w-touch-target-min h-touch-target-min text-primary hover:opacity-90 active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 28px;">volume_up</span>
+</button>
+</header>
+<!-- Desktop Header (Visible on md and up) -->
+<header class="hidden md:flex bg-background text-primary border-b-2 border-outline-variant justify-between items-center w-full px-section-padding h-20 flex-shrink-0 z-10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl">home</span>
+<h1 class="font-headline-lg text-headline-lg font-extrabold tracking-tight">
+                La Cartilla de Gretel
+            </h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="flex gap-6">
+<!-- Desktop Nav Items -->
+<a class="font-label-bold text-label-bold text-primary font-bold flex items-center gap-2 hover:opacity-90 transition-all" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+                    Aprender
+                </a>
+</nav>
+<span class="material-symbols-outlined text-3xl cursor-pointer hover:opacity-90">volume_up</span>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow relative flex flex-col items-center justify-center px-gutter md:px-section-padding overflow-y-auto w-full max-w-7xl mx-auto">
+<!-- Decorative Background Elements (Line Art / Pastel Washes) -->
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center opacity-40">
+<div class="w-[150%] h-[150%] rounded-full bg-surface-container-low absolute -top-1/4 -right-1/4 blur-3xl"></div>
+<div class="w-full h-1/3 bg-secondary-fixed opacity-20 absolute bottom-0 left-0"></div>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-center w-full max-w-5xl gap-card-gap md:gap-section-padding mt-8 md:mt-0">
+<!-- Speech Bubble Section -->
+<div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-8 md:mb-0 order-1 md:order-2">
+<div class="speech-bubble p-6 md:p-8 mb-8 w-full max-w-sm md:max-w-md shadow-sm">
+<p class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">
+                        ¡Hola! Soy Gretel.
+                    </p>
+<p class="font-body-reading-mobile md:font-body-reading text-body-reading-mobile md:text-body-reading text-on-surface-variant">
+                        ¡Vamos a aprender juntos!
+                    </p>
+</div>
+<!-- Call to Action -->
+<button class="bg-primary text-on-primary font-label-bold text-label-bold rounded-full px-8 py-4 w-full max-w-xs md:max-w-sm flex items-center justify-center gap-3 tactile-button hover:bg-surface-tint mt-4 md:mt-8 mx-auto md:mx-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    ¡Empezar!
+                </button>
+</div>
+<!-- Gretel Character Section -->
+<div class="w-full md:w-1/2 flex justify-center items-end relative h-[50vh] md:h-[70vh] min-h-[350px] order-2 md:order-1">
+<!-- Floating Decorative Creatures -->
+<div class="absolute top-10 left-4 md:left-10 animate-[bounce_3s_ease-in-out_infinite]">
+<img class="w-16 h-16 object-contain drop-shadow-sm" data-alt="A small, whimsical, hand-drawn style blue dragonfly with translucent wings, soft pastel colors, simple line art, hovering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWR0Tsl0h44ZNopwsZicbeZ8WxlHI9z3IkaczNs9vvjTuISOysiCxEsfRX6myA2wCqlB6iGR-4p1OPTjMjxKdmq2YwceBduNek-usRcA1Z63uAPMEGq68aiJalAMpXBvQYXliMXe_RdXAV_uWnevaLFPblAA4k7FUca__kYgOGXbgjFU3yGr7ZvtwkiB48sEsrrsRt4W6FuIaMRHcwSsi6pO9-JIzvBKwJzmT4q-qDxa21m2ZqjdSOCDO5kC7bOAZQud5FoRbIbVc"/>
+</div>
+<div class="absolute top-1/4 right-0 md:right-10 animate-[bounce_4s_ease-in-out_infinite_0.5s]">
+<img class="w-20 h-20 object-contain drop-shadow-sm" data-alt="A small, friendly, hand-drawn style cartoon open book character with a tiny smiling face, warm pastel yellow and white colors, simple line art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvb4DMlCEjKYdtEIpVTEc-d9MJOSOMLvBWY_Xt1fJRy7TpnvXz9LvFleVLozFPKGskEmbbVyVjLDLCdFYq7Jq9STsfn6b9kgiW8DzEKUmmoHL-ntei_8rdDfc7EO-yUbq27oRTuM4uxqr6PFdHWAayyxlMluuE1X096DB9sjsnmQ8xzKYCqibHGIoipoY09OYIdDZUZshAmWo2_NtBAOMHw8izWDKw8PPWNgUc8IouyJkxQFk5lwgpe1CAIRS18lJf2kdQKpKz9BI"/>
+</div>
+<!-- Main Character -->
+<img alt="Gretel standing" class="h-full w-auto object-contain object-bottom z-10 filter drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1UBecH30SIyNRKwAsciPdOl2Zt1qVc4mXTuBAD2R8ESlkxEd6RBEZAXC2x1R3mksKog-VOkuV1IPG8aAG9CgnnOk2BaJoU_KrgwYdNe2H3-BqjdKj9EICdiCHBNhgsyKUdyFBOgCZ6mkfsDI6-viZd1OEu2pObNMJo2P9wol7fiwxnQtr6a5ohuuCTNXSzAg5T-lZ2aPOBzykCAtDWHQtbztGP5djgGMHlwTjytHJb8ixGDeqV8xC7nURN0PRdQ0WAup1x3vc6jQ"/>
+<!-- Ground / Path indication -->
+<div class="absolute bottom-0 w-3/4 h-8 bg-surface-variant rounded-[100%] blur-sm opacity-60 z-0"></div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container-low dark:bg-surface-container-highest border-t-2 border-outline-variant dark:border-outline rounded-t-xl flat no shadows h-[80px]">
+<!-- Active Tab (Aprender/Home mapping) -->
+<a aria-label="Aprender" class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed-dim text-on-primary-container dark:text-on-primary-fixed-variant rounded-full p-3 w-16 h-16 scale-95 transition-all" href="#">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</a>
+<!-- Inactive Tabs -->
+<a aria-label="Cuentos" class="flex flex-col items-center justify-center text-on-surface-variant p-3 w-16 h-16 hover:bg-surface-variant dark:hover:bg-on-surface-variant rounded-full transition-colors" href="#">
+<span class="material-symbols-outlined text-3xl">auto_stories</span>
+</a>
+<a aria-label="Perfil" class="flex flex-col items-center justify-center text-on-surface-variant p-3 w-16 h-16 hover:bg-surface-variant dark:hover:bg-on-surface-variant rounded-full transition-colors" href="#">
+<span class="material-symbols-outlined text-3xl">face_6</span>
+</a>
+</nav>
+</body></html>

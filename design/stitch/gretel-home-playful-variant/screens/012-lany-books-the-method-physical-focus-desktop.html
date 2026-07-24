@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Method - Lany Books</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#47654f",
+                    "secondary": "#635f44",
+                    "primary-container": "#6499b9",
+                    "tertiary-fixed-dim": "#adcfb3",
+                    "outline": "#71787e",
+                    "on-primary-fixed": "#001e2d",
+                    "inverse-surface": "#313030",
+                    "secondary-fixed": "#eae3c1",
+                    "on-secondary-fixed": "#1e1c07",
+                    "surface-container-low": "#f6f3f2",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1c1b1b",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-high": "#eae7e7",
+                    "primary": "#2c6482",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#074c69",
+                    "on-tertiary-fixed-variant": "#304d38",
+                    "on-primary-container": "#002f43",
+                    "on-tertiary-container": "#14311e",
+                    "secondary-container": "#e7e0be",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#2c6482",
+                    "surface-container-highest": "#e5e2e1",
+                    "tertiary-container": "#7a9a81",
+                    "outline-variant": "#c0c7ce",
+                    "primary-fixed": "#c5e7ff",
+                    "inverse-primary": "#98cdef",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "surface-bright": "#fcf9f8",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface": "#fcf9f8",
+                    "on-secondary-container": "#676348",
+                    "primary-fixed-dim": "#98cdef",
+                    "secondary-fixed-dim": "#cdc7a6",
+                    "tertiary-fixed": "#c9ebce",
+                    "surface-variant": "#e5e2e1",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#4b472e",
+                    "on-background": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#41484d",
+                    "on-tertiary-fixed": "#03210f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "container-max-width": "1200px",
+                    "section-padding-v": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "button": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "button": ["15px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- Top Navigation (Shared Component) -->
+<header class="sticky docked full-width top-0 z-50 bg-surface/90 backdrop-blur-md dark:bg-surface-container-high/90 bg-surface dark:bg-surface-container shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-8 py-4 max-w-container-max-width mx-auto">
+<a aria-label="La Cartilla de Gretel Home" class="text-headline-sm font-display-lg leading-none text-primary dark:text-inverse-primary" href="#">La Cartilla de Gretel</a>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-primary-container/20 dark:hover:bg-primary-container/10 transition-all px-3 py-2 rounded-lg font-label-md text-label-md" href="#">Home</a>
+<a aria-current="page" class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 font-label-md text-label-md" href="#">Our Method</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-primary-container/20 dark:hover:bg-primary-container/10 transition-all px-3 py-2 rounded-lg font-label-md text-label-md" href="#">Digital Platform</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-primary-container/20 dark:hover:bg-primary-container/10 transition-all px-3 py-2 rounded-lg font-label-md text-label-md" href="#">Upcoming Books</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors hover:bg-primary-container/20 dark:hover:bg-primary-container/10 transition-all px-3 py-2 rounded-lg font-label-md text-label-md" href="#">About Author</a>
+</nav>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 rounded-full hover:bg-on-primary-fixed-variant transition-colors shadow-sm hidden md:block">
+                Join Waitlist
+            </button>
+<!-- Mobile Menu Toggle -->
+<button aria-label="Open Menu" class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow w-full">
+<!-- Hero Section -->
+<section class="w-full bg-primary-fixed/30 pt-24 pb-32 px-margin-mobile md:px-gutter">
+<div class="max-w-container-max-width mx-auto text-center">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">A True Spanish-First Experience</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    The Method relies on a deep understanding of natural pedagogy, moving beyond translations to build genuine reading confidence in Spanish.
+                </p>
+</div>
+</section>
+<!-- Section 1: Phono-Syllabic Architecture (Bento Style) -->
+<section class="py-section-padding-v px-margin-mobile md:px-gutter w-full">
+<div class="max-w-container-max-width mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-5 order-2 md:order-1 space-y-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">Phono-Syllabic Architecture</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Unlike English-based methods that rely heavily on phonics and sight words (often falling into a 'translation trap'), our approach embraces the natural rhythm of the Spanish language. We introduce vowels first, construct syllables naturally, and finally integrate consonants, creating an intuitive path to fluency.
+                        </p>
+</div>
+<div class="md:col-span-7 order-1 md:order-2 rounded-xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.06)]">
+<img alt="Phono-Syllabic Architecture visual aid" class="w-full h-auto object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7iwhF4fefIDODErOjcoIfE-GoPEFFE5XkPUM5Qa54NAxtuiwWAApz8QCx6tg2eFTKZ6h8azbFIngscgy1cbr8i8pq6ty1qA9SPPKeiQEpTwsdcXpKtHTwfr1vWpPLCtuV9NW2K3taKJRF9_6HWqiYKLAj-qQtNY1BlrKKUhy2VW74kAd8D9qflY9B0iz10Pw2JUXGnHnKvut4cqQc_0s9mxAaC8_OH83shI813246lzFe5eYXUSUGvfYX2Vs80fMexC7viwJqPCI"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Building Reading Stamina -->
+<section class="py-section-padding-v px-margin-mobile md:px-gutter bg-secondary-fixed/20 w-full">
+<div class="max-w-container-max-width mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="rounded-xl overflow-hidden shadow-[0px_4px_24px_rgba(0,0,0,0.06)] relative aspect-[0.67]">
+<img alt="Student focused on reading" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLs-G_l0euDAK1s_WrifEQlZu3HZgXdmEnd6-wJyywPEz7VGN6FVm74LNY7-nqeU1ezLfIrp_m7KxdY1rZbMRU_8Mm08qCOoUwTdoGaNGbhaf5GfFgO1YVyVCHxghb8YZz4IITIAm1mLt5nGCV0G0kLgjfseC8ipRACSlWI9yCamBP6Gj-pAYDaif3MrDYGvT81g6UX7T4DZhYaKi6hz7jo3cZCiqUx_r-x5rspcDTcOUSbT2muUVcyqbRs"/>
+</div>
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md text-secondary">Building Reading Stamina</h2>
+<p class="font-body-lg text-body-lg text-on-secondary-container">
+                             True engagement comes from a physical book narrative, not fleeting digital distractions. We contrast the deep focus required for literacy with the shallow engagement often found in screens. By prioritizing the tactile experience of the printed page, students build real reading stamina.
+                         </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3 & 4: Controlled Phonics & Emotional Warmth -->
+<section class="py-section-padding-v px-margin-mobile md:px-gutter w-full">
+<div class="max-w-container-max-width mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Visual Associations Card -->
+<div class="md:col-span-6 bg-surface p-8 rounded-xl shadow-[0px_4px_24px_rgba(0,0,0,0.06)] border border-surface-variant flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Visual Associations &amp; Flipcharts</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                We utilize physical flipcharts and carefully constructed visual cues to cement learning in the classroom. This controlled phonics approach ensures students build strong foundational associations entirely within the physical learning environment.
+                            </p>
+</div>
+</div>
+<!-- Emotional Warmth Card -->
+<div class="md:col-span-6 bg-tertiary-fixed/30 p-8 rounded-xl shadow-[0px_4px_24px_rgba(0,0,0,0.06)] flex flex-col md:flex-row gap-6 items-center">
+<div class="w-1/3 flex-shrink-0">
+<img alt="Gretel Book Cover" class="w-full h-auto rounded-lg shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5aj_grtJ4RxHv0ilNboRotJUrxFPGmL9PjSrr45rheFpzEavWVXhv4QjnFUOxRH5B-CbCXYAf3ptDsL_XwrhJAccRtIxrMUO0iZWvuHDspkJNnkWYURnDmx7hji0FKIONhFI8QTxV0X12nuf6tGo1JNimfN6Gg3QzFkc5C0jVrPJXOQYylL-ZXmRKpm-gQmJ2Js2jq35j-mFkA_1x1q90qBzMw4XbaSMlkQ2GtHhUU4vYmcrCATSnes7l5OX1PKUMmrJsL7rEkVM"/>
+</div>
+<div class="w-2/3">
+<h3 class="font-headline-sm text-headline-sm text-on-tertiary-container mb-3">Consistent Emotional Warmth</h3>
+<p class="font-body-md text-body-md text-on-tertiary-container/80">
+                                Featuring 'Gretel' as a nurturing guide, the experience is designed to feel like a gentle, encouraging companion in the physical learning journey, providing consistent emotional warmth on every page.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="full-width bg-tertiary-fixed dark:bg-tertiary-container text-on-tertiary-fixed dark:text-on-tertiary-container flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-gutter py-12 max-w-container-max-width mx-auto mt-auto">
+<div class="mb-6 md:mb-0">
+<span class="font-display-lg text-headline-sm text-on-tertiary-fixed dark:text-on-tertiary-container block mb-2">La Cartilla de Gretel</span>
+<span class="font-body-md text-body-md opacity-80">© 2024 La Cartilla de Gretel. All rights reserved.</span>
+</div>
+<nav class="flex gap-6">
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary hover:opacity-80 transition-colors transition-opacity" href="#">Newsletter</a>
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary hover:opacity-80 transition-colors transition-opacity flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">link</span> Facebook
+            </a>
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary hover:opacity-80 transition-colors transition-opacity flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">link</span> Instagram
+            </a>
+<a class="font-label-md text-label-md text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary hover:opacity-80 transition-colors transition-opacity flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">link</span> Twitter
+            </a>
+</nav>
+</footer>
+</body></html>

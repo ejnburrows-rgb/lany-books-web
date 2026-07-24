@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Complete Classroom Set | La Cartilla de Gretel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#304d38",
+                        "surface-variant": "#e5e2e1",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#eae3c1",
+                        "primary": "#2c6482",
+                        "surface-bright": "#fcf9f8",
+                        "secondary": "#635f44",
+                        "inverse-on-surface": "#f3f0ef",
+                        "background": "#fcf9f8",
+                        "inverse-surface": "#313030",
+                        "primary-fixed-dim": "#98cdef",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#adcfb3",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-fixed-variant": "#074c69",
+                        "on-surface": "#1c1b1b",
+                        "on-background": "#1c1b1b",
+                        "on-primary-container": "#002f43",
+                        "inverse-primary": "#98cdef",
+                        "surface-dim": "#dcd9d9",
+                        "on-secondary-container": "#676348",
+                        "on-tertiary-container": "#14311e",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#cdc7a6",
+                        "outline": "#71787e",
+                        "tertiary-fixed": "#c9ebce",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf9f8",
+                        "outline-variant": "#c0c7ce",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-container": "#e7e0be",
+                        "on-primary-fixed": "#001e2d",
+                        "surface-tint": "#2c6482",
+                        "surface-container": "#f0eded",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#03210f",
+                        "primary-fixed": "#c5e7ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#6499b9",
+                        "on-secondary-fixed-variant": "#4b472e",
+                        "on-surface-variant": "#41484d",
+                        "on-secondary-fixed": "#1e1c07",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-container": "#7a9a81",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#47654f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding-v": "80px",
+                        "margin-mobile": "20px",
+                        "container-max-width": "1200px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Hanken Grotesk"],
+                        "button": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "button": ["15px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface-container-high shadow-sm fixed top-0 left-0 right-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max-width mx-auto h-20">
+<div class="font-display-lg text-display-lg text-primary dark:text-inverse-primary">La Cartilla de Gretel</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Method</a>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1" href="#">Curriculum</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Resources</a>
+</div>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 rounded-full hover:opacity-90 transition-all duration-200">
+                Buy Now
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter py-section-padding-v grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">The Complete Classroom Set</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Everything you need for a premium, phonetics-first learning environment. Designed to empower educators and inspire young learners through a multi-sensory approach.</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary font-button text-button px-8 py-4 rounded-full shadow-md hover:bg-primary-container hover:text-on-primary-container transition-all">
+                        Join the Waitlist
+                    </button>
+<button class="border-2 border-primary text-primary font-button text-button px-8 py-4 rounded-full hover:bg-primary-fixed-dim/10 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                        Download PDF Spec Sheet
+                    </button>
+</div>
+<div class="flex items-center gap-4 py-6">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-primary-container flex items-center justify-center">
+<span class="text-[10px] font-bold text-on-primary-container">5k+</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-on-tertiary-container">person</span>
+</div>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant">Trusted by 5,000+ educators worldwide</p>
+</div>
+</div>
+<div class="relative group">
+<div class="carousel-container flex overflow-x-auto gap-4 pb-8">
+<!-- Carousel Slide 1: The Full Kit -->
+<div class="carousel-item flex-none w-full bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-[500px] object-cover" data-alt="A professional high-fidelity studio shot of a comprehensive Spanish phonetics classroom kit. The image features a vibrant blue tote bag with the La Cartilla de Gretel logo, surrounded by various learning materials including a large flipchart, colorful student books with cow illustrations, audio CDs, and handcrafted felt vowel letters. The scene is illuminated with bright, natural high-key lighting on a clean wooden table surface, emphasizing a premium, organized educational environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChuR57jOCCIV9weplVk7DXIkNQmwGOgwAcNC1f2CIAbrXpK-b4oWh36PTsLvgSZw2wAUbZTpasVOXnkTWk8NVfjT4pU-tKMTarx9IvfnNgEsmxsH7k1MaORWI3B-vwZ6XIH6btji1RHsUUAhFLWtrOxp_EafWJQ6jI8U0iw8qcBhaqPlBlDlaiiOSmosVAi8pvLtNM3GYwnajOLH-hOEWQSN_Tfd2JqfBBwDzyImIzuG5vRX0jJBNhKIaDVWUmUHJrDmACq5RVEFo"/>
+</div>
+<!-- Carousel Slide 2: Flipchart on Easel -->
+<div class="carousel-item flex-none w-full bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtyQyuYkZ6pJTjko2z2VO-6A_gzQGUrF3ZJwG_pu4xfD7dEMao7WMTwLKOUOAxCmPEvpcdFbYbZG5RH38nyTQ-n9ujnw7M5IqHPHy3ote6H6e7iR4erxwq1M6Rh_vQpFEOoj9zndB4aM0yTMOyzX2PyiW03ML8WQHv2j13QNSVav6z39wyMEmvIcEZ5bzlSnoLbtBGWog4H2CUCTRqQxpv01OTM-z3UqfKW47f8qTkYz1Gy88m4hoOJlXQ"/>
+</div>
+<!-- Carousel Slide 3: Student Book -->
+<div class="carousel-item flex-none w-full bg-surface-container-low rounded-xl overflow-hidden shadow-sm flex items-center justify-center p-12">
+<img class="h-full object-contain shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHVy2JBHkgruUiGkNi_ltydT8dihEGQpWfm4i4o2T3Rgk5SxQBmrt3tYxSi9fMuO8xQcMnFNsAupYGxEwjMZX_P20ZxNOytf2bhOL-0VQQ2OLaueJPxx6_JLXHVpkcm46C0vzpKkXs7JtQpcUfIYLQQrpaVWo75kVy1MVDm_RIlS9aN-vbD9PD4ZjfDS_VI5gnxt4geSsKjBhsjXxHWCYKcuwAyOCuVQFkhxaPQZi9K1OKcJe99WJ8lIzWSCbVOuEebd13RXsRAig"/>
+</div>
+</div>
+<!-- Carousel Nav -->
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+</div>
+</section>
+<!-- Product Details Section (Bento Style) -->
+<section class="bg-surface-container-low py-section-padding-v">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter">
+<div class="mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface">Curated Components</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Every element is crafted to ensure a seamless pedagogical flow.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Vertical Flipchart -->
+<div class="md:col-span-2 bg-surface rounded-xl p-8 shadow-sm border border-outline-variant/20 group hover:shadow-md transition-shadow">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="w-full md:w-1/3 bg-secondary-container/30 rounded-lg flex items-center justify-center p-6">
+<span class="material-symbols-outlined text-6xl text-primary">analytics</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Vertical Flipchart</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">17" x 22", 50+ portrait-oriented pages with top-flip binding. Designed for clear visibility from any point in the classroom.</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                        High-gloss protective coating
+                                    </li>
+<li class="flex items-center gap-2 font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                        Spiral top for effortless flipping
+                                    </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Student Book -->
+<div class="bg-surface rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md transition-shadow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Student Book</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">92 pages, high-quality matte finish, phono-syllabic structure for progressive learning.</p>
+<div class="aspect-[3/4] rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHVy2JBHkgruUiGkNi_ltydT8dihEGQpWfm4i4o2T3Rgk5SxQBmrt3tYxSi9fMuO8xQcMnFNsAupYGxEwjMZX_P20ZxNOytf2bhOL-0VQQ2OLaueJPxx6_JLXHVpkcm46C0vzpKkXs7JtQpcUfIYLQQrpaVWo75kVy1MVDm_RIlS9aN-vbD9PD4ZjfDS_VI5gnxt4geSsKjBhsjXxHWCYKcuwAyOCuVQFkhxaPQZi9K1OKcJe99WJ8lIzWSCbVOuEebd13RXsRAig"/>
+</div>
+</div>
+<!-- Handcrafted Vowel Dolls -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-8 shadow-sm relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-sm text-headline-sm mb-3">Vowel Dolls</h3>
+<p class="font-body-md text-body-md opacity-90">5 handcrafted felt dolls for tactile learning. Bringing phonetics to life through touch and play.</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-20 rotate-12">toys</span>
+</div>
+<!-- Teacher's Guide -->
+<div class="bg-tertiary-container text-on-tertiary-container rounded-xl p-8 shadow-sm">
+<h3 class="font-headline-sm text-headline-sm mb-3">Teacher's Guide</h3>
+<p class="font-body-md text-body-md opacity-90">Comprehensive lesson plans and phonetic strategies to maximize classroom engagement.</p>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 bg-on-tertiary-container/10 rounded-full text-xs font-bold uppercase tracking-wider">Strategic</span>
+<span class="px-3 py-1 bg-on-tertiary-container/10 rounded-full text-xs font-bold uppercase tracking-wider">Comprehensive</span>
+</div>
+</div>
+<!-- Audio CD -->
+<div class="bg-surface rounded-xl p-8 shadow-sm border border-outline-variant/20 hover:shadow-md transition-shadow flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-3xl">album</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Audio CD</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Authentic Spanish pronunciations and poems recorded by native speakers.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Interactive Section -->
+<section class="relative h-[400px] flex items-center justify-center overflow-hidden">
+
+<div class="relative z-10 text-center max-w-2xl px-margin-mobile">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Experience the Difference</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Join thousands of schools transforming their literacy curriculum with Gretel's proven methodology.</p>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-button text-button shadow-lg active:scale-95 transition-all">
+                    Request a Demo
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-highest">
+<div class="w-full py-section-padding-v px-margin-mobile md:px-gutter max-w-container-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-sm text-headline-sm text-primary dark:text-inverse-primary">La Cartilla de Gretel</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 La Cartilla de Gretel. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Shipping &amp; Returns</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Contact Us</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple intersection observer for reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
