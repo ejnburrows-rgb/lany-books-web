@@ -1,3 +1,34 @@
+/* Lumina Learning design tokens — exported from the Stitch import at
+   design/stitch/gretel-home-playful-variant/tokens/design-theme.json.
+   Soft-minimal pastel system: zonal background bands, pill CTAs,
+   16px cards, high-diffusion soft shadows, Hanken Grotesk type. */
+:root {
+  --lumina-primary: #2c6482;
+  --lumina-primary-strong: #245471;
+  --lumina-primary-bright: #6499b9;
+  --lumina-primary-tint: #c5e7ff;
+  --lumina-on-primary-tint: #074c69;
+  --lumina-hero-wash: #dceef9;
+  --lumina-cream: #fdf6d3;
+  --lumina-cream-strong: #e7e0be;
+  --lumina-on-cream: #4b472e;
+  --lumina-cream-body: #676348;
+  --lumina-sage: #b9dbbf;
+  --lumina-sage-soft: #dcefe0;
+  --lumina-on-sage: #14311e;
+  --lumina-sage-body: #304d38;
+  --lumina-surface: #fcf9f8;
+  --lumina-surface-low: #f6f3f2;
+  --lumina-ink: #1a1a1a;
+  --lumina-body: #41484d;
+  --lumina-outline-variant: #c0c7ce;
+  --radius-card: 1rem;
+  --radius-frame: 1.5rem;
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-lift: 0 10px 32px rgba(0, 0, 0, 0.09);
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,9 +39,9 @@ html {
 
 body {
   margin: 0;
-  background: #fff8e8;
-  color: #14343d;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--lumina-surface);
+  color: var(--lumina-ink);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -39,10 +70,7 @@ a {
 
 .site {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 80% 5%, rgba(233, 191, 103, 0.35), transparent 28rem),
-    radial-gradient(circle at 10% 15%, rgba(173, 218, 196, 0.45), transparent 28rem),
-    linear-gradient(180deg, #fff8e8 0%, #f6fff8 50%, #fff1d8 100%);
+  background: var(--lumina-surface);
 }
 
 .topbar {
@@ -54,23 +82,23 @@ a {
   justify-content: space-between;
   gap: 1.2rem;
   padding: 1rem clamp(1rem, 5vw, 5rem);
-  background: rgba(255, 248, 232, 0.92);
+  background: rgba(252, 249, 248, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(20, 52, 61, 0.1);
+  border-bottom: 1px solid rgba(28, 27, 27, 0.08);
 }
 
 .brand {
   display: grid;
   text-transform: uppercase;
-  font-weight: 950;
+  font-weight: 800;
   letter-spacing: 0.13em;
   line-height: 0.9;
-  color: #14343d;
+  color: var(--lumina-ink);
 }
 
 .brand span:last-child {
-  color: #9a7231;
+  color: var(--lumina-primary);
 }
 
 .menuToggle {
@@ -87,7 +115,7 @@ a {
   width: 1.6rem;
   height: 0.18rem;
   border-radius: 999px;
-  background: #14343d;
+  background: var(--lumina-ink);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -114,7 +142,7 @@ a {
 .primaryNav a {
   padding: 0.65rem 0.85rem;
   border-radius: 999px;
-  color: #315861;
+  color: var(--lumina-body);
   font-size: 0.92rem;
   font-weight: 600;
   transition: background 0.2s ease, color 0.2s ease;
@@ -122,7 +150,7 @@ a {
 
 .primaryNav a:hover {
   background: #fff;
-  color: #14343d;
+  color: var(--lumina-primary);
 }
 
 .headerActions {
@@ -135,11 +163,11 @@ a {
 .button {
   border: 0;
   border-radius: 999px;
-  font-weight: 900;
+  font-weight: 700;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .smallButton {
@@ -148,13 +176,14 @@ a {
 }
 
 .smallButton.dark {
-  background: #14343d;
+  background: var(--lumina-primary);
   color: white;
 }
 
 .smallButton.gold {
-  background: #e9bf67;
-  color: #14343d;
+  background: var(--lumina-cream);
+  color: var(--lumina-on-cream);
+  border: 1px solid var(--lumina-cream-strong);
 }
 
 .button {
@@ -166,27 +195,31 @@ a {
 }
 
 .button.primary {
-  background: #14343d;
+  background: var(--lumina-primary);
   color: white;
-  box-shadow: 0 22px 48px rgba(20, 52, 61, 0.2);
+  box-shadow: var(--shadow-soft);
+}
+
+.button.primary:hover {
+  background: var(--lumina-primary-strong);
 }
 
 .button.secondary {
   background: #fff;
-  color: #14343d;
-  border: 1px solid rgba(20, 52, 61, 0.12);
+  color: var(--lumina-primary);
+  border: 1px solid var(--lumina-primary-bright);
 }
 
 .button.soft {
-  background: rgba(255, 255, 255, 0.55);
-  color: #315861;
-  border: 1px solid rgba(20, 52, 61, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--lumina-body);
+  border: 1px solid var(--lumina-outline-variant);
 }
 
 .button.gold {
-  background: #e9bf67;
-  color: #14343d;
-  box-shadow: 0 22px 48px rgba(233, 191, 103, 0.3);
+  background: var(--lumina-primary);
+  color: white;
+  box-shadow: var(--shadow-soft);
 }
 
 .hero,
@@ -200,40 +233,42 @@ a {
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.95fr);
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
+  background: linear-gradient(180deg, var(--lumina-hero-wash) 0%, rgba(220, 238, 249, 0) 100%);
 }
 
 .eyebrow {
   margin: 0 0 1.1rem;
-  color: #8a6a2b;
+  color: var(--lumina-primary);
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .hero h1,
 .section h2 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  line-height: 0.96;
-  letter-spacing: -0.045em;
-  color: #12343d;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--lumina-ink);
   margin: 0;
 }
 
 .hero h1 {
-  font-size: clamp(3.6rem, 10vw, 8.5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
 }
 
 .section h2 {
-  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
   max-width: 980px;
 }
 
 .heroSubtitle {
-  font-size: clamp(1.15rem, 2vw, 1.75rem);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   line-height: 1.4;
-  color: #244b54;
-  font-weight: 650;
+  color: var(--lumina-body);
+  font-weight: 600;
   max-width: 850px;
   margin: 0.6rem 0 0;
 }
@@ -243,8 +278,8 @@ a {
 .textStack p,
 .packageNote,
 .panel li {
-  color: #4b6a6f;
-  line-height: 1.75;
+  color: var(--lumina-body);
+  line-height: 1.6;
   font-size: 1.06rem;
 }
 
@@ -257,11 +292,11 @@ a {
 
 .heroArt {
   position: relative;
-  border-radius: 2.5rem;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 34px 95px rgba(20, 52, 61, 0.14);
+  border-radius: var(--radius-frame);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
   padding: 1rem;
-  border: 1px solid rgba(20, 52, 61, 0.08);
+  border: 1px solid var(--lumina-outline-variant);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,7 +304,7 @@ a {
 
 .heroImage {
   width: 100%;
-  border-radius: 2rem;
+  border-radius: var(--radius-card);
   object-fit: contain;
   max-height: 68vh;
   margin: 0 auto;
@@ -287,8 +322,8 @@ a {
   width: min(190px, 34%);
   background: white;
   padding: 0.6rem;
-  border-radius: 1rem;
-  box-shadow: 0 18px 40px rgba(20, 52, 61, 0.22);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lift);
   transform: rotate(3deg);
   text-align: center;
 }
@@ -296,28 +331,28 @@ a {
 .coverImage,
 .buyCover img,
 .buyCover .imageFallback {
-  border-radius: 0.9rem;
+  border-radius: 0.75rem;
 }
 
 .coverBadge strong {
   display: block;
   margin-top: 0.5rem;
   font-size: 0.82rem;
-  color: #14343d;
+  color: var(--lumina-ink);
 }
 
 .kitShowcase {
   margin-top: 2.4rem;
-  border-radius: 2.5rem;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 34px 95px rgba(20, 52, 61, 0.14);
+  border-radius: var(--radius-frame);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
   padding: 1rem;
-  border: 1px solid rgba(20, 52, 61, 0.08);
+  border: 1px solid var(--lumina-outline-variant);
 }
 
 .kitImage {
   width: 100%;
-  border-radius: 2rem;
+  border-radius: var(--radius-card);
   object-fit: contain;
   background: #fff;
   transition: transform 0.4s ease;
@@ -329,7 +364,7 @@ a {
 
 .kitShowcase .imageFallback {
   min-height: 320px;
-  border-radius: 2rem;
+  border-radius: var(--radius-card);
 }
 
 .flipchartBlock {
@@ -338,11 +373,11 @@ a {
 
 .flipchartLabel {
   margin: 0 0 1.2rem;
-  color: #8a6a2b;
+  color: var(--lumina-primary);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .flipchartGrid {
@@ -355,30 +390,30 @@ a {
   margin: 0;
   display: grid;
   gap: 0.9rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(20, 52, 61, 0.08);
-  border-radius: 1.6rem;
+  background: #fff;
+  border: 1px solid var(--lumina-outline-variant);
+  border-radius: var(--radius-card);
   padding: 1rem;
-  box-shadow: 0 22px 55px rgba(20, 52, 61, 0.1);
+  box-shadow: var(--shadow-soft);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .flipchartCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 28px 65px rgba(20, 52, 61, 0.16);
+  box-shadow: var(--shadow-lift);
 }
 
 .flipchartImg {
   width: 100%;
   object-fit: contain;
   background: #fff;
-  border-radius: 1.1rem;
-  border: 1px solid rgba(20, 52, 61, 0.07);
+  border-radius: 0.75rem;
+  border: 1px solid var(--lumina-outline-variant);
 }
 
 .flipchartCard figcaption {
   padding: 0 0.45rem 0.45rem;
-  color: #4b6a6f;
+  color: var(--lumina-body);
   font-size: 0.96rem;
   line-height: 1.6;
 }
@@ -390,4 +425,3 @@ a {
 .galleryGrid.textOnly .galleryCard {
   padding: 1.4rem 1.4rem;
 }
-
