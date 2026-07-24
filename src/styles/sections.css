@@ -5,15 +5,15 @@
   justify-content: center;
   align-items: center;
   padding: 1.35rem clamp(1rem, 5vw, 5rem);
-  background: rgba(20, 52, 61, 0.045);
-  border-top: 1px solid rgba(20, 52, 61, 0.08);
-  border-bottom: 1px solid rgba(20, 52, 61, 0.08);
+  background: #fff;
+  border-top: 1px solid rgba(28, 27, 27, 0.06);
+  border-bottom: 1px solid rgba(28, 27, 27, 0.06);
 }
 
 .trustItem {
   position: relative;
-  font-weight: 800;
-  color: #315861;
+  font-weight: 700;
+  color: var(--lumina-body);
   font-size: 0.92rem;
   letter-spacing: 0.01em;
   padding-left: 1.45rem;
@@ -24,7 +24,7 @@
   position: absolute;
   left: 0;
   top: -1px;
-  color: #c79a3a;
+  color: var(--lumina-primary-bright);
 }
 
 .split {
@@ -37,6 +37,48 @@
 .textStack {
   display: grid;
   gap: 1rem;
+}
+
+/* The Method — Lumina timeline treatment: thin line + circular milestone
+   nodes (per the design system's Timelines & Progress guidance). */
+#program .textStack {
+  position: relative;
+  padding-left: 2.4rem;
+  gap: 1.4rem;
+}
+
+#program .textStack::before {
+  content: "";
+  position: absolute;
+  left: 0.49rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--lumina-outline-variant);
+}
+
+#program .textStack p {
+  position: relative;
+  margin: 0;
+}
+
+#program .textStack p::before {
+  content: "";
+  position: absolute;
+  left: -2.4rem;
+  top: 0.3rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 999px;
+  background: var(--lumina-primary);
+  border: 0.15rem solid #fff;
+  box-shadow: 0 0 0 2px var(--lumina-primary-bright);
+}
+
+/* Zonal band: the materials showcase sits on the warm cream wash. */
+.showcase {
+  background: var(--lumina-cream);
 }
 
 .productSection {
@@ -52,10 +94,10 @@
 }
 
 .buyCover {
-  border-radius: 1.6rem;
+  border-radius: var(--radius-card);
   padding: 0.85rem;
   background: #fff;
-  box-shadow: 0 22px 55px rgba(20, 52, 61, 0.16);
+  box-shadow: var(--shadow-soft);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,31 +121,31 @@
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(20, 52, 61, 0.1);
-  border-radius: 1.6rem;
+  background: #fff;
+  border: 1px solid var(--lumina-outline-variant);
+  border-radius: var(--radius-card);
   padding: 1.7rem 1.6rem;
-  box-shadow: 0 22px 55px rgba(20, 52, 61, 0.08);
+  box-shadow: var(--shadow-soft);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .routeCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 28px 68px rgba(20, 52, 61, 0.14);
+  box-shadow: var(--shadow-lift);
 }
 
 .routeCard.package {
-  border: 2px solid #e9bf67;
-  box-shadow: 0 30px 72px rgba(233, 191, 103, 0.28);
+  border: 2px solid var(--lumina-primary-bright);
+  box-shadow: var(--shadow-lift);
 }
 
 .routeBadge {
   position: absolute;
   top: -0.85rem;
   left: 1.6rem;
-  background: #e9bf67;
-  color: #14343d;
-  font-weight: 900;
+  background: var(--lumina-primary);
+  color: #fff;
+  font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -113,19 +155,20 @@
 
 .routeCard h3 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.5rem;
-  color: #14343d;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--lumina-ink);
 }
 
 .contactPrice {
-  font-weight: 900;
-  color: #9a7231;
+  font-weight: 700;
+  color: var(--lumina-primary);
   font-size: 1.02rem;
 }
 
 .routeDesc {
-  color: #4b6a6f;
+  color: var(--lumina-body);
   line-height: 1.65;
   font-size: 1rem;
   margin: 0;
@@ -140,30 +183,30 @@
   display: inline-flex;
   margin: 0.4rem 0;
   border-radius: 999px;
-  background: #e9bf67;
-  color: #14343d;
+  background: var(--lumina-primary-tint);
+  color: var(--lumina-on-primary-tint);
   padding: 0.7rem 1rem;
-  font-weight: 950;
+  font-weight: 800;
   font-size: 1.2rem;
 }
 
 .formatBox {
   margin-top: 2.4rem;
   padding: 1rem;
-  border-radius: 1.2rem;
-  background: #f8fbef;
-  border: 1px solid rgba(20, 52, 61, 0.08);
+  border-radius: var(--radius-card);
+  background: var(--lumina-cream);
+  border: 1px solid var(--lumina-cream-strong);
 }
 
 .formatBox h3 {
   margin: 0 0 1rem;
-  color: #14343d;
+  color: var(--lumina-ink);
 }
 
 .formatBox p {
   margin-bottom: 0;
   margin-top: 1rem;
-  color: #64777b;
+  color: var(--lumina-cream-body);
   font-size: 0.92rem;
 }
 
@@ -178,17 +221,17 @@
   align-items: center;
   gap: 0.6rem;
   background: #fff;
-  border: 1px solid rgba(20, 52, 61, 0.12);
-  border-radius: 1rem;
+  border: 1px solid var(--lumina-outline-variant);
+  border-radius: 0.75rem;
   padding: 0.6rem 0.95rem;
-  color: #14343d;
-  box-shadow: 0 10px 24px rgba(20, 52, 61, 0.06);
+  color: var(--lumina-ink);
+  box-shadow: var(--shadow-soft);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .formatLink:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(20, 52, 61, 0.12);
+  box-shadow: var(--shadow-lift);
 }
 
 .formatGlyph {
@@ -210,23 +253,23 @@
 
 .formatLinkText strong {
   font-size: 0.98rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .formatLinkText small {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.68rem;
-  color: #809092;
+  color: #71787e;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .formatPrice {
   margin-left: auto;
-  font-weight: 950;
+  font-weight: 800;
   font-size: 0.95rem;
-  color: #14343d;
-  background: #fdeecb;
+  color: var(--lumina-on-primary-tint);
+  background: var(--lumina-primary-tint);
   border-radius: 999px;
   padding: 0.28rem 0.62rem;
 }
@@ -236,8 +279,8 @@
 }
 
 .formatLink.soon .formatPrice {
-  color: #6a5a34;
-  background: rgba(20, 52, 61, 0.07);
+  color: var(--lumina-cream-body);
+  background: rgba(28, 27, 27, 0.07);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 0.72rem;
@@ -280,16 +323,16 @@
 .panel,
 .creditPanel,
 .form {
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(20, 52, 61, 0.08);
-  border-radius: 1.3rem;
+  background: #fff;
+  border: 1px solid var(--lumina-outline-variant);
+  border-radius: var(--radius-card);
   padding: 1.2rem;
-  box-shadow: 0 18px 45px rgba(20, 52, 61, 0.07);
+  box-shadow: var(--shadow-soft);
 }
 
 .components li {
-  font-weight: 760;
-  color: #315861;
+  font-weight: 700;
+  color: var(--lumina-body);
 }
 
 .schoolsSection {
@@ -302,39 +345,37 @@
   grid-template-columns: 1.15fr 0.85fr;
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
-  background:
-    radial-gradient(circle at 90% 0%, rgba(233, 191, 103, 0.22), transparent 18rem),
-    linear-gradient(135deg, #14343d 0%, #1d4a55 100%);
-  color: #fdf6e6;
-  border-radius: 2.2rem;
+  background: linear-gradient(135deg, var(--lumina-sage) 0%, var(--lumina-sage-soft) 100%);
+  color: var(--lumina-on-sage);
+  border-radius: var(--radius-frame);
   padding: clamp(1.6rem, 4vw, 3.2rem);
-  box-shadow: 0 40px 100px rgba(20, 52, 61, 0.28);
+  box-shadow: var(--shadow-soft);
 }
 
 .schoolsIntro .eyebrow {
-  color: #f0cd83;
+  color: var(--lumina-sage-body);
 }
 
 .schoolsIntro h2 {
-  color: #ffffff;
+  color: var(--lumina-on-sage);
 }
 
 .schoolsIntro .lead {
-  color: rgba(253, 246, 230, 0.86);
+  color: var(--lumina-sage-body);
 }
 
 .schoolsNote {
   margin-top: 1.1rem;
   margin-bottom: 0;
-  color: rgba(253, 246, 230, 0.6);
+  color: rgba(20, 49, 30, 0.7);
   font-size: 0.88rem;
   line-height: 1.6;
 }
 
 .schoolsPanel {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-card);
   padding: 1.6rem;
 }
 
@@ -349,8 +390,8 @@
 .schoolsList li {
   position: relative;
   padding-left: 1.9rem;
-  color: rgba(253, 246, 230, 0.92);
-  font-weight: 650;
+  color: var(--lumina-on-sage);
+  font-weight: 600;
   line-height: 1.5;
 }
 
@@ -364,9 +405,8 @@
   display: grid;
   place-items: center;
   border-radius: 999px;
-  background: #e9bf67;
-  color: #14343d;
+  background: var(--lumina-primary);
+  color: #fff;
   font-size: 0.8rem;
-  font-weight: 900;
+  font-weight: 700;
 }
-
