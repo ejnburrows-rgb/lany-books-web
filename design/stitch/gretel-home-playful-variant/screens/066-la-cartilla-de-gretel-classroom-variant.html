@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>La Cartilla de Gretel - The 50-Year Legacy Reimagined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#7a9a81",
+                        "tertiary-fixed-dim": "#adcfb3",
+                        "primary": "#2c6482",
+                        "tertiary-fixed": "#c9ebce",
+                        "surface": "#fcf9f8",
+                        "secondary-container": "#e7e0be",
+                        "on-secondary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#47654f",
+                        "surface-bright": "#fcf9f8",
+                        "outline-variant": "#c0c7ce",
+                        "primary-container": "#6499b9",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary-container": "#676348",
+                        "primary-fixed": "#c5e7ff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container": "#f0eded",
+                        "secondary-fixed": "#eae3c1",
+                        "on-surface": "#1c1b1b",
+                        "on-surface-variant": "#41484d",
+                        "inverse-primary": "#98cdef",
+                        "secondary": "#635f44",
+                        "on-primary-fixed-variant": "#074c69",
+                        "primary-fixed-dim": "#98cdef",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#cdc7a6",
+                        "on-tertiary-fixed": "#03210f",
+                        "on-tertiary-fixed-variant": "#304d38",
+                        "on-secondary-fixed-variant": "#4b472e",
+                        "on-background": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary-container": "#14311e",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-tint": "#2c6482",
+                        "outline": "#71787e",
+                        "on-primary-fixed": "#001e2d",
+                        "surface-dim": "#dcd9d9",
+                        "on-secondary-fixed": "#1e1c07",
+                        "on-primary-container": "#002f43"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "section-padding-v": "80px",
+                        "gutter": "24px",
+                        "container-max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "button": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "display-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "button": ["15px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .soft-shadow { box-shadow: 0px 4px 24px rgba(0,0,0,0.06); }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full bg-surface/90 backdrop-blur-md dark:bg-surface-container-high/90 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-8 py-4 max-w-container-max-width mx-auto">
+<a class="text-headline-sm font-display-lg leading-none text-primary dark:text-inverse-primary flex items-center gap-2 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                La Cartilla de Gretel
+            </a>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1" href="#home">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#method">Our Method</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#platform">Digital Platform</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#upcoming">Upcoming Books</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#about">About Author</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 rounded-full hover:bg-primary/90 transition-colors shadow-sm active:scale-95">
+                    Join Waitlist
+                </button>
+<button class="md:hidden text-on-surface p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-section-padding-v pb-section-padding-v overflow-hidden" id="home">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 100% 0%, theme('colors.primary-fixed') 0%, transparent 50%), radial-gradient(circle at 0% 100%, theme('colors.secondary-fixed') 0%, transparent 50%);"></div>
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 bg-primary-container/20 text-on-primary-container px-4 py-2 rounded-full w-fit">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-md text-label-md">Teacher-Approved Method</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-on-surface">
+                            The 50-Year Legacy of Spanish Phonetics, <span class="text-primary">Reimagined for the Digital Age.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                            Empower young minds with a proven pedagogical approach, thoughtfully blending traditional classroom magic with modern digital insights for parents and educators.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="bg-primary text-on-primary font-button text-button px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-sm flex items-center justify-center gap-2 group">
+                                Join the Waitlist
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="bg-transparent border-2 border-primary text-primary font-button text-button px-8 py-4 rounded-full hover:bg-primary-container/10 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                                See how it works
+                            </button>
+</div>
+</div>
+<div class="lg:col-span-7 relative mt-12 lg:mt-0">
+<div class="relative rounded-2xl overflow-hidden soft-shadow aspect-[4/3] group">
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply group-hover:opacity-0 transition-opacity z-10"></div>
+<img alt="Teacher with flipchart" class="w-full h-full object-cover rounded-2xl" data-alt="A dedicated female teacher standing smiling next to a flipchart with handwritten letters in a brightly lit, cozy classroom environment. She is holding a blue copy of 'La Cartilla de Gretel'. Warm, optimistic, soft minimal aesthetic." src="https://lh3.googleusercontent.com/aida/AP1WRLskEoNTmJHoggSWFwGbGPzIc6I-m-_FW-9HMXqvtKrGwq8QOzPU2W9jpUBu1YyLHSFahslRe5w74qorIhhyFz7yri88LrfdhblU9UC8hA1g8JS0stbdaOhuQgF_MPZYgNnhBHsoJ-2t1vaWJDKl7eHlJDjI8O5_UwSFmuV4BT6nROFrMsJx_C_iSKzauOC5p_HD3po2NIfaMtAXQXQSp3EiD_OK4ev2ubctTYtDqmOWm3g8gRlcn3W_lXg">
+</div>
+<!-- Floating Stats Card -->
+<div class="absolute -bottom-6 -left-6 md:-left-12 glass-panel p-6 rounded-xl soft-shadow hidden md:flex items-center gap-4 z-20">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface m-0 leading-none">50+ Years</p>
+<p class="font-label-md text-label-md text-on-surface-variant m-0">Of proven methodology</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Method in Action -->
+
+<!-- Digital Platform (CRM) -->
+<section class="py-section-padding-v bg-primary-fixed/20 relative" id="platform">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<div class="flex flex-col gap-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">
+                                The Modern Digital Era
+                            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                                Empowering the legacy method with a sophisticated, yet intuitive CRM for educators and parents. Track progress, manage rosters, and generate actionable insights without losing the human touch.
+                            </p>
+<ul class="flex flex-col gap-4 mt-4">
+<li class="flex items-start gap-3">
+<div class="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Comprehensive Dashboards</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Get a bird's-eye view of class performance and active students.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Granular Student Progress</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Drill down into individual 24-lesson learning arcs.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Beautiful Family Reports</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Generate print-ready, encouraging progress reports for home.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2">
+<!-- Bento Grid for CRM Screenshots -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Main Dashboard -->
+<div class="col-span-2 rounded-xl overflow-hidden soft-shadow bg-surface border border-outline-variant/30">
+<div class="bg-surface-container-high px-4 py-2 flex items-center gap-2 border-b border-outline-variant/30">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error/50"></div>
+<div class="w-3 h-3 rounded-full bg-secondary/50"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/50"></div>
+</div>
+<span class="font-label-md text-[10px] text-on-surface-variant ml-2 uppercase tracking-wider">Teacher CRM Dashboard</span>
+</div>
+<img alt="CRM Dashboard" class="w-full object-cover" data-alt="UI Screenshot of the 'La Cartilla de Gretel' Teacher CRM dashboard. It features a clean, soft-minimalist interface with an overview of active students, average progress, and class status broken down into columns. Warm color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7sqbtEMRgZTf2O0VDRWGBDbIZdVJP3DZLprwpZ99D7I7uSmcwNBLN0Q-g1lRQ5L8nch7c1UNLw7NOE4HaWsBdFvLyaj7pBIiWiq52YqdXVsRTkr1AzyBCmj4pbBPQHlUe4Guo9sxGDOLQJ8X5z1D9OR7a4HT_mzczg_HzKIHu1x8Oz7xl5HqUa7hrTmVAaLthW7YWqNgjmrlamg0tWD1MEg7sSSxV6ft-p7JeKribKAN73FeYIX_aw601noBa3Hi1yqHaHdPff_g">
+</div>
+<!-- Student Detail -->
+<div class="col-span-1 rounded-xl overflow-hidden soft-shadow bg-surface border border-outline-variant/30">
+<img alt="Student Progress CRM" class="w-full h-full object-cover" data-alt="UI Screenshot of an individual student's progress page in the CRM for 'Sofía Ramírez'. It shows a visual 24-lesson grid with completed, in-progress, and unstarted lessons, utilizing gentle green and yellow tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1p5W2Pbwgy0XepobHFmUKLgbGlhETw57Yx2aHNpLX4AKdaOtA4uhbDml9O4aPPDmILyafe3KOd6nb3J_u0s1oUGC_dtfkm5wTXUUROEM2ZRPiGt8kZnva-2OHBe6fWsRBMD-ghY7C60dJYX-fwt3FrAQz6tUXP3Vq4BrmF11U9kJidwu6pOUM90Ns59RdLY5Hp169c5KLFI8ALVoJhrj6zOoB9ccp0WC3hUn4V2gY2c88D_nOEF4As0kb6nne-FUq0kH6BqlkKYc">
+</div>
+<!-- Family Report -->
+<div class="col-span-1 rounded-xl overflow-hidden soft-shadow bg-surface border border-outline-variant/30">
+<img alt="Family Report" class="w-full h-full object-cover" data-alt="UI Screenshot of a printable 'Progress Report for Families'. It displays key metrics like completed lessons, program percentage, and practiced minutes in soft, rounded pill shapes, with encouraging feedback." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdotSi-M3GpPls9QDDeaSWl8fYhShWThLmWZetnAotLrTyu6bXAzs3ulSTtexwiiKuzRt1uprWVCsqJZIhcHnh-u8x2T9352Usg92Wvk_L7Vpq1S_pWOzXItB3UETP1d95XN0GZ537-0QU8Zk_vGqLsRxDR2Bio9roEWhAV2ZpJqcWErlttlE1aiaSM49meUZBBpsaJBK67aYz4Jb5Xxj6okcKeLgWjRkbZWLYksR0NC4oCHRPnYuqhQTfO1Aq6198a_J1TbT3Wzg">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Books -->
+<section class="py-section-padding-v bg-surface" id="upcoming">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Upcoming Books</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Continue the journey with our upcoming releases. Beautifully illustrated, carefully structured, and fully integrated with our digital platform.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Book 1 -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="w-full aspect-square rounded-2xl overflow-hidden soft-shadow mb-6 relative">
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+
+<div class="absolute bottom-4 left-0 right-0 flex justify-center z-20 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<span class="bg-surface text-primary font-label-md text-label-md px-4 py-2 rounded-full shadow-sm">Preview Series</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center">Primer Nivel Digital</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center mt-2">Foundational phonetics and early reading joy.</p>
+</div>
+<!-- Book 2 -->
+<div class="flex flex-col items-center group cursor-pointer md:mt-8">
+
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center">Segundo Nivel Digital</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center mt-2">Building confidence with complex syllables.</p>
+</div>
+<!-- Book 3 -->
+<div class="flex flex-col items-center group cursor-pointer md:mt-16">
+<div class="w-full aspect-square rounded-2xl overflow-hidden soft-shadow mb-6 relative">
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+
+<div class="absolute bottom-4 left-0 right-0 flex justify-center z-20 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<span class="bg-surface text-primary font-label-md text-label-md px-4 py-2 rounded-full shadow-sm">Preview Series</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center">Cuentos Interactivos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center mt-2">Immersive stories combining print and screen.</p>
+</div>
+</div>
+</div>
+</section><section class="py-section-padding-v bg-surface-container-low" id="gallery">
+    <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-4">The Method in Action</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+                Experience the vibrant energy of our classrooms, where traditional phonetics meets modern engagement.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="rounded-2xl overflow-hidden soft-shadow aspect-[4/3] group">
+                <img src="https://lh3.googleusercontent.com/aida/AP1WRLs9UACJfhonN2BMrxBqpaXiR2F6sIUrBfVv3tXDFEGJRxx8l6aDY9J8-kT4hjNclY4xMW8gPE7FYTc79rqK8t_0K193RTrsD4u5bx_m4jGNVwyL5r2Ysmn3uLoi6VzviutVoh1OTUANWQVbT9mfCV9t8oE-SHX8bfDgIKGoyT49NCC72z1l0gBGAro-Z7M-pFnjttC0aLi2511XKGuZO_Xp-NutB2eTDlwQQ1eUn37NzsxW6lkNEyl4xoU" alt="Diverse group of students reading" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="rounded-2xl overflow-hidden soft-shadow aspect-[4/3] group">
+                <img src="https://lh3.googleusercontent.com/aida/AP1WRLskEoNTmJHoggSWFwGbGPzIc6I-m-_FW-9HMXqvtKrGwq8QOzPU2W9jpUBu1YyLHSFahslRe5w74qorIhhyFz7yri88LrfdhblU9UC8hA1g8JS0stbdaOhuQgF_MPZYgNnhBHsoJ-2t1vaWJDKl7eHlJDjI8O5_UwSFmuV4BT6nROFrMsJx_C_iSKzauOC5p_HD3po2NIfaMtAXQXQSp3EiD_OK4ev2ubctTYtDqmOWm3g8gRlcn3W_lXg" alt="Teacher with phonetics chart" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="rounded-2xl overflow-hidden soft-shadow aspect-[4/3] group">
+                <img src="https://lh3.googleusercontent.com/aida/AP1WRLvhGT_C462huQSWMgQp69HGZ2A9C8oozbpkw7sWNVqQqzPnf0dWHWHvo-wUsDL-lklQ7HQEHdZYVeNBOXnYhMS1nFyJmSzByGmJUha5_UKUoCZtHjeysj212HtX4iZgC5Apo7bf1Rfrityx2CInU_mErjQpbUc-eXOJnjbtdtVINGxH6h9xg8JIDC15oakB6MqsjYy6OsvEAOkba6fr_E86mldVOS8OK-6H_JIObkInwzgAxUyQOA7Cyw4" alt="Students sharing a book on a rug" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-tertiary-fixed dark:bg-tertiary-container mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-gutter py-12 max-w-container-max-width mx-auto">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<a class="font-display-lg text-headline-sm text-on-tertiary-fixed dark:text-on-tertiary-container flex items-center justify-center md:justify-start gap-2 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-on-tertiary-fixed dark:text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                    La Cartilla de Gretel
+                </a>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed mt-2">
+                    © 2024 La Cartilla de Gretel. All rights reserved.
+                </p>
+</div>
+<div class="flex gap-6">
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary transition-colors flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">mail</span>
+<span class="font-label-md text-label-md">Newsletter</span>
+</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary transition-colors flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">thumb_up</span>
+<span class="font-label-md text-label-md">Facebook</span>
+</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary transition-colors flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">photo_camera</span>
+<span class="font-label-md text-label-md">Instagram</span>
+</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-fixed hover:text-on-tertiary transition-colors flex items-center gap-1 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">chat</span>
+<span class="font-label-md text-label-md">Twitter</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple script for nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+        });
+    </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La Cartilla de Gretel - Digital Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#e7e0be",
+                    "on-primary-fixed-variant": "#074c69",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#304d38",
+                    "outline-variant": "#c0c7ce",
+                    "outline": "#71787e",
+                    "error-container": "#ffdad6",
+                    "surface": "#fcf9f8",
+                    "secondary": "#635f44",
+                    "surface-dim": "#dcd9d9",
+                    "surface-variant": "#e5e2e1",
+                    "on-surface-variant": "#41484d",
+                    "tertiary-fixed-dim": "#adcfb3",
+                    "tertiary-container": "#7a9a81",
+                    "tertiary-fixed": "#c9ebce",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-background": "#1c1b1b",
+                    "on-primary-fixed": "#001e2d",
+                    "surface-tint": "#2c6482",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#98cdef",
+                    "on-tertiary-container": "#14311e",
+                    "on-primary-container": "#002f43",
+                    "on-secondary-fixed": "#1e1c07",
+                    "primary-container": "#6499b9",
+                    "on-secondary-fixed-variant": "#4b472e",
+                    "primary": "#2c6482",
+                    "surface-container-highest": "#e5e2e1",
+                    "background": "#fcf9f8",
+                    "on-secondary-container": "#676348",
+                    "inverse-surface": "#313030",
+                    "tertiary": "#47654f",
+                    "on-surface": "#1c1b1b",
+                    "primary-fixed-dim": "#98cdef",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#cdc7a6",
+                    "on-tertiary-fixed": "#03210f",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#c5e7ff",
+                    "secondary-fixed": "#eae3c1",
+                    "surface-container": "#f0eded",
+                    "surface-bright": "#fcf9f8",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#eae7e7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding-v": "80px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container-max-width": "1200px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "button": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "button": ["15px", {"lineHeight": "1", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pill-shape { border-radius: 9999px; }
+        .soft-shadow { box-shadow: 0px 4px 24px rgba(0,0,0,0.06); }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        
+        html[lang="en"] .lang-es { display: none !important; }
+        html[lang="es"] .lang-en { display: none !important; }
+    </style>
+</head>
+<body class="bg-background dark:bg-on-background text-on-surface dark:text-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-md shadow-sm transition-colors duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-8 py-4 max-w-container-max-width mx-auto">
+<!-- Brand Logo -->
+<div class="text-headline-sm font-display-lg leading-none text-primary flex flex-col">
+<span class="tracking-tight">La Cartilla de Gretel</span>
+<span class="text-[10px] uppercase tracking-widest font-bold opacity-70">
+<span class="lang-en">Digital Edition</span>
+<span class="lang-es">Edición Digital</span>
+</span>
+</div>
+<!-- Centered Navigation Menu -->
+<nav class="hidden lg:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">
+<span class="lang-en">Home</span><span class="lang-es">Inicio</span>
+</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">Our Method</span><span class="lang-es">Nuestro Método</span>
+</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">Digital Platform</span><span class="lang-es">Plataforma Digital</span>
+</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">Upcoming Books</span><span class="lang-es">Próximos Libros</span>
+</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">
+<span class="lang-en">About Author</span><span class="lang-es">Sobre la Autora</span>
+</a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 border border-outline/30 dark:border-outline/50 rounded-full px-3 py-1">
+<button class="font-label-md text-label-md hover:text-primary transition-colors font-bold opacity-50 hover:opacity-100" id="lang-en" onclick="setLanguage('en')">EN</button>
+<span class="text-outline-variant dark:text-outline text-xs">|</span>
+<button class="font-label-md text-label-md hover:text-primary transition-colors opacity-50 hover:opacity-100" id="lang-es" onclick="setLanguage('es')">ES</button>
+</div>
+<button class="material-symbols-outlined hover:text-primary transition-colors text-on-surface-variant dark:text-surface-variant" id="theme-toggle" onclick="toggleTheme()">
+                        light_mode
+                    </button>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-3 pill-shape hover:bg-primary-container dark:hover:bg-primary-fixed-dim transition-all hover:scale-105 active:scale-95 shadow-sm">
+<span class="lang-en">Join Waitlist</span><span class="lang-es">Lista de Espera</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative bg-primary-fixed dark:bg-[#0d2a3c] overflow-hidden transition-colors duration-300">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row items-center py-16 md:py-24 gap-12">
+<div class="w-full md:w-1/2 flex flex-col gap-6 z-10">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary-fixed dark:text-primary-fixed">
+<span class="lang-en">A 50-Year Legacy of Spanish Phonetics, Reimagined for the Digital Age</span>
+<span class="lang-es">Un Legado de 50 Años de Fonética Española, Reimaginado para la Era Digital</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-primary-fixed-variant dark:text-primary-fixed-dim max-w-lg">
+<span class="lang-en">From classroom-tested physical books to an interactive digital learning experience. Building confidence, step by step, for a new generation of learners.</span>
+<span class="lang-es">Desde libros físicos probados en el aula hasta una experiencia de aprendizaje digital interactiva. Construyendo confianza, paso a paso, para una nueva generación de estudiantes.</span>
+</p>
+<div>
+<button class="bg-primary text-on-primary font-button text-button px-8 py-4 pill-shape hover:bg-primary-container transition-all shadow-md">
+<span class="lang-en">Join Waitlist</span><span class="lang-es">Unirse a la Lista de Espera</span>
+</button>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative group">
+<div class="absolute -inset-4 bg-primary-container/20 dark:bg-primary-container/10 rounded-[32px] rotate-3 transition-transform group-hover:rotate-1"></div>
+<img class="relative z-10 w-full h-auto rounded-[24px] soft-shadow object-cover aspect-[4/3]" data-alt="A professional, realistic photograph of a young student sitting comfortably in a bright classroom library nook. The student is deeply focused on reading the blue 'La Cartilla de Gretel' book." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADrr5Psk79J84ZLsQQQWB4wApTc_3eabUbhqo2lpbfLvZpkUfkdFm7zIrk6G76XO4kXIMg4IajmfapERnEB7wmZvmfp86shJ0-5-YjtwuG2MFPpxnwImLVPw0zcCuyoZOtAZ14mWw6JSsynJBoBgftv9PNGHTfNLQ2FOCgHEVMpOp15AUrSIppor51DS78hId8uqW4iZRjTA_peqBAOHO6m91nxT1qBvGDh6sa52iJBI5Wc2h4WxGzZizYquXyPlFba5cJqHrhFv4"/>
+</div>
+</div>
+</section>
+<!-- New Digital Era Section -->
+<section class="bg-secondary-fixed dark:bg-[#343224] py-section-padding-v transition-colors duration-300">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-[40%] flex flex-col gap-6">
+<h2 class="font-headline-md text-headline-md text-on-secondary-fixed dark:text-secondary-fixed">
+<span class="lang-en">New Digital Era</span><span class="lang-es">Nueva Era Digital</span>
+</h2>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim">
+<span class="lang-en">Introducing our upcoming CRM for teachers and parents, paired with interactive digital books featuring full audio support. Monitor progress, customize paths, and celebrate every breakthrough.</span>
+<span class="lang-es">Presentamos nuestro próximo CRM para maestros y padres, combinado con libros digitales interactivos que incluyen soporte de audio completo. Supervise el progreso, personalice rutas y celebre cada avance.</span>
+</p>
+<div class="flex flex-col gap-4"><div class="flex items-center gap-3">
+<div class="bg-white/50 dark:bg-black/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">analytics</span>
+</div>
+<span class="font-label-md text-label-md dark:text-surface">
+<span class="lang-en">Real-time student progress tracking</span>
+<span class="lang-es">Seguimiento del progreso del estudiante en tiempo real</span>
+</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-white/50 dark:bg-black/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">assignment_turned_in</span>
+</div>
+<span class="font-label-md text-label-md dark:text-surface">
+<span class="lang-en">Individualized lesson reporting</span>
+<span class="lang-es">Informes de lecciones individualizados</span>
+</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-white/50 dark:bg-black/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary">family_restroom</span>
+</div>
+<span class="font-label-md text-label-md dark:text-surface">
+<span class="lang-en">Family-ready progress updates</span>
+<span class="lang-es">Actualizaciones de progreso para familias</span>
+</span>
+</div></div>
+</div>
+<div class="w-full md:w-[60%]">
+<div class="bg-white dark:bg-inverse-surface p-4 rounded-[16px] soft-shadow transform -rotate-1 hover:rotate-0 transition-transform duration-500"><div class="relative h-full min-h-[400px] flex items-center justify-center"><img class="relative z-10 w-full h-auto rounded-[24px] soft-shadow object-cover aspect-[4/3]" data-alt="A professional, high-quality photograph of a small group of diverse elementary students sitting at a round wooden table in a sunlit classroom looking at the blue 'La Cartilla de Gretel' book together." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6rjowkRjz1mic9_FFi_IqETIAcZUCgC5S2nyyUx2XAOsFAzEAtJLhyE2QLUnTAU-63h4P29enRNT8nYU3MJ24KD3qsNw_moK5ElyxzI-gD3bUMqniK0pbPIcj2f0b1VJ3ziESeOYqPwPMKGCITn4cZA67433O30WLxpBld34wqrIFeAfA3aPA0SdHXdAA0Gk3ydNCLXhGEEM9xTP3Zscy8cwj2Nc5kgy1W2bUGDfeYkMouprEQKGQTeYELzP3ViBuM8g2kuWWqP0"/></div></div>
+</div>
+</div>
+</section>
+<!-- Upcoming Book Releases Section -->
+<section class="bg-surface dark:bg-on-background py-section-padding-v transition-colors duration-300">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary mb-4">
+<span class="lang-en">Upcoming Book Releases</span><span class="lang-es">Próximos Lanzamientos de Libros</span>
+</h2>
+<div class="h-1 w-24 bg-primary-container mx-auto rounded-full"></div>
+</div>
+<div class="relative py-12">
+<!-- Timeline Line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant dark:bg-outline hidden md:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+<!-- Book 1 -->
+<div class="flex flex-col items-center group">
+<div class="w-48 h-64 bg-white dark:bg-inverse-surface rounded-lg soft-shadow mb-8 overflow-hidden transition-transform duration-300 group-hover:-translate-y-4">
+<img class="w-full h-full object-cover" data-alt="Front cover of 'Primer Nivel Digital' book. The design features a cheerful illustration of a child discovering letters in a lush, green park. The title is bold and friendly, using the brand's primary blue. The style is warm, illustrative, and modern, blending traditional book aesthetics with a digital-first clean look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxzoUzgoDwSByKWkQ1Zpm8q05GERFUh7ZzuyA5n54LhxcQAmv6fRO99_Rx9iyGJvFNZ67y3SnauFKT7xSXu7AT-fwt78er9Ih6oEs9qIshI5R9OcjjIFMxgvU7Bi6Ulut8mYx72ctNrxwE_zuJx1mklh9qSGQ2rPoioeYGJhd_hBEb-2u1v-uUOs29TKXPmkLadm80bXPCzVoZ92dFC63zTf0BziyOUU1wlYtY0qALekePpDJQ-YbwHJl97U2fo8Q4z1UT_YrUxWk"/>
+</div>
+<div class="md:bg-primary w-4 h-4 rounded-full md:mb-6 hidden md:block border-4 border-white dark:border-inverse-surface shadow-sm"></div>
+<div class="text-center">
+<span class="font-label-md text-label-md text-primary dark:text-inverse-primary block mb-1">Q1 2024</span>
+<h3 class="font-headline-sm text-headline-sm dark:text-surface">Primer Nivel Digital</h3>
+</div>
+</div>
+<!-- Book 2 -->
+<div class="flex flex-col items-center group">
+<div class="w-48 h-64 bg-white dark:bg-inverse-surface rounded-lg soft-shadow mb-8 overflow-hidden transition-transform duration-300 group-hover:-translate-y-4">
+<img class="w-full h-full object-cover" data-alt="Front cover of 'Segundo Nivel Digital' book. The illustration shows two children collaboratively solving a puzzle made of large Spanish letters in a bright, sunny library environment. The color palette uses soft yellows and vibrant greens to evoke energy and academic progress." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9BUyzDCIOt8vWEg7oZUtt20W6LIKJSsYGP3NIwPgaCW_wd9FGMxPmjKVIIHxACf3nYVh2-onq78rLxxEVnJc_7NlhpoeWcPMKMFR1TDwlhyvCNwJ2b4Qzy_FcwdvLskcGO1RCaq02vuGQfpreDlqKaf6PvNDHDIAWPuCq5XlGC0GhADYjRmtqxkZtiZs_3QN_ZMF3eDVKGZPxktO25tAMQEHXXoMmjpuvN0XjuCorPQ5ak8mlMA_pKQDQHzR1dOwXVa22aTWQP9s"/>
+</div>
+<div class="md:bg-primary w-4 h-4 rounded-full md:mb-6 hidden md:block border-4 border-white dark:border-inverse-surface shadow-sm"></div>
+<div class="text-center">
+<span class="font-label-md text-label-md text-primary dark:text-inverse-primary block mb-1">Q2 2024</span>
+<h3 class="font-headline-sm text-headline-sm dark:text-surface">Segundo Nivel Digital</h3>
+</div>
+</div>
+<!-- Book 3 -->
+<div class="flex flex-col items-center group">
+<div class="w-48 h-64 bg-white dark:bg-inverse-surface rounded-lg soft-shadow mb-8 overflow-hidden transition-transform duration-300 group-hover:-translate-y-4">
+<img class="w-full h-full object-cover" data-alt="Front cover of 'Cuentos Interactivos' book. This cover features a more imaginative, whimsical scene with floating storybook characters and magical glowing letters against a starry twilight background. It signals a shift towards creative reading and storytelling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKQixcrUdISmeA_w-jox6gP29pAjDAgbW2FJtAM9Ga17N1eVibboKVskLVsJ_b5Wljn41QFMYLskQnEhz5YD2TbLNbUIrpsTFfBdRzE41ZZWTrVobUXIxo5riAuxdjLFZJXSUAfedY-KZ-HYrR5DL_z7_tDBfzC8vyHBwMF9mIDB4WtX0G6I-Ewwrpa60UlQ7w8sQkfoEWSyLt6H1R1QmOglc5pFgFkVQhso6_fvglwqPH9g29_qfaH5U1Pi8f_ANsNlHsnRV9eko"/>
+</div>
+<div class="md:bg-primary w-4 h-4 rounded-full md:mb-6 hidden md:block border-4 border-white dark:border-inverse-surface shadow-sm"></div>
+<div class="text-center">
+<span class="font-label-md text-label-md text-primary dark:text-inverse-primary block mb-1">Q4 2024</span>
+<h3 class="font-headline-sm text-headline-sm dark:text-surface">Cuentos Interactivos</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The 50-Year Veteran Method Section -->
+<section class="bg-surface-container-low dark:bg-[#202022] py-section-padding-v relative transition-colors duration-300">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/3">
+<div class="relative">
+<div class="absolute -bottom-4 -right-4 w-full h-full bg-secondary-container dark:bg-secondary-fixed rounded-[16px] -z-10"></div>
+<img class="w-full h-auto rounded-[16px] soft-shadow border-4 border-white dark:border-inverse-surface" data-alt="A professional, high-quality photograph of a friendly female teacher in a sunny, modern classroom holding the blue 'La Cartilla de Gretel' book." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5eIPt4thTHjfBoe73RcG3Y69qpnkTVkKiitTu86n-fdbZGQJtvFNte7g4ZS595USGVlTtCI7viPWknAvPg8UGOZc7mELZYRyjBkp5yrwbx5dDjYVIuZV_NF0Tz56IuLKyihm8cKDbhKJmmRd9FYii633nIDh77b7oaeDY9G_LAaItttf0ZUKpvhh3TQL6BSvIwM6VdiKMYGkJfKQWIbVK3oJzvfJgRcKGoPPwPaK3CCn9j955sPg-fMcufD0A75wxBS8WFvp9yqM"/>
+</div>
+</div>
+<div class="w-full md:w-2/3 flex flex-col gap-6">
+<h2 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary">
+<span class="lang-en">The 50-Year Veteran Method, Now Digital</span>
+<span class="lang-es">El Método Veterano de 50 Años, Ahora Digital</span>
+</h2>
+<blockquote class="font-body-lg text-body-lg text-on-surface-variant dark:text-surface-variant italic border-l-4 border-primary pl-6 py-2">
+<span class="lang-en">"I have the mission and weight of instructional traditions that served my home and dozens of books of teaching that have been organized in the best sequence for four decades and haven't lost their essence for our ever-changing world and the new needs of my grandchildren's generation."</span>
+<span class="lang-es">"Tengo la misión y el peso de las tradiciones de instrucción que sirvieron a mi hogar y docenas de libros de enseñanza que han sido organizados en la mejor secuencia durante cuatro décadas y no han perdido su esencia para nuestro mundo en constante cambio y las nuevas necesidades de la generación de mis nietos."</span>
+</blockquote>
+<div>
+<p class="font-label-md text-label-md text-on-surface dark:text-surface mb-0">Author I. Gretel</p>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">
+<span class="lang-en">Author, La Cartilla de Gretel</span>
+<span class="lang-es">Autora, La Cartilla de Gretel</span>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Magnet Footer Section -->
+<section class="bg-tertiary-fixed dark:bg-[#183a24] py-section-padding-v transition-colors duration-300">
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-gutter">
+<div class="bg-white/40 dark:bg-black/40 backdrop-blur-sm rounded-[32px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12">
+<div class="w-full lg:w-1/2">
+<h2 class="font-headline-md text-headline-md text-on-tertiary-fixed dark:text-tertiary-fixed mb-4">
+<span class="lang-en">Stay Updated on Our Digital Launch &amp; Get Early Access!</span>
+<span class="lang-es">¡Manténgase Actualizado sobre Nuestro Lanzamiento Digital y Obtenga Acceso Anticipado!</span>
+</h2>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim mb-8">
+<span class="lang-en">Join over 5,000 educators and parents waiting for the next evolution of Spanish literacy.</span>
+<span class="lang-es">Únase a más de 5,000 educadores y padres que esperan la próxima evolución de la alfabetización en español.</span>
+</p>
+</div>
+<div class="w-full lg:w-1/2">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="md:col-span-2">
+<label class="font-label-md text-label-md text-on-tertiary-fixed dark:text-tertiary-fixed mb-1 block">
+<span class="lang-en">Name</span><span class="lang-es">Nombre</span>
+</label>
+<input class="w-full bg-white dark:bg-inverse-surface dark:text-surface border-none rounded-lg p-3 focus:ring-2 focus:ring-primary shadow-sm" placeholder="Your full name" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-tertiary-fixed dark:text-tertiary-fixed mb-1 block">
+<span class="lang-en">Email</span><span class="lang-es">Correo Electrónico</span>
+</label>
+<input class="w-full bg-white dark:bg-inverse-surface dark:text-surface border-none rounded-lg p-3 focus:ring-2 focus:ring-primary shadow-sm" placeholder="email@address.com" type="email"/>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-tertiary-fixed dark:text-tertiary-fixed mb-1 block">
+<span class="lang-en">Role</span><span class="lang-es">Rol</span>
+</label>
+<select class="w-full bg-white dark:bg-inverse-surface dark:text-surface border-none rounded-lg p-3 focus:ring-2 focus:ring-primary shadow-sm">
+<option>Parent/Teacher</option>
+<option>Educator</option>
+<option>School Administrator</option>
+<option>Parent</option>
+</select>
+</div>
+<div class="md:col-span-2 mt-2">
+<button class="w-full bg-primary text-on-primary font-button text-button py-4 pill-shape hover:bg-primary-container dark:hover:bg-primary-fixed-dim transition-all shadow-md" type="submit">
+<span class="lang-en">Sign Up</span><span class="lang-es">Inscribirse</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Footer Component -->
+<footer class="bg-tertiary-fixed dark:bg-tertiary-container transition-colors duration-300">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-gutter py-12 max-w-container-max-width mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-display-lg text-headline-sm text-on-tertiary-fixed dark:text-on-tertiary-container mb-2">
+                    La Cartilla de Gretel
+                </div>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant dark:text-on-tertiary-container opacity-80">
+<span class="lang-en">© 2024 La Cartilla de Gretel. All rights reserved.</span>
+<span class="lang-es">© 2024 La Cartilla de Gretel. Todos los derechos reservados.</span>
+</p>
+</div>
+<nav class="flex gap-8">
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-on-tertiary transition-colors font-label-md" href="#">Newsletter</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-on-tertiary transition-colors font-label-md" href="#">Privacy Policy</a>
+<a class="text-on-tertiary-fixed-variant dark:text-on-tertiary-container hover:text-on-tertiary transition-colors font-label-md" href="#">Terms of Service</a>
+</nav>
+<div class="flex gap-6">
+<a class="hover:opacity-80 transition-opacity" href="#">
+<img alt="Facebook" class="w-6 h-6 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcQCquve1e4lvJ_CXbAY9nE3s2_CLqAirSfmgYE4_Ilu7TlXPHYzKWNDvvgFm0BEDm14EagKuX9dhd09vIfKC8ZLz4P_mqGueLDQn0biqxzLRf6gTbfDIF9mAdNbgQT6RGI9h_J6DOPUiekHeknE5e0U425dOHtNxdmsI_-V_7B45kRRnGiMdI-9_IHjk870UUFgMCBXrHXlPa4K0Bl_CLF5Fhqfpe7A8vaswPrlDXg5ix2IHLAFOI2603YZEwQDJUfPDaGh_ACSI"/>
+</a>
+<a class="hover:opacity-80 transition-opacity" href="#">
+<img alt="X" class="w-6 h-6 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfmYNzcZ_FfYkGHxUa6c2OuKIO6_wJLy-jErQlRL0W7Dnw2h6dEekNsi1gp7BbL_8BMUTFHkW33TCDK0siVlh9rD3m-A7n0-m9Eci7L6iEPpw20XT14uuk_PZkctXk0ck3HujegsRHKXsxROz_O3KOXEL61q8p0P5AaNgRB5514VFv47aebYlxStXafW2j13GtYiXKwIfGquZSGzUHeu40IHo1plWUP7lRAk1bRJyDl_Lbaw5VY4Nr52s4RXQg8-Bx-r6klzkNwdI"/>
+</a>
+<a class="hover:opacity-80 transition-opacity" href="#">
+<img alt="YouTube" class="w-6 h-6 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGjzeJ7yOGZyFDPMtp3ERH4SA11AuJKmGNP4tVpsa3qtKzmYKOj9z7vrGPb7xRM8FMCAUnmUJxzzG_DlMCt9sijxM4QtBYINhmv4mfIDK6geqjP9hPvLq7YcjnMb_pHfGNi8srdYV9eDZNVFlD27W_ciB-aYHlUxhetcNrgm28YpKl0I2v9226LZB5Kioh8T7yWd28UamferFQb1N55WMnNtNlr8gN3FnpCfcKAlAUykwHkZxkBiCGbW2Yna8Vln9jHF7B8uwtKX4"/>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll behavior for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Hover animation for book cards
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Potential micro-interaction code here
+            });
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeToggleIcon = document.getElementById('theme-toggle');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeToggleIcon.textContent = 'light_mode';
+            } else {
+                html.classList.add('dark');
+                themeToggleIcon.textContent = 'dark_mode';
+            }
+        }
+
+        // Language Toggle
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            const enBtn = document.getElementById('lang-en');
+            const esBtn = document.getElementById('lang-es');
+            if(lang === 'en') {
+                enBtn.classList.remove('opacity-50');
+                esBtn.classList.add('opacity-50');
+            } else {
+                esBtn.classList.remove('opacity-50');
+                enBtn.classList.add('opacity-50');
+            }
+        }
+        
+        // Initialize state
+        setLanguage('en');
+    </script>
+</body></html>
