@@ -1,6 +1,9 @@
 import { useState, type FormEvent } from 'react'
 import { copy, type Lang } from './copy'
 import { BrandLogo, ImageFrame } from './components'
+import { ProductCard } from './components/ProductCard'
+import { ContactCard } from './components/ContactCard'
+import { products } from './config/products'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
@@ -13,23 +16,9 @@ const flipchartPages = [
   '/images/gretel/pose-7.webp'
 ]
 
-const formats = [
-  { id: 'kindle', name: 'Kindle', className: 'kindle', price: '$9.99' },
-  { id: 'epub', name: 'EPUB', className: 'epub', price: '$9.99' },
-  { id: 'pdf', name: 'PDF', className: 'pdf', price: '$12.99' },
-  { id: 'audible', name: 'Audible', className: 'audible', price: '$14.95' }
-] as const
-
-// Real store URLs. Paste each edition's purchase link here as it goes live.
-// Any entry left as '' shows a "coming soon" tag and routes to the contact
-// form instead — never invent a link. `online` is the "Order Online" route.
-const purchaseUrls: Record<string, string> = {
-  kindle: '',
-  epub: '',
-  pdf: '',
-  audible: '',
-  online: ''
-}
+const contactEmail = (import.meta.env.VITE_CONTACT_EMAIL as string) || 'hello@lanybooks.com'
+const contactPhone = (import.meta.env.VITE_CONTACT_PHONE as string) || '(555) 123-4567'
+const bookingHref = (import.meta.env.VITE_BOOKING_HREF as string) || undefined
 
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
@@ -210,8 +199,10 @@ export default function App() {
           <div className="buyTop">
             <div className="buyHeader">
               <p className="eyebrow">{t.buyLabel}</p>
-              <h2>{t.buyTitle}</h2>
-              <p className="lead">{t.buyLead}</p>
+              <h2>Choose your package</h2>
+              <p className="lead">
+                All orders go through our contact form for now. Stripe activation is a future step.
+              </p>
             </div>
             <div className="buyCover">
               <ImageFrame
@@ -224,66 +215,9 @@ export default function App() {
           </div>
 
           <div className="routesGrid">
-            {t.routes.map((route) => (
-              <article className={`routeCard ${route.variant}`} key={route.name}>
-                {route.variant === 'package' ? (
-                  <span className="routeBadge">{t.bestValue}</span>
-                ) : null}
-                <h3>{route.name}</h3>
-                {route.price ? (
-                  <div className="price">{route.price}</div>
-                ) : (
-                  <div className="contactPrice">{t.contactCta}</div>
-                )}
-                <p className="routeDesc">{route.desc}</p>
-                {route.price ? (
-                  <a className="button primary" href="#contact">
-                    {t.orderCta}
-                  </a>
-                ) : route.variant === 'online' && purchaseUrls.online ? (
-                  <a
-                    className="button secondary"
-                    href={purchaseUrls.online}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.orderOnlineCta}
-                  </a>
-                ) : (
-                  <a className="button secondary" href="#contact">
-                    {t.contactCta}
-                  </a>
-                )}
-              </article>
+            {products.map((product, index) => (
+              <ProductCard key={product.id} product={product} highlighted={index === 3} />
             ))}
-          </div>
-
-          <div className="formatBox">
-            <h3>{t.formatsTitle}</h3>
-            <div className="formatLinks">
-              {formats.map((format, index) => {
-                const url = purchaseUrls[format.id]
-                const live = Boolean(url)
-                return (
-                  <a
-                    key={format.id}
-                    className={`formatLink ${format.className}${live ? '' : ' soon'}`}
-                    href={live ? url : '#contact'}
-                    target={live ? '_blank' : undefined}
-                    rel={live ? 'noopener noreferrer' : undefined}
-                    aria-label={
-                      live
-                        ? `${format.name} — ${format.price}`
-                        : `${format.name} — ${t.comingSoon}`
-                    }
-                  >
-                    <BrandLogo id={format.id} name={format.name} tag={t.formatTags[index]} />
-                    <span className="formatPrice">{live ? format.price : t.comingSoon}</span>
-                  </a>
-                )
-              })}
-            </div>
-            <p>{t.formatsNote}</p>
           </div>
         </section>
 
@@ -377,6 +311,7 @@ export default function App() {
             <p className="eyebrow">{t.interestFormLabel}</p>
             <h2>{t.contactTitle}</h2>
             <p className="lead">{t.contactLead}</p>
+            <ContactCard email={contactEmail} phone={contactPhone} bookingHref={bookingHref} />
           </div>
 
           <form className="form" onSubmit={handleContactSubmit}>
