@@ -1,0 +1,29 @@
+name: Preview reminder
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## Versión de prueba — no use tarjetas reales
+
+El enlace de prueba aparecerá arriba en el comentario del bot de Vercel. Ábralo en su teléfono para revisar.
+
+**Esta es una versión de prueba.** Sirve para revisar el texto, el diseño y las funciones. No use tarjetas reales ni datos de clientes reales aquí.
+
+¿Tiene comentarios? Mándelos por WhatsApp (nota de voz, mensaje o captura) o abra un issue usando el template "Feedback del cliente" en la pestaña Issues de este repositorio.
+`
+            })
