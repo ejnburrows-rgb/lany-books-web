@@ -9,7 +9,7 @@ const imagePaths = { kit: '/images/gretel/cartilla-bundle.webp', cover: '/images
 const flipchartPages = [ '/images/gretel/pose-7.webp' ]
 const contactEmail = (import.meta.env.VITE_CONTACT_EMAIL as string) || ''
 export default function App() {
-  const [lang, setLang] = useState<Lang>('es')
+  const [lang, setLang] = useState<Lang>('en')
   const [menuOpen, setMenuOpen] = useState(false)
   const [formStatus, setFormStatus] = useState<FormStatus>('idle')
   const t = copy[lang]

@@ -1,6 +1,5 @@
 export type Lang = 'en' | 'es'
 export type Credit = [string, string]
-export type Route = { variant: 'package' | 'book' | 'online'; name: string; price: string; desc: string }
 export const copy = {
   en: {
     nav: ['Home','Program','Materials','Package','Schools','Author','Contact'], navAria: 'Main navigation', brandAria: 'LANY Books home',
@@ -10,15 +9,13 @@ export const copy = {
     kitLoading: 'Full kit photo loading', flipchartLoading: 'Flipchart page loading', toggle: 'Espanol', eyebrow: 'LANY Books presents', title: 'La Cartilla de Gretel',
     subtitle: 'A complete phonetic Spanish reading and writing program for Kindergarten, First Grade, and Second Grade.',
     heroText: 'A warm, structured, classroom-ready program that guides children from letter sounds to syllables, words, sentences, paragraphs, and poems.',
-    purchase: 'Purchase Now', orderCta: 'Contact to order', viewIncluded: "View What's Included", requestInfo: 'Request Information',
+    viewIncluded: "View What's Included", requestInfo: 'Request Information',
     trust: ['Created by a 50-year veteran educator','Controlled phonetic method','For Kindergarten - 2nd Grade','Complete bilingual package'],
     programLabel: 'Program', methodTitle: 'A controlled phonetic method that builds confidence step by step.',
     methodText: ['La Cartilla de Gretel is an easy-to-follow program for students in Kindergarten, First Grade, or Second Grade. This method emphasizes the mechanics of reading and writing in Spanish.','The program uses sound associations to help students remember vowel and consonant sounds. It takes the child from the simple to the complex: letter sounds, syllables, words, sentences, paragraphs, and poems.','This is a completely controlled method. No letters or phonetic sounds are used until they have been fully introduced.'],
     buyLabel: 'Ways to order', buyTitle: 'Choose how you want it.',
     buyLead: "Every order goes through our contact form. Reach out and we'll guide you to the right option for your classroom or family. Online ordering is not yet available.",
-    contactCta: 'Contact for more information', comingSoon: 'Coming soon', orderOnlineCta: 'Order online', bestValue: 'Complete kit',
-    routes: [{variant:'package',name:'Complete Package',price:'$150',desc:"The full physical teaching kit"},{variant:'book',name:'Student Book Only',price:'$20',desc:'The 92-page student book on its own'},{variant:'online',name:'Order Online',price:'',desc:'Available to purchase through our online store.'}] as Route[],
-    offerLabel: 'Complete offer', formatsTitle: 'Digital & audio editions', formatsNote: 'Indicative pricing for the digital and audio editions.', formatTags: ['eBook','ePub','Printable','Audiobook'],
+    contactCta: 'Contact for more information',
     packageLabel: 'Package', includedTitle: 'What the package includes', includedLead: 'Everything needed to present the method, guide classroom instruction, send home practice, and evaluate progress.',
     components: ['17" x 22" flipchart and easel','Reproducible syllabic and vowel charts','Answer key to the syllabic charts','92-page Student Book','Reproducible homework pages','Audio CD of all poems included in the flipchart','Reproducible evaluations','Evaluation answer key',"Teacher's Guide",'Durable canvas carrying bag with organized folders'],
     packageNote: 'The flipchart comes in its own easel, and all components come neatly organized.',
@@ -49,15 +46,13 @@ export const copy = {
     kitLoading: 'Cargando foto del kit completo', flipchartLoading: 'Cargando pagina del rotafolio', toggle: 'English', eyebrow: 'LANY Books presenta', title: 'La Cartilla de Gretel',
     subtitle: 'Un programa completo y fonetico de lectura y escritura en espanol para Kindergarten, Primer Grado y Segundo Grado.',
     heroText: 'Un programa calido, estructurado y listo para el aula que guia al nino desde los sonidos de las letras hasta silabas, palabras, oraciones, parrafos y poemas.',
-    purchase: 'Comprar ahora', orderCta: 'Contactar para pedir', viewIncluded: 'Ver que incluye', requestInfo: 'Solicitar informacion',
+    viewIncluded: 'Ver que incluye', requestInfo: 'Solicitar informacion',
     trust: ['Creado por una educadora con mas de 50 anos','Metodo fonetico controlado','Para Kindergarten - 2. Grado','Paquete bilingue completo'],
     programLabel: 'Programa', methodTitle: 'Un metodo fonetico controlado que desarrolla confianza paso a paso.',
     methodText: ['La Cartilla de Gretel es un programa facil de seguir para estudiantes de Kindergarten, Primer Grado y Segundo Grado.','El programa utiliza asociaciones de sonidos para ayudar al estudiante a recordar vocales y consonantes.','Es un metodo completamente controlado.'],
     buyLabel: 'Formas de pedir', buyTitle: 'Elija como lo quiere.',
     buyLead: 'Todos los pedidos se gestionan mediante nuestro formulario de contacto. Comuniquese con nosotros y lo guiaremos hacia la opcion adecuada para su aula o familia. El pedido en linea aun no esta disponible.',
-    contactCta: 'Contacte para mas informacion', comingSoon: 'Proximamente', orderOnlineCta: 'Comprar en linea', bestValue: 'Kit completo',
-    routes: [{variant:'package',name:'Paquete completo',price:'$150',desc:'El kit fisico completo de ensenanza: rotafolio y caballete'},{variant:'book',name:'Solo el libro del alumno',price:'$20',desc:'El libro del alumno de 92 paginas por separado'},{variant:'online',name:'Comprar en linea',price:'',desc:'Disponible para compra en nuestra tienda en linea.'}] as Route[],
-    offerLabel: 'Oferta completa', formatsTitle: 'Ediciones digitales y de audio', formatsNote: 'Precios indicativos de las ediciones digitales y de audio.', formatTags: ['Libro electronico','ePub','Imprimible','Audiolibro'],
+    contactCta: 'Contacte para mas informacion',
     packageLabel: 'Paquete', includedTitle: 'Que incluye el paquete', includedLead: 'Todo lo necesario para presentar el metodo, guiar la instruccion, enviar practica al hogar y evaluar el progreso.',
     components: ['Rotafolio de 17" x 22" con caballete','Carteles reproducibles de silabas y vocales','Clave de respuestas de los carteles silabicos','Libro del alumno de 92 paginas','Tareas reproducibles','CD de audio con todos los poemas','Evaluaciones reproducibles','Clave de respuestas de las evaluaciones','Guia del maestro','Bolsa de lona resistente con carpetas organizadas'],
     packageNote: 'El rotafolio viene con su propio caballete, y todos los componentes vienen organizados cuidadosamente.',
