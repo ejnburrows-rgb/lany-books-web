@@ -1,8 +1,7 @@
 # LANY Books Storefront — V1 Production-Readiness Audit Report
 
-**Date:** 2026-07-30  
-**Branch:** `fix/v1-production-readiness`  
-**PR:** https://github.com/ejnburrows-rgb/lany-books-web/pull/32
+**Date:** 2026-07-30
+**Branch:** `fix/v1-consolidated-release` (consolidates PR #31 and PR #32)
 
 ## Delivered
 
@@ -12,7 +11,7 @@
 - "Purchase Now" → "Request Information" (EN/ES)
 - All stripeLinks confirmed null — every button routes to #contact
 - Canonical/OG/sitemap/robots → lany-books-web.vercel.app
-- Language persistence + document.lang on switch (default: es)
+- Language persistence + document.lang on switch (default changed to English, with a one-click toggle to Spanish)
 - Mobile nav: fixed conflicting max-height rules, language+CTA inside menu
 - Header actions visible at 390px
 - Contact card hidden until VITE_CONTACT_EMAIL set
@@ -20,7 +19,19 @@
 - Owner decision sheet (OWNER-DECISIONS.md)
 - Smoke test at scripts/smoke-content.mjs
 
+## Owner correction: removed invented product promises
+
+An earlier draft of the product catalog (`src/config/products.ts`) listed several
+features that do not exist and were never confirmed by the owner: software
+licensing tiers, a "digital companion," audio read-aloud, a teacher dashboard,
+teacher training calls, and dedicated support. The owner confirmed none of
+this is real. All of it has been removed — no replacement claims were
+invented in its place. The catalog now lists only the physical workbook and
+classroom-kit products, with pricing left as "Price to be confirmed" and every
+CTA routing to the contact form.
+
 ## Owner-only gates
+
 1. Production deployment mismatch (Vercel dashboard)
 2. lanybooks.com domain ownership verification
 3. All 16 decisions in OWNER-DECISIONS.md
