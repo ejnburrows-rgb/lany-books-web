@@ -4,12 +4,12 @@ import { type Product } from '../config/products'
 interface ProductCardProps {
   product: Product
   highlighted?: boolean
+  lang?: 'en' | 'es'
 }
 
-export function ProductCard({ product, highlighted = false }: ProductCardProps) {
+export function ProductCard({ product, highlighted = false, lang = 'en' }: ProductCardProps) {
   return (
     <article className={`routeCard ${highlighted ? 'package' : ''}`}>
-      {highlighted ? <span className="routeBadge">Best value</span> : null}
       <h3>{product.name}</h3>
       <div className="price">
         {product.price === null ? (
@@ -24,7 +24,7 @@ export function ProductCard({ product, highlighted = false }: ProductCardProps) 
           <li key={feature}>{feature}</li>
         ))}
       </ul>
-      <BuyButton product={product} variant={highlighted ? 'primary' : 'secondary'} />
+      <BuyButton product={product} lang={lang} variant={highlighted ? 'primary' : 'secondary'} />
     </article>
   )
 }

@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { products, getProducts, getActiveBuyLink } from '../src/config/products.ts';
 import { fileURLToPath } from 'node:url';
 
 const files = { app: '../src/App.tsx', copy: '../src/copy.ts', products: '../src/config/products.ts', html: '../index.html', env: '../.env.example' };
@@ -13,9 +14,9 @@ check('no GATE visible', !(contents.products||'').includes('(GATE)'));
 check('no bookingPlaceholder', !(contents.app||'').includes('bookingPlaceholder'));
 check('no Purchase Now', !(contents.copy||'').includes('Purchase Now'));
 check('no Comprar ahora', !(contents.copy||'').includes('Comprar ahora'));
-const sc = ((contents.products||'').match(/stripeLink: null/g) || []).length;
-const sa = ((contents.products||'').match(/stripeLink/g) || []).length;
-check('all stripeLinks null', sc === sa && sa > 0);
+check('all checkout links disabled', products.length > 0 && products.every(p => p.stripeLink === null && getActiveBuyLink(p) === '#contact'));
+check('Spanish catalog preserves product identities and prices', getProducts('es').every((p, i) => p.id === products[i].id && p.price === products[i].price && p.stripeLink === null));
+check('Spanish catalog translated', getProducts('es').every(p => p.priceNote === 'Precio por confirmar' && p.name !== products.find(original => original.id === p.id).name));
 check('no InStock', !(contents.html||'').includes('InStock'));
 check('no 150.00 Offer', !(contents.html||'').includes('"150.00"'));
 check('no fake $150/$20 price copy', !(contents.copy||'').includes('$150') && !(contents.copy||'').includes('$20'));
@@ -34,3 +35,4 @@ check('no invented dedicated support claims', !(contents.products||'').toLowerCa
 check('OWNER-DECISIONS.md exists', fs.existsSync(fileURLToPath(new URL('../OWNER-DECISIONS.md', import.meta.url))));
 console.log(`\n${p} passed, ${f} failed\n`);
 process.exit(f ? 1 : 0);
+

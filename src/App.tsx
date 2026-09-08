@@ -1,18 +1,18 @@
 import { useState, type FormEvent } from 'react'
 import { copy, type Lang } from './copy'
-import { BrandLogo, ImageFrame } from './components'
+import { ImageFrame } from './components'
 import { ProductCard } from './components/ProductCard'
 import { ContactCard } from './components/ContactCard'
-import { products } from './config/products'
+import { getProducts } from './config/products'
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 const imagePaths = { kit: '/images/gretel/cartilla-bundle.webp', cover: '/images/gretel/wb-cover-hd.webp' }
-const flipchartPages = [ '/images/gretel/pose-7.webp' ]
 const contactEmail = (import.meta.env.VITE_CONTACT_EMAIL as string) || ''
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const [menuOpen, setMenuOpen] = useState(false)
   const [formStatus, setFormStatus] = useState<FormStatus>('idle')
   const t = copy[lang]
+  const products = getProducts(lang)
   const navTargets = ['#home','#program','#materials','#package','#schools','#author','#contact']
   const formEndpoint = import.meta.env.VITE_FORM_ENDPOINT as string | undefined
   const handleSetLang = (newLang: Lang) => { setLang(newLang); document.documentElement.lang = newLang === 'es' ? 'es' : 'en'; try { localStorage.setItem('lany-lang', newLang) } catch(e) {} }
@@ -33,13 +33,14 @@ export default function App() {
         <section className="trustStrip" aria-label={t.trustAria}>{t.trust.map(item => <span className="trustItem" key={item}>{item}</span>)}</section>
         <section id="program" className="section split"><div><p className="eyebrow">{t.programLabel}</p><h2>{t.methodTitle}</h2></div><div className="textStack">{t.methodText.map(p => <p key={p}>{p}</p>)}</div></section>
         <section id="materials" className="section showcase"><div className="showcaseHeader"><p className="eyebrow">{t.presentationLabel}</p><h2>{t.showcaseTitle}</h2><p className="lead">{t.showcaseLead}</p></div><div className="kitShowcase"><ImageFrame src={imagePaths.kit} alt={t.kitAlt} label={t.kitLoading} className="kitImage"/></div></section>
-        <section id="buy" className="section productSection"><div className="buyTop"><div className="buyHeader"><p className="eyebrow">{t.buyLabel}</p><h2>{t.buyTitle}</h2><p className="lead">{t.buyLead}</p></div><div className="buyCover"><ImageFrame src={imagePaths.cover} alt={t.coverAlt} label={t.coverLoading} aspect="3 / 4"/></div></div><div className="routesGrid">{products.map((p, i) => <ProductCard key={p.id} product={p} highlighted={i === 3}/>)}</div></section>
+        <section id="buy" className="section productSection"><div className="buyTop"><div className="buyHeader"><p className="eyebrow">{t.buyLabel}</p><h2>{t.buyTitle}</h2><p className="lead">{t.buyLead}</p></div><div className="buyCover"><ImageFrame src={imagePaths.cover} alt={t.coverAlt} label={t.coverLoading} aspect="3 / 4"/></div></div><div className="routesGrid">{products.map((p, i) => <ProductCard key={p.id} product={p} lang={lang} highlighted={i === 3}/>)}</div></section>
         <section id="package" className="section"><p className="eyebrow">{t.packageLabel}</p><h2>{t.includedTitle}</h2><p className="lead">{t.includedLead}</p><ul className="components">{t.components.map(c => <li key={c}>{c}</li>)}</ul><p className="packageNote">{t.packageNote}</p></section>
         <section id="schools" className="section schoolsSection"><div className="schoolsCard"><div className="schoolsIntro"><p className="eyebrow">{t.schoolsLabel}</p><h2>{t.schoolsTitle}</h2><p className="lead">{t.schoolsLead}</p><div className="actions"><a className="button gold" href="#contact">{t.schoolsCta}</a></div><p className="schoolsNote">{t.schoolsNote}</p></div><div className="schoolsPanel"><ul className="schoolsList">{t.schoolsPoints.map(p => <li key={p}>{p}</li>)}</ul></div></div></section>
         <section id="author" className="section split"><div><p className="eyebrow">{t.authorLegacyLabel}</p><h2>{t.authorTitle}</h2><p className="lead">{t.authorLead}</p><div className="textStack">{t.authorText.map(p => <p key={p}>{p}</p>)}</div><figure className="dedication"><p className="dedicationLabel">{t.dedicationLabel}</p><blockquote>{t.dedicationParas.map(p => <p key={p}>{p}</p>)}</blockquote><figcaption>{t.dedicationAttribution}</figcaption></figure></div><div className="panel"><h3>{t.honorsTitle}</h3><ul>{t.honors.map(h => <li key={h}>{h}</li>)}</ul></div></section>
         <section id="faq" className="section faqSection"><p className="eyebrow">{t.faqLabel}</p><h2>{t.faqTitle}</h2><div className="faqList">{t.faqItems.map((item, i) => <details className="faqItem" key={i}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
-        <section id="contact" className="section split contact"><div><p className="eyebrow">{t.interestFormLabel}</p><h2>{t.contactTitle}</h2><p className="lead">{t.contactLead}</p>{contactEmail ? <ContactCard email={contactEmail}/> : null}</div><form className="form" onSubmit={handleContactSubmit}><input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{display:'none'}}/><label htmlFor="contact-name">{t.name}<input id="contact-name" type="text" name="name" required/></label><label htmlFor="contact-email">{t.email}<input id="contact-email" type="email" name="email" required/></label><label htmlFor="contact-role">{t.role}<select id="contact-role" name="role">{t.roles.map(r => <option key={r}>{r}</option>)}</select></label><label htmlFor="contact-message">{t.message}<textarea id="contact-message" name="message"/></label>{formStatus === 'success' ? <p className="formStatus success" role="status">{t.formSuccess}</p> : null}{formStatus === 'error' ? <p className="formStatus error" role="alert">{t.formError}</p> : null}<button className="button primary" type="submit" disabled={formStatus === 'sending'}>{formStatus === 'sending' ? t.formSending : t.requestInfo}</button></form></section>
+        <section id="contact" className="section split contact"><div><p className="eyebrow">{t.interestFormLabel}</p><h2>{t.contactTitle}</h2><p className="lead">{t.contactLead}</p>{contactEmail ? <ContactCard email={contactEmail} lang={lang}/> : null}</div><form className="form" onSubmit={handleContactSubmit}><input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{display:'none'}}/><label htmlFor="contact-name">{t.name}<input id="contact-name" type="text" name="name" required/></label><label htmlFor="contact-email">{t.email}<input id="contact-email" type="email" name="email" required/></label><label htmlFor="contact-role">{t.role}<select id="contact-role" name="role">{t.roles.map(r => <option key={r}>{r}</option>)}</select></label><label htmlFor="contact-message">{t.message}<textarea id="contact-message" name="message"/></label>{formStatus === 'success' ? <p className="formStatus success" role="status">{t.formSuccess}</p> : null}{formStatus === 'error' ? <p className="formStatus error" role="alert">{t.formError}</p> : null}<button className="button primary" type="submit" disabled={formStatus === 'sending'}>{formStatus === 'sending' ? t.formSending : t.requestInfo}</button></form></section>
       </main>
       <footer><strong>LANY Books</strong><span>{t.footer}</span></footer>
     </div>)
 }
+
