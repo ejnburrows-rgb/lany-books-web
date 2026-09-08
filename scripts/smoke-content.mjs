@@ -1,10 +1,13 @@
 import fs from 'node:fs';
-import { products, getProducts, getActiveBuyLink } from '../src/config/products.ts';
+import ts from 'typescript';
+const catalogSource = fs.readFileSync(new URL('../src/config/products.ts', import.meta.url), 'utf8');
+const catalogCode = ts.transpileModule(catalogSource, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
+const { products, getProducts, getActiveBuyLink } = await import('data:text/javascript;base64,' + Buffer.from(catalogCode).toString('base64'));
 import { fileURLToPath } from 'node:url';
 
 const files = { app: '../src/App.tsx', copy: '../src/copy.ts', products: '../src/config/products.ts', html: '../index.html', env: '../.env.example' };
 const contents = {};
-for (const [k, v] of Object.entries(files)) { try { contents[k] = fs.readFileSync(fileURLToPath(new URL(v, import.meta.url)), 'utf8'); } catch(e) { console.error(`Cannot read ${k}: ${e.message}`); } }
+for (const [k, v] of Object.entries(files)) { try { contents[k] = fs.readFileSync(fileURLToPath(new URL(v, import.meta.url)), 'utf8'); } catch(e) { throw new Error(`Cannot read ${k}: ${e.message}`); } }
 let p = 0, f = 0;
 function check(n, c) { if(c) { p++; console.log(`  ok   ${n}`); } else { f++; console.error(`  FAIL ${n}`); } }
 console.log('\nLANY Books — Smoke guard\n');
@@ -21,6 +24,7 @@ check('no InStock', !(contents.html||'').includes('InStock'));
 check('no 150.00 Offer', !(contents.html||'').includes('"150.00"'));
 check('no fake $150/$20 price copy', !(contents.copy||'').includes('$150') && !(contents.copy||'').includes('$20'));
 check('no online-store claim', !(contents.copy||'').toLowerCase().includes('online store') && !(contents.copy||'').toLowerCase().includes('tienda en linea'));
+check('English default matches initial HTML language', (contents.html||'').includes('<html lang="en">'));
 check('document.lang set', (contents.app||'').includes('document.documentElement.lang'));
 check('default lang is English', (contents.app||'').includes("useState<Lang>('en')"));
 check('canonical uses vercel', (contents.html||'').includes('lany-books-web.vercel.app'));
