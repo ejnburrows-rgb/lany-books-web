@@ -1,0 +1,46 @@
+import fs from 'node:fs';
+import ts from 'typescript';
+const catalogSource = fs.readFileSync(new URL('../src/config/products.ts', import.meta.url), 'utf8');
+const catalogCode = ts.transpileModule(catalogSource, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
+const { products, getProducts, getActiveBuyLink } = await import('data:text/javascript;base64,' + Buffer.from(catalogCode).toString('base64'));
+import { fileURLToPath } from 'node:url';
+
+const files = { app: '../src/App.tsx', copy: '../src/copy.ts', products: '../src/config/products.ts', html: '../index.html', env: '../.env.example', robots: '../public/robots.txt', sitemap: '../public/sitemap.xml' };
+const contents = {};
+for (const [k, v] of Object.entries(files)) { try { contents[k] = fs.readFileSync(fileURLToPath(new URL(v, import.meta.url)), 'utf8'); } catch(e) { throw new Error(`Cannot read ${k}: ${e.message}`); } }
+let p = 0, f = 0;
+function check(n, c) { if(c) { p++; console.log(`  ok   ${n}`); } else { f++; console.error(`  FAIL ${n}`); } }
+console.log('\nLANY Books — Smoke guard\n');
+check('no (555) in app', !(contents.app||'').includes('(555)'));
+check('no (555) in copy', !(contents.copy||'').includes('(555)'));
+check('no GATE visible', !(contents.products||'').includes('(GATE)'));
+check('no bookingPlaceholder', !(contents.app||'').includes('bookingPlaceholder'));
+check('no Purchase Now', !(contents.copy||'').includes('Purchase Now'));
+check('no Comprar ahora', !(contents.copy||'').includes('Comprar ahora'));
+check('all checkout links disabled', products.length > 0 && products.every(p => p.stripeLink === null && getActiveBuyLink(p) === '#contact'));
+check('Spanish catalog preserves product identities and prices', getProducts('es').every((p, i) => p.id === products[i].id && p.price === products[i].price && p.stripeLink === null));
+check('Spanish catalog translated', getProducts('es').every(p => p.priceNote === 'Precio por confirmar' && p.name !== products.find(original => original.id === p.id).name));
+check('no InStock', !(contents.html||'').includes('InStock'));
+check('no fake 150.00 offer', !(contents.html||'').includes('"150.00"'));
+check('no fake $150/$20 price copy', !(contents.copy||'').includes('$150') && !(contents.copy||'').includes('$20'));
+check('no online-store claim', !(contents.copy||'').toLowerCase().includes('online store') && !(contents.copy||'').toLowerCase().includes('tienda en línea'));
+check('English default matches initial HTML language', (contents.html||'').includes('<html lang="en">'));
+check('document.lang set', (contents.app||'').includes('document.documentElement.lang'));
+check('default lang is English', (contents.app||'').includes("useState<Lang>('en')"));
+check('canonical uses authoritative production domain', (contents.html||'').includes('https://lany-books-web-cyan.vercel.app/'));
+check('robots uses authoritative production domain', (contents.robots||'').includes('https://lany-books-web-cyan.vercel.app/sitemap.xml'));
+check('sitemap uses authoritative production domain', (contents.sitemap||'').includes('https://lany-books-web-cyan.vercel.app/'));
+check('no VITE_CONTACT_PHONE', !(contents.env||'').includes('VITE_CONTACT_PHONE'));
+check('no VITE_BOOKING_HREF', !(contents.env||'').includes('VITE_BOOKING_HREF'));
+check('no invented licensing claims', !(contents.products||'').toLowerCase().includes('license'));
+check('no invented digital companion claims', !(contents.products||'').toLowerCase().includes('digital companion'));
+check('no invented read-aloud claims', !(contents.products||'').toLowerCase().includes('read-aloud'));
+check('no invented teacher dashboard claims', !(contents.products||'').toLowerCase().includes('dashboard'));
+check('no invented training claims', !(contents.products||'').toLowerCase().includes('training'));
+check('no invented dedicated support claims', !(contents.products||'').toLowerCase().includes('dedicated support'));
+check('no purchase-order claim', !(contents.products||'').toLowerCase().includes('purchase order') && !(contents.copy||'').toLowerCase().includes('purchase order'));
+check('no W-9 claim', !(contents.products||'').toLowerCase().includes('w-9') && !(contents.copy||'').toLowerCase().includes('w-9'));
+check('no volume-pricing claim', !(contents.products||'').toLowerCase().includes('volume pricing') && !(contents.copy||'').toLowerCase().includes('volume pricing'));
+check('OWNER-DECISIONS.md exists', fs.existsSync(fileURLToPath(new URL('../OWNER-DECISIONS.md', import.meta.url))));
+console.log(`\n${p} passed, ${f} failed\n`);
+process.exit(f ? 1 : 0);
