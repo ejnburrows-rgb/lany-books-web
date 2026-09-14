@@ -1,83 +1,45 @@
-# LANY Books — La Cartilla de Gretel (Storefront)
+# LANY Books — La Cartilla de Gretel Storefront
 
-Public-facing marketing & sales storefront for the digital adaptation of the Spanish literacy workbook **La Cartilla de Gretel**, published under the **LANY Books** imprint.
+Public-facing storefront and information site for **La Cartilla de Gretel**, published under the **LANY Books** imprint.
 
-> This is the **storefront / sales site** only. It is a separate property from the classroom CRM app (repo: `cartilla-de-gretel`). No CRM, teacher, or student-app code lives here.
+This repository is the sales/information storefront only. The separate classroom/teacher application lives in `ejnburrows-rgb/cartilla-de-gretel`.
 
-## 🔗 Live site
+## Production
 
-- **Production:** https://lany-books-web.vercel.app
-- Hosting: **Vercel** — every push to the `main` branch auto-deploys to production.
+- **URL:** https://lany-books-web-cyan.vercel.app
+- **Host:** Vercel
+- **Release branch:** `main`
+- Every merge to `main` triggers a Vercel production deployment.
 
-> If the production domain above is wrong or a custom domain is in use, update this line and the Vercel project settings accordingly.
+Online checkout is not enabled. Prices are not hard-coded. Product availability, pricing, and school-ordering details are intentionally handled as current-information requests rather than unverified storefront claims.
 
-## 🧱 Tech stack
+## Contact delivery
 
-- **Vite** (build tool / dev server)
-- **React 19** + **React DOM**
-- **TypeScript**
-- `@vitejs/plugin-react`
+The contact form uses `VITE_FORM_ENDPOINT`. `VITE_CONTACT_EMAIL` controls whether a direct contact card is shown. If the form endpoint is unset, the UI reports an error rather than claiming a successful submission.
 
-## 🚀 Getting started
+No paid AI API or paid learning API is required by this storefront.
+
+## Optional monitoring
+
+`VITE_SENTRY_DSN` is optional. The application does not require Sentry to run.
+
+## Stack
+
+- Vite
+- React 19
+- TypeScript
+- Vercel
+
+## Local commands
 
 ```bash
-# install dependencies
 npm install
-
-# start the local dev server
 npm run dev
-
-# type-check + production build
 npm run build
-
-# preview the production build locally
 npm run preview
 ```
 
-## ✉️ Contact form (environment variable)
-
-The interest form posts to [Formspree](https://formspree.io). Set one variable:
-
-1. Create a free Formspree form and copy its endpoint URL.
-2. Copy `.env.example` to `.env` and paste the URL into `VITE_FORM_ENDPOINT` for local dev.
-3. Add the same `VITE_FORM_ENDPOINT` variable in **Vercel → Project → Settings → Environment Variables**, then redeploy.
-
-Until the variable is set, the form shows an on-screen error instead of sending. No secret is stored in the code.
-
-## 🛡️ Error monitoring (Sentry — optional)
-
-Runtime errors are reported to [Sentry](https://sentry.io) when a DSN is set:
-
-1. Create a free Sentry project and copy its DSN.
-2. Add `VITE_SENTRY_DSN` in **Vercel → Settings → Environment Variables**, then redeploy.
-
-Monitoring is a no-op until the DSN is set, and only reports from deployed builds — never local dev. See `.env.example`.
-
-## 📁 Project structure
-
-```
-lany-books-web/
-├── index.html          # App shell / entry HTML
-├── package.json        # Scripts + dependencies
-├── tsconfig.json       # TypeScript config
-├── vite.config.ts      # Vite config
-├── public/             # Static assets (book cover & images)
-│   └── images/
-└── src/                # Application source
-    ├── main.tsx        # React entry point
-    ├── App.tsx         # Root component (hero, buy links, etc.)
-    └── styles.css      # Global styles
-```
-
-## ☁️ Deployment
-
-This site is deployed on **Vercel** and wired to this GitHub repository:
-
-1. Push (or merge) to the **`main`** branch.
-2. Vercel automatically builds (`npm run build`) and deploys to production.
-3. No manual deploy step is required.
-
-## 📖 The book & credits
+## Product credits
 
 - **Title:** La Cartilla de Gretel
 - **Author:** Leonor Lopetegui
@@ -86,6 +48,6 @@ This site is deployed on **Vercel** and wired to this GitHub repository:
 - **Digital adaptation:** Emilio José Novo
 - **Imprint / publisher:** LANY Books LLC
 
-## ⚖️ Copyright
+## Copyright
 
-The original book *La Cartilla de Gretel* and all author copyrights belong to **Leonor Lopetegui**. **LANY Books LLC** is the imprint/publisher of this digital adaptation and does **not** own the original book's copyright.
+The original book *La Cartilla de Gretel* and author copyrights belong to **Leonor Lopetegui**. **LANY Books LLC** is the imprint/publisher of this adaptation and does not claim ownership of the original book copyright.
