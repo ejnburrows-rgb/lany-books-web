@@ -4,9 +4,9 @@ These decisions are required before the storefront can accept money or represent
 
 ## Commerce decisions (required before accepting money)
 
-1. Approved prices for all 5 SKUs
-2. Payment provider (Stripe, PayPal, etc.)
-3. Tax handling (rates, jurisdictions)
+1. Approved prices for the current product options
+2. Payment provider, if online checkout is enabled later
+3. Tax handling and jurisdictions
 4. Shipping zones and costs
 5. Fulfillment ownership
 6. Inventory source and restock process
@@ -22,14 +22,13 @@ These decisions are required before the storefront can accept money or represent
 
 ## Contact decisions
 
-13. Verified business phone number
-14. VITE_FORM_ENDPOINT (Formspree) in production
-15. VITE_CONTACT_EMAIL in production
+13. Verified business phone number, only if one should be published
+14. Production contact-form endpoint
+15. Production contact email, if one should be displayed directly
 
 ## Domain decision
 
-16. Does lanybooks.com belong to this project?
+16. Confirm whether lanybooks.com belongs to this project before connecting or advertising it.
 
-**Checkout stays disabled** until items 1-9 are approved.
-**Contact card hides phone** until item 13 has a real number.
-**No policy/terms/shipping text was invented.**
+**Checkout stays disabled** until the commerce decisions above are approved.
+**No policy, shipping, payment, or fulfillment claims should be added until confirmed.**
