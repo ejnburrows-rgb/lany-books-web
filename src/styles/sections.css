@@ -904,3 +904,17 @@ footer a {
     animation-duration: 0.01ms !important;
   }
 }
+
+
+.contactPending {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  border: 1px solid var(--lumina-outline-variant);
+  border-radius: var(--radius-card);
+  background: rgba(255,255,255,0.72);
+  color: var(--lumina-body);
+  text-align: center;
+  line-height: 1.65;
+}
