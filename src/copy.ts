@@ -23,7 +23,7 @@ export const copy = {
       ['Student materials',['92-page Student Book','Reproducible homework pages','Reproducible syllabic and vowel charts']],
       ['Teacher materials',["Teacher's Guide",'Reproducible evaluations','Evaluation answer key','Answer key to the syllabic charts']],
       ['Classroom presentation',['17" x 22" flipchart and easel','Audio CD of poems included in the flipchart','Canvas carrying bag with organized folders']]
-    ],
+    ] as [string, string[]][],
     components: ['17" x 22" flipchart and easel','Reproducible syllabic and vowel charts','Answer key to the syllabic charts','92-page Student Book','Reproducible homework pages','Audio CD of poems included in the flipchart','Reproducible evaluations','Evaluation answer key',"Teacher's Guide",'Canvas carrying bag with organized folders'],
     packageNote: 'The flipchart includes its own easel, with the package materials organized for classroom use.',
     schoolsLabel: 'For schools & teachers', schoolsTitle: 'School and classroom inquiries.', schoolsLead: 'Contact LANY Books for current availability, pricing, and ordering information for classroom or school use.',
@@ -67,7 +67,7 @@ export const copy = {
       ['Materiales del alumno',['Libro del alumno de 92 páginas','Tareas reproducibles','Carteles reproducibles de sílabas y vocales']],
       ['Materiales del maestro',['Guía del maestro','Evaluaciones reproducibles','Clave de respuestas de las evaluaciones','Clave de respuestas de los carteles silábicos']],
       ['Presentación para el aula',['Rotafolio de 17" x 22" con caballete','CD de audio con poemas del rotafolio','Bolsa de lona con carpetas organizadas']]
-    ],
+    ] as [string, string[]][],
     components: ['Rotafolio de 17" x 22" con caballete','Carteles reproducibles de sílabas y vocales','Clave de respuestas de los carteles silábicos','Libro del alumno de 92 páginas','Tareas reproducibles','CD de audio con poemas del rotafolio','Evaluaciones reproducibles','Clave de respuestas de las evaluaciones','Guía del maestro','Bolsa de lona con carpetas organizadas'],
     packageNote: 'El rotafolio incluye su propio caballete y los materiales del paquete están organizados para uso en el aula.',
     schoolsLabel: 'Para escuelas y maestros', schoolsTitle: 'Consultas para escuelas y aulas.', schoolsLead: 'Contacte a LANY Books para conocer la disponibilidad, los precios y las opciones de pedido actuales para aulas o escuelas.',
