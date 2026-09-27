@@ -69,3 +69,74 @@ footer strong{color:var(--lumina-ink);}
 @media(min-width:481px) and (max-width:940px){.headerActions{margin-left:auto;}}
 @media(min-width:941px) and (max-width:1180px){.galleryGrid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(min-width:941px){.menuToggle{display:none;}.primaryNav{display:flex !important;}}
+
+
+/* Redesign responsive behavior */
+@media(max-width:940px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:left;
+    min-height:auto;
+    padding-top:4rem;
+    padding-bottom:4.5rem;
+  }
+  .heroCopy{order:0;max-width:720px;}
+  .heroStage{
+    order:1;
+    width:min(100%,680px);
+    min-height:520px;
+    margin:1rem auto 0;
+  }
+  .heroKit{right:0;width:86%;top:8%;}
+  .heroBook{left:2%;bottom:2%;width:min(35%,210px);}
+  .actions{justify-content:flex-start;}
+  .methodSection{grid-template-columns:1fr;gap:2.5rem;}
+  .materialsMosaic{
+    grid-template-columns:minmax(0,1fr) minmax(180px,0.38fr);
+  }
+  .materialIndex{grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 1.5rem;}
+  .retailerGrid{grid-template-columns:1fr;}
+  .packageGroups{grid-template-columns:1fr;gap:1.4rem;}
+  .routeCard.package{transform:none;}
+  .routeCard.package:hover{transform:translateY(-3px);}
+  .legacySection{grid-template-columns:1fr;}
+  .legacySide{grid-template-columns:minmax(0,0.55fr) minmax(0,1fr);align-items:center;}
+  .legacyGretel{min-height:240px;}
+  .creditsGrid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .contactSection{grid-template-columns:1fr;}
+  .contactIntro{position:static;}
+}
+
+@media(max-width:620px){
+  .heroStage{min-height:400px;}
+  .heroKit{
+    width:92%;
+    right:-8%;
+    top:7%;
+    padding:0.75rem;
+    border-radius:1.4rem;
+  }
+  .heroBook{
+    width:34%;
+    left:0;
+    bottom:0;
+    padding:0.5rem;
+    border-radius:1rem;
+  }
+  .methodStep{
+    grid-template-columns:3.2rem 1fr;
+    gap:0.5rem 0.8rem;
+    align-items:start;
+  }
+  .methodStep p{grid-column:2;}
+  .materialsMosaic{grid-template-columns:1fr;}
+  .materialHero{min-height:320px;}
+  .materialCover{max-width:230px;margin:0 auto;width:100%;}
+  .materialIndex{grid-column:auto;grid-template-columns:1fr;}
+  .retailerLink{align-items:flex-start;flex-direction:column;}
+  .retailerCta{white-space:normal;}
+  .legacySide{grid-template-columns:1fr;}
+  .legacyGretel{min-height:220px;}
+  .creditsGrid{grid-template-columns:1fr;}
+  .formSplit{grid-template-columns:1fr;}
+}
