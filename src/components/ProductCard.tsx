@@ -10,6 +10,7 @@ interface ProductCardProps {
 export function ProductCard({ product, highlighted = false, lang = 'en' }: ProductCardProps) {
   return (
     <article className={`routeCard ${highlighted ? 'package' : ''}`}>
+      {highlighted ? <span className="routeBadge">{lang === 'es' ? 'Kit destacado' : 'Featured kit'}</span> : null}
       <h3>{product.name}</h3>
       <div className="price">
         {product.price === null ? (
