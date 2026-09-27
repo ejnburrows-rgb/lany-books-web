@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lany-books-web-cyan.vercel.app/sitemap.xml
+Sitemap: https://lany-books-web-delta.vercel.app/sitemap.xml
