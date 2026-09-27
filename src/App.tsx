@@ -349,26 +349,32 @@ export default function App() {
             {contactEmail ? <ContactCard email={contactEmail} lang={lang} /> : null}
           </div>
 
-          <form className="form" onSubmit={handleContactSubmit}>
-            <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{display:'none'}} />
-            <label htmlFor="contact-name">{t.name}<input id="contact-name" type="text" name="name" required /></label>
-            <label htmlFor="contact-email">{t.email}<input id="contact-email" type="email" name="email" required /></label>
-            <label htmlFor="contact-organization">{t.organization}<input id="contact-organization" type="text" name="organization" /></label>
-            <div className="formSplit">
-              <label htmlFor="contact-grade">{t.grade}<input id="contact-grade" type="text" name="grade" /></label>
-              <label htmlFor="contact-students">{t.students}<input id="contact-students" type="number" min="1" name="students" /></label>
+          {formEndpoint ? (
+            <form className="form" onSubmit={handleContactSubmit}>
+              <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{display:'none'}} />
+              <label htmlFor="contact-name">{t.name}<input id="contact-name" type="text" name="name" required /></label>
+              <label htmlFor="contact-email">{t.email}<input id="contact-email" type="email" name="email" required /></label>
+              <label htmlFor="contact-organization">{t.organization}<input id="contact-organization" type="text" name="organization" /></label>
+              <div className="formSplit">
+                <label htmlFor="contact-grade">{t.grade}<input id="contact-grade" type="text" name="grade" /></label>
+                <label htmlFor="contact-students">{t.students}<input id="contact-students" type="number" min="1" name="students" /></label>
+              </div>
+              <label htmlFor="contact-timeframe">{t.timeframe}<input id="contact-timeframe" type="text" name="timeframe" /></label>
+              <label htmlFor="contact-role">{t.role}<select id="contact-role" name="role">{t.roles.map((role) => <option key={role}>{role}</option>)}</select></label>
+              <label htmlFor="contact-message">{t.message}<textarea id="contact-message" name="message" /></label>
+
+              {formStatus === 'success' ? <p className="formStatus success" role="status">{t.formSuccess}</p> : null}
+              {formStatus === 'error' ? <p className="formStatus error" role="alert">{t.formError}</p> : null}
+
+              <button className="button primary" type="submit" disabled={formStatus === 'sending'}>
+                {formStatus === 'sending' ? t.formSending : t.requestInfo}
+              </button>
+            </form>
+          ) : (
+            <div className="contactPending" role="status">
+              <p>{t.contactPending}</p>
             </div>
-            <label htmlFor="contact-timeframe">{t.timeframe}<input id="contact-timeframe" type="text" name="timeframe" /></label>
-            <label htmlFor="contact-role">{t.role}<select id="contact-role" name="role">{t.roles.map((role) => <option key={role}>{role}</option>)}</select></label>
-            <label htmlFor="contact-message">{t.message}<textarea id="contact-message" name="message" /></label>
-
-            {formStatus === 'success' ? <p className="formStatus success" role="status">{t.formSuccess}</p> : null}
-            {formStatus === 'error' ? <p className="formStatus error" role="alert">{t.formError}</p> : null}
-
-            <button className="button primary" type="submit" disabled={formStatus === 'sending'}>
-              {formStatus === 'sending' ? t.formSending : t.requestInfo}
-            </button>
-          </form>
+          )}
         </section>
       </main>
 
