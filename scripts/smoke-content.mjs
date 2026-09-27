@@ -48,6 +48,7 @@ check('classroom kit is featured by product id', (contents.app||'').includes("pr
 check('district inquiry removed from retail product grid', (contents.app||'').includes("product.id !== 'combo-district'"));
 check('official credits rendered', (contents.app||'').includes('creditsGrid') && (contents.app||'').includes('t.credits.map'));
 check('retailer section hides when no verified links exist', (contents.app||'').includes('retailers.length > 0'));
+check('contact form hides until verified endpoint exists', (contents.app||'').includes('formEndpoint ? (') && (contents.copy||'').includes('contactPending'));
 check('OWNER-DECISIONS.md exists', fs.existsSync(fileURLToPath(new URL('../OWNER-DECISIONS.md', import.meta.url))));
 console.log(`\n${p} passed, ${f} failed\n`);
 process.exit(f ? 1 : 0);
