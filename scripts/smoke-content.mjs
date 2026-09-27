@@ -26,7 +26,7 @@ check('no fake $150/$20 price copy', !(contents.copy||'').includes('$150') && !(
 check('no online-store claim', !(contents.copy||'').toLowerCase().includes('online store') && !(contents.copy||'').toLowerCase().includes('tienda en línea'));
 check('English default matches initial HTML language', (contents.html||'').includes('<html lang="en">'));
 check('document.lang set', (contents.app||'').includes('document.documentElement.lang'));
-check('default lang is English', (contents.app||'').includes("useState<Lang>('en')"));
+check('default lang safely falls back to English', (contents.app||'').includes("return 'en'") && (contents.app||'').includes('getInitialLang'));
 check('canonical uses authoritative production domain', (contents.html||'').includes('https://lany-books-web-cyan.vercel.app/'));
 check('robots uses authoritative production domain', (contents.robots||'').includes('https://lany-books-web-cyan.vercel.app/sitemap.xml'));
 check('sitemap uses authoritative production domain', (contents.sitemap||'').includes('https://lany-books-web-cyan.vercel.app/'));
@@ -44,6 +44,10 @@ check('no invented dedicated support claims', !(contents.products||'').toLowerCa
 check('no purchase-order claim', !(contents.products||'').toLowerCase().includes('purchase order') && !(contents.copy||'').toLowerCase().includes('purchase order'));
 check('no W-9 claim', !(contents.products||'').toLowerCase().includes('w-9') && !(contents.copy||'').toLowerCase().includes('w-9'));
 check('no volume-pricing claim', !(contents.products||'').toLowerCase().includes('volume pricing') && !(contents.copy||'').toLowerCase().includes('volume pricing'));
+check('classroom kit is featured by product id', (contents.app||'').includes("product.id === 'combo-classroom'"));
+check('district inquiry removed from retail product grid', (contents.app||'').includes("product.id !== 'combo-district'"));
+check('official credits rendered', (contents.app||'').includes('creditsGrid') && (contents.app||'').includes('t.credits.map'));
+check('retailer section hides when no verified links exist', (contents.app||'').includes('retailers.length > 0'));
 check('OWNER-DECISIONS.md exists', fs.existsSync(fileURLToPath(new URL('../OWNER-DECISIONS.md', import.meta.url))));
 console.log(`\n${p} passed, ${f} failed\n`);
 process.exit(f ? 1 : 0);
