@@ -57,13 +57,15 @@ export function ImageFrame({
   alt,
   label,
   className = '',
-  aspect
+  aspect,
+  priority = false
 }: {
   src: string
   alt: string
   label: string
   className?: string
   aspect?: string
+  priority?: boolean
 }) {
   const [failed, setFailed] = useState(false)
   const style = aspect ? { aspectRatio: aspect } : undefined
@@ -87,7 +89,7 @@ export function ImageFrame({
       style={style}
       src={src}
       alt={alt}
-      loading="lazy"
+      loading={priority ? 'eager' : 'lazy'}
       decoding="async"
       onError={() => setFailed(true)}
     />
