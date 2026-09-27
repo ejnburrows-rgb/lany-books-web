@@ -5,7 +5,7 @@ const catalogCode = ts.transpileModule(catalogSource, { compilerOptions: { modul
 const { products, getProducts, getActiveBuyLink } = await import('data:text/javascript;base64,' + Buffer.from(catalogCode).toString('base64'));
 import { fileURLToPath } from 'node:url';
 
-const files = { app: '../src/App.tsx', copy: '../src/copy.ts', products: '../src/config/products.ts', html: '../index.html', env: '../.env.example', robots: '../public/robots.txt', sitemap: '../public/sitemap.xml' };
+const files = { app: '../src/App.tsx', copy: '../src/copy.ts', products: '../src/config/products.ts', retailers: '../src/config/retailers.ts', html: '../index.html', env: '../.env.example', robots: '../public/robots.txt', sitemap: '../public/sitemap.xml' };
 const contents = {};
 for (const [k, v] of Object.entries(files)) { try { contents[k] = fs.readFileSync(fileURLToPath(new URL(v, import.meta.url)), 'utf8'); } catch(e) { throw new Error(`Cannot read ${k}: ${e.message}`); } }
 let p = 0, f = 0;
@@ -32,6 +32,9 @@ check('robots uses authoritative production domain', (contents.robots||'').inclu
 check('sitemap uses authoritative production domain', (contents.sitemap||'').includes('https://lany-books-web-cyan.vercel.app/'));
 check('no VITE_CONTACT_PHONE', !(contents.env||'').includes('VITE_CONTACT_PHONE'));
 check('no VITE_BOOKING_HREF', !(contents.env||'').includes('VITE_BOOKING_HREF'));
+check('retailer env vars documented', ['VITE_AMAZON_URL','VITE_KINDLE_URL','VITE_KOBO_URL','VITE_AUDIBLE_URL'].every(k => (contents.env||'').includes(k)));
+check('retailer links are env-driven', ['VITE_AMAZON_URL','VITE_KINDLE_URL','VITE_KOBO_URL','VITE_AUDIBLE_URL'].every(k => (contents.retailers||'').includes(k)));
+check('no separate Prime retailer', !(contents.retailers||'').includes("id: 'prime'") && !(contents.app||'').includes('Prime retailer'));
 check('no invented licensing claims', !(contents.products||'').toLowerCase().includes('license'));
 check('no invented digital companion claims', !(contents.products||'').toLowerCase().includes('digital companion'));
 check('no invented read-aloud claims', !(contents.products||'').toLowerCase().includes('read-aloud'));
