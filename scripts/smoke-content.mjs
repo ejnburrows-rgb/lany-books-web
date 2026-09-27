@@ -27,9 +27,9 @@ check('no online-store claim', !(contents.copy||'').toLowerCase().includes('onli
 check('English default matches initial HTML language', (contents.html||'').includes('<html lang="en">'));
 check('document.lang set', (contents.app||'').includes('document.documentElement.lang'));
 check('default lang safely falls back to English', (contents.app||'').includes("return 'en'") && (contents.app||'').includes('getInitialLang'));
-check('canonical uses authoritative production domain', (contents.html||'').includes('https://lany-books-web-cyan.vercel.app/'));
-check('robots uses authoritative production domain', (contents.robots||'').includes('https://lany-books-web-cyan.vercel.app/sitemap.xml'));
-check('sitemap uses authoritative production domain', (contents.sitemap||'').includes('https://lany-books-web-cyan.vercel.app/'));
+check('canonical uses authoritative production domain', (contents.html||'').includes('https://lany-books-web-delta.vercel.app/'));
+check('robots uses authoritative production domain', (contents.robots||'').includes('https://lany-books-web-delta.vercel.app/sitemap.xml'));
+check('sitemap uses authoritative production domain', (contents.sitemap||'').includes('https://lany-books-web-delta.vercel.app/'));
 check('no VITE_CONTACT_PHONE', !(contents.env||'').includes('VITE_CONTACT_PHONE'));
 check('no VITE_BOOKING_HREF', !(contents.env||'').includes('VITE_BOOKING_HREF'));
 check('retailer env vars documented', ['VITE_AMAZON_URL','VITE_KINDLE_URL','VITE_KOBO_URL','VITE_AUDIBLE_URL'].every(k => (contents.env||'').includes(k)));
