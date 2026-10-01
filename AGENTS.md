@@ -26,20 +26,8 @@ you can do the task under these rules, do it.
 
 ---
 
-## REPLIES
-
-Short and plain-language. EJN is not a programmer — define any technical term
-in one phrase the first time it appears. Brevity is for readability, not for
-saving tokens.
-
----
-
 ## BEFORE WRITING CODE
 
-- Vague request → ask clarifying questions, one at a time, until the spec is
-  clear. No spec, no build.
-- New feature → explore a couple of options before committing to one.
-- Then write a short step-by-step plan and get it approved before starting.
 - Unfamiliar area of the codebase → one orienting pass before diving in.
 
 ## WHILE BUILDING
