@@ -1,5 +1,9 @@
 # STATUS — LANY Books storefront
 
+**Current organization checkpoint (2026-10-29):** The owner's active scope is source-of-truth and instruction reconciliation ONLY; do not implement new storefront features, merge dependabot changes or deploy until explicitly resumed and separately authorized. Current verified GitHub `main`: `84d0118357f0297cf4e51590e29a4161d44f72a4`. Open Dependabot PRs #37–#44 are unmerged proposals, not active product assignments. This file is an older snapshot and not an independently refreshed task queue. The active scoped contract is [AGENTS.md](../AGENTS.md); outstanding business decisions are in [OWNER-DECISIONS.md](../OWNER-DECISIONS.md). Vercel production deployment **READY**: `dpl_GyYBVfRmHJftmv7yKWtJmLMdQ34Q`, source `84d0118357f0297cf4e51590e29a4161d44f72a4`, current production alias `https://lany-books-web-delta.vercel.app` (authenticated deployment metadata verified October 29). This proves deployment identity and readiness, not browser-level storefront behavior. A historical GitHub Actions billing/runners issue from October 2 is **not** a verified current or cross-repository deployment blocker.
+
+### Historical checkpoint retained below (2026-10-02)
+
 Updated: 2026-10-02
 
 - Production source of truth: `main`.

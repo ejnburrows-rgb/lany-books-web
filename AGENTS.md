@@ -1,6 +1,12 @@
 # AGENTS.md — LANY Books storefront
 
-Part A global rules govern general behavior. This file contains only LANY-specific facts and release rules.
+This file is LANY's complete active repository agent contract. Do not assume an unspecified external "Part A" or historical chat prompt controls this project. Current owner decisions, current verified GitHub state, and the existing scoped files below outrank dated reports.
+
+## Current owner scope — organization only (2026-10-29)
+
+The owner has **not** authorized product development, feature completion, checkout changes or any production release during the current source-of-truth consolidation. Only non-destructive review and reconciliation of instructions, source references and truthful status are in scope until a new owner directive. Keep existing work and open dependency PRs; do not dispatch product agents, merge upgrades or deploy.
+
+**Authority:** latest owner instruction controls current scope; this `AGENTS.md` sets LANY execution/safety rules, `OWNER-DECISIONS.md` holds unresolved business decisions, existing code/PRs prove implementation, and real Vercel deployments prove releases. `docs/STATUS.md` is a timestamped historical checkpoint, **not** a parallel live queue. Each active LANY task has one status record: its existing LANY issue, or its existing PR when there is no issue. Link related PRs from that record; do not create another queue. Cartilla #877 governs only Cartilla. The NBO Board is a source-linked viewer, not an independent controller. An unrelated repository's Vercel/CI failure must not become a global blocker. Do not make a LANY `main` change merely to organize docs because that could publish production.
 
 ## Project
 
@@ -48,4 +54,4 @@ For visible changes, verify the actual rendered storefront before calling the wo
 - Owner visual acceptance, merge authorization and production release are separate. If a default-branch update triggers production, hold it until the corresponding release is authorized. Do not turn on auto-merge or automatic deployment.
 - Never commit secrets. No paid services, access/security changes, real-data deletion or irreplaceable asset removal without applicable permission. Antigravity requires new explicit task-specific owner authorization.
 - Use available local/sandbox checks; do not depend on GitHub Actions or paid upgrades. Consult version-specific documentation only when relevant.
-- Report **STATUS / RESULT / PROOF / WHAT REMAINS**, with exact revision and one next executable step. Stop when requested work is complete; preserve a precise checkpoint if a genuine execution limit ends the session.
+- Report **DONE and live / DONE but not live / WAITING / NOT TESTED**, with exact revision and one next executable step. Stop when requested work is complete; preserve a precise checkpoint if a genuine execution limit ends the session.
