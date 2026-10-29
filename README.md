@@ -6,7 +6,7 @@ This repository is the sales/information storefront only. The separate classroom
 
 ## Production
 
-- **URL:** https://lany-books-web-cyan.vercel.app
+- **URL:** https://lany-books-web-delta.vercel.app
 - **Host:** Vercel
 - **Release branch:** `main`
 - Every merge to `main` triggers a Vercel production deployment.
