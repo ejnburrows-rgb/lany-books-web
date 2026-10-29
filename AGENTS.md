@@ -1,6 +1,12 @@
 # AGENTS.md — LANY Books storefront
 
-Part A global rules govern general behavior. This file contains only LANY-specific facts and release rules.
+This file is LANY's complete active repository agent contract. Do not assume an unspecified external "Part A" or historical chat prompt controls this project. Current owner decisions, current verified GitHub state, and the existing scoped files below outrank dated reports.
+
+## Current owner scope — organization only (2026-10-29)
+
+The owner has **not** authorized product development, feature completion, checkout changes or any production release during the current source-of-truth consolidation. Only non-destructive review and reconciliation of instructions, source references and truthful status are in scope until a new owner directive. Keep existing work and open dependency PRs; do not dispatch product agents, merge upgrades or deploy.
+
+**Authority:** latest owner instruction controls current scope; this `AGENTS.md` sets LANY execution/safety rules, `OWNER-DECISIONS.md` holds unresolved business decisions, existing code/PRs prove implementation, and real Vercel deployments prove releases. `docs/STATUS.md` is a timestamped historical checkpoint, **not** a parallel live queue. Cartilla #877 governs only Cartilla. The NBO Board is a source-linked viewer, not an independent controller. An unrelated repository's Vercel/CI failure must not become a global blocker. Do not make a LANY `main` change merely to organize docs because that could publish production.
 
 ## Project
 
