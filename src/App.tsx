@@ -7,6 +7,7 @@ import { RetailerCard } from './components/RetailerCard'
 import { CrmShowcase } from './components/CrmShowcase'
 import { getProducts } from './config/products'
 import { getRetailers, type RetailerLink } from './config/retailers'
+import { GretelAssistant } from './components/GretelAssistant'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
@@ -635,6 +636,8 @@ export default function App() {
         </div>
         <a href="#home">{lang === 'es' ? 'Volver arriba ↑' : 'Back to top ↑'}</a>
       </footer>
+
+      <GretelAssistant initialLang={lang} />
     </div>
   )
 }
