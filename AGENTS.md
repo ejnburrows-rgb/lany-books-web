@@ -1,18 +1,80 @@
-# AGENTS.md — LANY Books storefront
+# PERMANENT OWNER CONTRACT — VISIBLE WORK, GITHUB-FIRST, APPROVED DELIVERY AND LIVE VERIFICATION
 
-This file is LANY's complete active repository agent contract. Do not assume an unspecified external "Part A" or historical chat prompt controls this project. Current owner decisions, current verified GitHub state, and the existing scoped files below outrank dated reports.
+This contract governs all coding agents across La Cartilla de Gretel, LANY Books, and NBO Operations Hub. Emilio is the owner and is not a developer. The coding agent takes full responsibility for technical delivery, merging, deployment, and live public verification.
 
-## Current owner scope — organization only (2026-10-29)
+---
 
-The owner has **not** authorized product development, feature completion, checkout changes or any production release during the current source-of-truth consolidation. Only non-destructive review and reconciliation of instructions, source references and truthful status are in scope until a new owner directive. Keep existing work and open dependency PRs; do not dispatch product agents, merge upgrades or deploy.
+## 1. No Local-Only Work — GitHub is Authoritative
+- **Default Workflow**: All completed, authorized work must follow: **Create → Check → Commit → Push → Verify GitHub → Report**.
+- Never leave completed work exclusively in local folders, agent memory, uncommitted working trees, unpushed commits, or temporary workspaces.
+- **Explicit Preview Exception**: Local/temporary HTML-style previews are permitted ONLY when Emilio explicitly asks to review, compare, select, approve, or reject something before integration (e.g. artwork candidates, redesigned pages, new games, animations, Gretel chatbot appearance).
+- Candidate previews must be mobile-friendly (390×844), clearly explained, and accompanied by a simple approval/rejection decision. After approval, the accepted work must be saved immediately to the official GitHub repository.
+- Never push credentials, private information, or unapproved confidential material.
 
-**Authority:** latest owner instruction controls current scope; this `AGENTS.md` sets LANY execution/safety rules, `OWNER-DECISIONS.md` holds unresolved business decisions, existing code/PRs prove implementation, and real Vercel deployments prove releases. `docs/STATUS.md` is a timestamped historical checkpoint, **not** a parallel live queue. Each active LANY task has one status record: its existing LANY issue, or its existing PR when there is no issue. Link related PRs from that record; do not create another queue. Cartilla #877 governs only Cartilla. The NBO Board is a source-linked viewer, not an independent controller. An unrelated repository's Vercel/CI failure must not become a global blocker. Do not make a LANY `main` change merely to organize docs because that could publish production.
+## 2. No Abandoned Branches — Finish or Report Blockers
+- Branches are temporary stepping stones, never final destinations. An agent must never claim a feature is finished when it exists only in a branch, PR, or local workspace.
+- When Emilio authorizes a change for publication, the coding agent owns the full delivery:
+  1. Complete the change.
+  2. Run required tests.
+  3. Obtain required independent review.
+  4. Resolve technical conflicts.
+  5. Merge the exact approved work into `main`.
+  6. Complete the authorized production deployment.
+  7. Verify the actual public website.
+  8. Confirm approved designs and interactions appear correctly.
+  9. Report the real production link and proof.
+- **Branch Cleanup**: After a branch is safely merged to `main`, confirm no active work depends on it, delete the obsolete remote branch, update the visual repository board, and preserve commit history. Never delete active or unmerged unique work.
+- If a branch is unfinished, truthfully report it as unfinished with its exact blocker; never disguise it as delivered.
 
-## Project
+## 3. The Two Mandatory Visual Boards in Every Session
+Every coding session must present two visual boards directly inside the chat reply. They must be readable on mobile, clean, and understandable without technical knowledge:
+- **BOARD 1 — COMPLETE REPOSITORY AND RELEASE MAP**: Covers the whole project.
+  `PROJECT → MAIN BRANCH → APPLICATION AREAS → ACTIVE BRANCHES → UNMERGED WORK → MERGED WORK → PRODUCTION DEPLOYMENT → VERIFIED PUBLIC WEBSITE`
+  Shows all remote branches (grouped: main, active development, awaiting review, approved for integration, blocked/unverified, obsolete cleanup candidates) with their purpose explained in everyday words. Compares current `main` against current Vercel production revision, and displays a prominent warning if production is behind.
+- **BOARD 2 — THIS SESSION'S WORK MAP**: A focused, minimalist view of the current conversation.
+  `MY REQUEST → WHAT WE ARE CHANGING → WHAT ALREADY EXISTS → WHAT IS BEING CREATED → WHERE IT WILL BE SAVED → WHAT NEEDS APPROVAL → WHERE IT WILL BE MERGED → WHERE IT WILL BE DEPLOYED → WHAT HAS BEEN VERIFIED`
+- **Repository-Backed Mirror**: Both boards must be grounded in the authoritative repository state and mirrored in `docs/OWNER-VISUAL-STATUS.md` in GitHub.
+
+## 4. Mandatory Obsolete-Work & Stale-Version Cleanup
+- Ensure Emilio and clients never repeatedly encounter old designs, outdated illustrations, duplicate approvals, or retired application versions.
+- Automatically and safely clean up obsolete temporary previews, generated caches, unreferenced public assets, duplicate version pointers, and merged unprotected branches.
+- **Protected Material Guard**: NEVER automatically or destructively delete original physical-book scans, approved artwork masters, unique historical source files, or unmerged work. Any destructive action affecting unique or protected material requires explicit owner approval.
+- **Production Alignment**: After an authorized release, confirm the canonical public domain targets the correct deployment, remove obsolete aliases, and verify that old previews are not mistakenly presented as official production.
+
+## 5. Approvals, Merges, and Deployments — Two Clear Choices
+- When completed work is ready for publication, offer Emilio exactly two choices:
+  - **A. Approve and publish — deploy it**
+  - **B. Request changes**
+- Explicitly choosing Option A authorizes the agent to complete required tests, independent reviews, merges, production deployments, and live public verification end-to-end.
+- Do not make Emilio manage routine technical steps included in that authorization.
+- An artwork approval, exploratory design selection, or preview acceptance is NOT a release authorization.
+
+## 6. Mandatory Real-World Verification
+- Verify all visible application changes on **Mobile (390×844)** and **Desktop (1366×768)**.
+- Verify real storefront rendering, Gretel chatbot responses, contact forms, and navigation.
+- Use only the owner's status labels:
+  - **DONE and live** (Verified working on public production URL)
+  - **DONE but not live** (Completed and tested in code, awaiting deployment)
+  - **WAITING** (Names the specific blocker)
+  - **NOT TESTED** (Evidence is insufficient)
+- Never claim success based only on code, an agent claim, or a passing build without checking the real result.
+
+## 7. Everyday Language & Non-Technical Communication
+- Explain all concepts in everyday words. Avoid technical jargon.
+- Do not ask Emilio to choose technical implementation methods unless the decision affects functionality, cost, safety, ownership, or the visible result.
+- Present answers and visual proof first, keeping technical evidence accessible behind optional links or details.
+
+---
+
+# LANY BOOKS — SPECIFIC STOREFRONT OPERATING RULES
+
+This section is LANY's complete active repository agent contract. Current owner decisions, current verified GitHub state, and the existing scoped files below outrank dated reports.
+
+## Project & Scope
 
 - This repository is the public-facing LANY Books LLC storefront and information site.
 - The separate classroom/teacher application is `ejnburrows-rgb/cartilla-de-gretel`.
-- Professional publisher/storefront presentation. No mascots or cartoons unless EJN explicitly asks.
+- Professional publisher/storefront presentation. No mascots or cartoons unless Emilio explicitly asks.
 - Do not invent prices, availability, policies, phone numbers, domains, retailer links, licensing terms, fulfillment claims, or school-ordering terms.
 - `OWNER-DECISIONS.md` records business decisions that still require owner confirmation.
 - Online checkout stays disabled until the required commerce decisions are confirmed.
@@ -21,11 +83,11 @@ The owner has **not** authorized product development, feature completion, checko
 
 - Host: Vercel.
 - Release branch: `main`.
-- A merge to `main` triggers a production deployment.
-- A commit is not a deploy request. Work on a branch; merge once only when EJN asks for or approves the release checkpoint.
-- Keep `main` usable.
+- A merge to `main` triggers a production deployment on Vercel.
+- A commit is not a deploy request. Work on a branch; merge once only when Emilio asks for or approves the release checkpoint via Option A.
+- Keep `main` usable at all times.
 
-## Contact and monitoring
+## Contact and Monitoring
 
 - `VITE_FORM_ENDPOINT` controls contact-form delivery.
 - `VITE_CONTACT_EMAIL` optionally enables the direct contact card.
@@ -41,31 +103,3 @@ Before release, run the repository checks that are available:
 - `npm run build`
 
 For visible changes, verify the actual rendered storefront before calling the work done.
-
-## Shared delivery workflow
-
-- Work through **Idea → Plan → Build → Focused Test → Visual Proof → Approval → Integration → Release**. Use a short plan only when needed; resolve routine technical choices yourself.
-- Inspect current code, existing PRs/assignments and applicable product requirements first. Reuse the original branch and valid evidence; historical reports are context, not new assignments.
-- One active assignment = one bounded useful result. Make the smallest reliable change, preserve unrelated working behavior, and verify affected behavior. Use existing tools and tests; no mandatory skill chain, new controller, duplicate dashboard or repeated unchanged audit.
-- For visual/interactive changes show actual phone/desktop screenshots; use real recordings for movement, navigation or sound. For instruction-only changes show exact-version excerpts/diffs. Never claim tests, live agents, saves or deployments without direct evidence.
-- After completing or blocking an item, continue the next independent eligible already-authorized assignment in the same available session. A hold stops only its affected action. Save one material checkpoint on the existing PR/task; do not promise background activity.
-- Keep work on one task branch/PR. Check overlapping ownership before shared-file edits. Do not create workers or tasks merely to fill capacity.
-- Preserve applicable independent review and effective branch protection; no self-approval, force push or history rewriting. Never merge known serious defects or missing affected verification.
-- Owner visual acceptance, merge authorization and production release are separate. If a default-branch update triggers production, hold it until the corresponding release is authorized. Do not turn on auto-merge or automatic deployment.
-- Never commit secrets. No paid services, access/security changes, real-data deletion or irreplaceable asset removal without applicable permission. Antigravity requires new explicit task-specific owner authorization.
-- Use available local/sandbox checks; do not depend on GitHub Actions or paid upgrades. Consult version-specific documentation only when relevant.
-- Report **DONE and live / DONE but not live / WAITING / NOT TESTED**, with exact revision and one next executable step. Stop when requested work is complete; preserve a precise checkpoint if a genuine execution limit ends the session.
-
-<!-- OWNER_IN_CHAT_VISUAL_EXPLORER_BEGIN: 2026-11-04 -->
-## Owner-approved in-chat visual repository explorer (mandatory reporting)
-
-**This is an instruction for the agent's reply inside the current ChatGPT conversation.** It is NOT a request to build, open, or update NBO Operations Hub, an external website, a separate dashboard, a graph file, or a new service. Never substitute a link to another dashboard for the in-chat visual.
-
-- For **every project-related owner update, decision, review, or handoff**, begin with a mobile-readable GitDiagram-inspired visual map **inside the chat reply**. Show the whole repository/project structure at a useful overview level, and automatically highlight the feature, dependency, issue, or change under discussion. Use interactive native chat components if supported: click-to-expand nodes, zoom/pan, search, and a right-side or below-map detail inspector. Offer four navigable layers: **Experience map**, **Under the hood** (real repository paths and contents), **Changes & release** (branches, PRs, checks, deployments), and **Browse everything** (full indexed feature/asset inventory). On a short update the first view may be compact, but the full map must remain accessible. Do not crowd hundreds of items into unreadable nodes.
-- Discover feature areas and their connected components from **current verified source**, including entry points, screens, games, activities, data, assets, media, tests, dependencies, unmounted features, branches and PRs. Include every discovered lesson/page/sheet or other indexed item via drilldown when relevant; label the inventory **partial** if exhaustive discovery was not done. Do not invent missing contents.
-- Each feature's detail should explain in plain English: what exists, what it does, its dependent parts, source paths, proposed/current changes, what remains, exact version checked, and proof. Keep code and raw logs behind optional links/details; the owner must not need to read GitHub.
-- Distinguish **agent claim → independently tested → merged into main → deployed → actually observed working live** as separate evidence milestones. Use project-specific owner status labels (for Cartilla: **DONE and live / DONE but not live / WAITING / NOT TESTED**); give dates and source links. Do not invent percentages, worker activity, screenshots, tests or live states. Mark stale, missing or inaccessible evidence as **unknown/not tested**.
-- Include genuine screenshots, playable videos, before/after comparisons or working previews directly in chat **when available**; identify which version and device each proves. For consequential owner choices, show the actual proposed result and evidence, then a clear **YES / NO** decision where the UI supports it. A click alone does not authorize a merge/release outside its explicitly stated scope. Record an approved decision in the project's **existing** canonical issue or PR only with permitted authenticated write access and a confirmed successful write; do not claim persistence otherwise.
-- Finish with **STATUS / RESULT / PROOF / WHAT REMAINS** and one clear next step. Preserve all existing product, security, privacy, independent-review, merging, spending, source-fidelity and deployment restrictions. No new dashboards, agents, duplicate queues, databases, monitoring, or unrelated changes solely to satisfy this reporting format.
-- If the chat interface cannot render interactive visuals, show an actual readable diagram (Mermaid or a simple connected text map), structured expandable-equivalent detail and source links in the **same answer**. Be explicit that it is a static fallback; do not claim that unsupported controls work.
-<!-- OWNER_IN_CHAT_VISUAL_EXPLORER_END -->
