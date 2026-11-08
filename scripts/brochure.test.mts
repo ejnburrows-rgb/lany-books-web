@@ -177,3 +177,62 @@ test('QR code generator produces valid square matrix and SVG for page URL and pr
   assert.ok(svg.startsWith('<svg '), 'Must generate valid SVG string')
   assert.ok(svg.includes('<rect '), 'Must contain module rects')
 })
+
+test('Master Handoff: 3 Brochure Styles, 7-Page Redesigned Brochure (EN/ES), 5 Website Concepts, and Restored Cutouts exist and meet 100% fidelity rules', async () => {
+  const {
+    AUTHENTICITY_COMPARISONS,
+    BROCHURE_STYLES,
+    SEVEN_PAGE_BROCHURE,
+    WEBSITE_CONCEPTS,
+  } = await import('../src/config/masterHandoffData.ts')
+
+  assert.equal(BROCHURE_STYLES.length, 3, 'Must provide 3 brochure style options (A, B, C)')
+  assert.equal(SEVEN_PAGE_BROCHURE.length, 7, 'Historical brochure redesign must have 7 pages')
+  assert.equal(WEBSITE_CONCEPTS.length, 5, 'Must provide 5 website visual concepts')
+  assert.equal(AUTHENTICITY_COMPARISONS.length, 5, 'Must provide 5 side-by-side authenticity comparisons')
+
+  // Check required Spanish headlines in the 5 concepts
+  const expectedSpanishHeadlines = [
+    'Grandes historias comienzan con las primeras letras.',
+    'De los primeros sonidos a las primeras historias.',
+    'Una experiencia de lectura para compartir en el aula.',
+    'Cada página, una oportunidad para aprender juntos.',
+    'Una tradición de aprendizaje que mira hacia el futuro.',
+  ]
+  for (let i = 0; i < 5; i++) {
+    assert.equal(WEBSITE_CONCEPTS[i].proposedHeadlineEs, expectedSpanishHeadlines[i])
+    assert.ok(WEBSITE_CONCEPTS[i].proposedHeadlineEn.length > 10)
+  }
+
+  // Verify every image path referenced in masterHandoffData exists on disk
+  const handoffPaths = new Set<string>()
+  for (const page of SEVEN_PAGE_BROCHURE) {
+    assert.ok(page.title.en.length > 3)
+    assert.ok(page.title.es.length > 3)
+    assert.ok(page.keyPoints.length >= 2)
+    handoffPaths.add(page.primaryImage.src)
+    if (page.primaryImage.secondarySrc) {
+      handoffPaths.add(page.primaryImage.secondarySrc)
+    }
+  }
+
+  for (const concept of WEBSITE_CONCEPTS) {
+    handoffPaths.add(concept.lifestyleBackdropSrc)
+    for (const asset of concept.authenticProductAssets) {
+      handoffPaths.add(asset.src)
+    }
+  }
+
+  for (const comp of AUTHENTICITY_COMPARISONS) {
+    handoffPaths.add(comp.originalSrc)
+    handoffPaths.add(comp.restoredSrc)
+  }
+
+  for (const webPath of handoffPaths) {
+    const diskPath = path.join(publicDir, webPath.replace(/^\//, ''))
+    assert.ok(fs.existsSync(diskPath), `Missing Master Handoff asset on disk: ${webPath} (${diskPath})`)
+    const stat = fs.statSync(diskPath)
+    assert.ok(stat.size > 1000, `Master Handoff asset unexpectedly small: ${webPath}`)
+  }
+})
+

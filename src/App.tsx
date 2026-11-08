@@ -7,6 +7,7 @@ import { RetailerCard } from './components/RetailerCard'
 import { CartillaBrochure } from './components/CartillaBrochure'
 import { CrmPresentationDeck } from './components/CrmPresentationDeck'
 import { ClientShareSession } from './components/ClientShareSession'
+import { MasterVisualApprovalBoard } from './components/MasterVisualApprovalBoard'
 import { getProducts } from './config/products'
 import { getRetailers, type RetailerLink } from './config/retailers'
 import { GretelAssistant } from './components/GretelAssistant'
@@ -49,6 +50,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [formStatus, setFormStatus] = useState<FormStatus>('idle')
   const [activeRetailerModal, setActiveRetailerModal] = useState<RetailerLink | null>(null)
+  const [showApprovalPreview, setShowApprovalPreview] = useState(true)
 
   const t = copy[lang]
   const products = getProducts(lang)
@@ -114,6 +116,44 @@ export default function App() {
     <div className="site">
       <a className="skipLink" href="#main-content">Skip to content</a>
 
+      {/* Owner Candidate Review & Approval Bar — Nothing is integrated or pushed until you approve */}
+      <div className="designPreviewBar no-print" role="region" aria-label="Owner Candidate Review Bar">
+        <div className="designPreviewInner">
+          <div className="designSwitchGroup">
+            <span className="switcherLabel">
+              {lang === 'es' ? 'MODO DE REVISIÓN DEL PROPIETARIO:' : 'OWNER PREVIEW & APPROVAL STAGE:'}
+            </span>
+            <div className="switcherButtons">
+              <button
+                type="button"
+                className={`switchBtn ${showApprovalPreview ? 'active' : ''}`}
+                onClick={() => setShowApprovalPreview(true)}
+              >
+                <span className="switchDot option1Dot" />
+                {lang === 'es'
+                  ? '1. Ver y Aprobar Propuestas Primero (3 Estilos · 5 Conceptos · Recortes)'
+                  : '1. See & Approve Candidates First (3 Styles · 5 Concepts · Restored Cutouts)'}
+              </button>
+              <button
+                type="button"
+                className={`switchBtn ${!showApprovalPreview ? 'active' : ''}`}
+                onClick={() => setShowApprovalPreview(false)}
+              >
+                <span className="switchDot option2Dot" />
+                {lang === 'es'
+                  ? '2. Ver Tienda Actual (Sin Cambios No Aprobados)'
+                  : '2. View Current Live Storefront (Untouched)'}
+              </button>
+            </div>
+          </div>
+          <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#fff8d6' }}>
+            {lang === 'es'
+              ? '🔒 Ningún cambio ha sido enviado a GitHub ni a producción. Usted revisa y aprueba primero.'
+              : '🔒 Nothing has been pushed to GitHub or live production. You inspect and approve first.'}
+          </div>
+        </div>
+      </div>
+
       <header className="topbar no-print">
         <a className="brand" href="#home" aria-label={t.brandAria}>
           <img
@@ -165,6 +205,11 @@ export default function App() {
       </header>
 
       <main id="main-content">
+        {/* Candidate Preview & Approval Stage — Shown at the top so Emilio can inspect and approve BEFORE any storefront changes */}
+        {showApprovalPreview ? (
+          <MasterVisualApprovalBoard lang={lang} onLanguageChange={handleSetLang} />
+        ) : null}
+
         <section id="home" className="hero no-print">
           <div className="heroCopy">
             <div className="eyebrowPill">

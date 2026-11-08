@@ -401,7 +401,8 @@ footer strong {
     border: none !important;
   }
 
-  .brochure-page-sheet {
+  .brochure-page-sheet,
+  .print-page-sheet {
     page-break-after: always;
     break-after: page;
     box-shadow: none !important;
