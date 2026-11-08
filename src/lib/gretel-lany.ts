@@ -32,8 +32,8 @@ export const SHOP_KB: ShopTopic[] = [
   {
     id: 'shop-kit',
     keywords: ['kit', 'package', 'paquete', 'included', 'includes', 'incluye', 'learning kit', 'materials', 'materiales'],
-    es: 'El kit de La Cartilla de Gretel reúne un rotafolio de 17″ × 22″ con caballete, el libro del alumno de 92 páginas, carteles reproducibles de sílabas y vocales, tareas, evaluaciones y claves de respuestas, CD de poemas, guía del maestro y bolsa de lona con carpetas. ¿Quieres conocer el método o comparar los formatos?',
-    en: 'The La Cartilla de Gretel kit brings together a 17″ × 22″ flipchart with easel, a 92-page Student Book, reproducible syllabic and vowel charts, homework, evaluations and answer keys, a poems audio CD, Teacher’s Guide, and canvas bag with folders. Would you like to explore the method or compare formats?',
+    es: 'El kit de La Cartilla de Gretel reúne un rotafolio de 17″ × 22″ con caballete, el libro del alumno de 92 páginas, carteles reproducibles de sílabas y vocales, tareas, evaluaciones y claves de respuestas, CD de poemas, 5 muñecos de vocales de fieltro y guía del maestro. ¿Quieres conocer el método o comparar los formatos?',
+    en: 'The La Cartilla de Gretel kit brings together a 17″ × 22″ flipchart with easel, a 92-page Student Book, reproducible syllabic and vowel charts, homework, evaluations and answer keys, a poems audio CD, 5 felt vowel dolls, and Teacher’s Guide. Would you like to explore the method or compare formats?',
     links: [kitLink],
     next: ['shop-method', 'shop-options', 'shop-order'],
     ask: { es: '¿Qué incluye el kit?', en: "What's in the Learning Kit?" },

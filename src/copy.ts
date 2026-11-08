@@ -3,7 +3,7 @@ export type Credit = [string, string]
 
 export const copy = {
   en: {
-    nav: ['Home', 'Method', 'CRM & Digital', 'Retailers', 'Editions', 'Publishing', 'Schools', 'Author', 'Contact'],
+    nav: ['Home', 'Brochure', 'Method', 'Editions', 'Complete Kit', 'Retailers', 'Schools', 'Author', 'CRM Deck', 'Contact'],
     navAria: 'Main navigation',
     brandAria: 'LANY Books home',
     menuToggleAria: 'Toggle navigation menu',
@@ -142,7 +142,7 @@ export const copy = {
     packageGroups: [
       ['Student practice materials', ['92-page Student Workbook (24 sequential phonics lessons)', 'Reproducible homework practice pages', 'Reproducible syllabic and vowel charts']],
       ['Teacher & assessment materials', ["Teacher's Guide", 'Reproducible student evaluations', 'Evaluation answer key', 'Answer key to the syllabic charts']],
-      ['Classroom presentation materials', ['17" × 22" tabletop flipchart and easel', 'Audio recordings of the poems included in the flipchart', 'Organized classroom carrying bag and folders']]
+      ['Classroom presentation materials', ['17" × 22" tabletop flipchart and easel', 'Audio recordings of the poems included in the flipchart', '5 felt vowel dolls (a, e, i, o, u)']]
     ] as [string, string[]][],
     packageNote: 'Note: Individual Student Workbooks (1 copy) and 10-Copy Classroom Packs are ordered separately from the full classroom presentation materials. See the edition cards above for exact contents.',
     schoolsLabel: 'For schools & teachers',
@@ -222,7 +222,7 @@ export const copy = {
     ]
   },
   es: {
-    nav: ['Inicio', 'Método', 'CRM y Digital', 'Librerías', 'Ediciones', 'Editorial', 'Escuelas', 'Autora', 'Contacto'],
+    nav: ['Inicio', 'Folleto', 'Método', 'Ediciones', 'Kit Completo', 'Librerías', 'Escuelas', 'Autora', 'Presentación CRM', 'Contacto'],
     navAria: 'Navegación principal',
     brandAria: 'Inicio de LANY Books',
     menuToggleAria: 'Alternar menú de navegación',
@@ -362,7 +362,7 @@ export const copy = {
     packageGroups: [
       ['Materiales de práctica del alumno', ['Libro del alumno de 92 páginas (24 lecciones fonéticas)', 'Páginas de tareas reproducibles', 'Carteles reproducibles de sílabas y vocales']],
       ['Materiales del maestro y evaluación', ['Guía del maestro', 'Evaluaciones reproducibles', 'Clave de respuestas de las evaluaciones', 'Clave de respuestas de los carteles silábicos']],
-      ['Materiales de presentación en el aula', ['Rotafolio de 17" × 22" con caballete', 'Grabaciones en audio de los poemas del rotafolio', 'Bolsa de lona con carpetas organizadas']]
+      ['Materiales de presentación en el aula', ['Rotafolio de 17" × 22" con caballete', 'Grabaciones en audio de los poemas del rotafolio', '5 muñecos de vocales de fieltro (a, e, i, o, u)']]
     ] as [string, string[]][],
     packageNote: 'Nota: El Libro del Alumno individual (1 ejemplar) y el Paquete de 10 ejemplares se solicitan por separado del sistema completo de aula. Consulte las tarjetas de arriba para ver el contenido exacto de cada opción.',
     schoolsLabel: 'Para escuelas y maestros',

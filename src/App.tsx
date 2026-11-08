@@ -4,17 +4,31 @@ import { ImageFrame } from './components'
 import { ProductCard } from './components/ProductCard'
 import { ContactCard } from './components/ContactCard'
 import { RetailerCard } from './components/RetailerCard'
-import { CrmShowcase } from './components/CrmShowcase'
+import { CartillaBrochure } from './components/CartillaBrochure'
+import { CrmPresentationDeck } from './components/CrmPresentationDeck'
+import { ClientShareSession } from './components/ClientShareSession'
 import { getProducts } from './config/products'
 import { getRetailers, type RetailerLink } from './config/retailers'
 import { GretelAssistant } from './components/GretelAssistant'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
-const imagePaths = {
+export const imagePaths = {
   cover: '/images/gretel/wb-cover-hd.webp',
   logoOpenBook: '/images/gretel/logo-open-book.png',
+  bundleKit: '/assets/aistudio/colorized/kit-11-piece-authentic.jpg',
+  studentBookSpread: '/assets/aistudio/colorized/student-book-pages-colorized.jpg',
+  syllabicCharts: '/assets/aistudio/colorized/syllabic-charts-colorized.jpg',
+  bilingualHomework: '/assets/aistudio/colorized/homework-rima3-colorized.jpg',
+  evaluationsKey: '/assets/aistudio/colorized/evaluations-mm-colorized.jpg',
+  heritageCoversPair: '/assets/aistudio/colorized/heritage-covers-pair.jpg',
+  heroPoster: '/assets/aistudio/image-gen-3_20261030-070235__9b3e6495.png',
+  classroomWelcome: '/assets/aistudio/classroom-welcome-gretel.jpg',
+  easelShowcase: '/assets/aistudio/image-gen-6_20261030-090159__c9217af0.png',
+  libraryPortrait: '/assets/aistudio/colorized/heritage-covers-pair.jpg',
 }
+
+export type KitImagePaths = typeof imagePaths
 
 const contactEmail = (import.meta.env.VITE_CONTACT_EMAIL as string) || ''
 
@@ -43,13 +57,14 @@ export default function App() {
   const retailers = getRetailers(lang)
   const navTargets = [
     '#home',
+    '#brochure',
     '#program',
-    '#crm',
-    '#retail',
     '#kits',
-    '#publishing',
+    '#package',
+    '#retail',
     '#schools',
     '#author',
+    '#crm',
     '#contact',
   ]
   const formEndpoint = import.meta.env.VITE_FORM_ENDPOINT as string | undefined
@@ -99,7 +114,7 @@ export default function App() {
     <div className="site">
       <a className="skipLink" href="#main-content">Skip to content</a>
 
-      <header className="topbar">
+      <header className="topbar no-print">
         <a className="brand" href="#home" aria-label={t.brandAria}>
           <img
             src={imagePaths.logoOpenBook}
@@ -124,8 +139,8 @@ export default function App() {
         </nav>
 
         <div className="headerActions">
-          <a className="smallButton dark desktopOnlyCta" href="#contact">
-            {t.requestInfo}
+          <a className="smallButton dark desktopOnlyCta" href="#brochure">
+            {lang === 'es' ? 'Ver Folleto de 10 Páginas' : 'View 10-Page Brochure'}
           </a>
           <button
             className="smallButton gold"
@@ -150,7 +165,7 @@ export default function App() {
       </header>
 
       <main id="main-content">
-        <section id="home" className="hero">
+        <section id="home" className="hero no-print">
           <div className="heroCopy">
             <div className="eyebrowPill">
               <img
@@ -165,14 +180,16 @@ export default function App() {
             <p className="heroText">{t.heroText}</p>
 
             <div className="actions">
-              <a className="button primary" href="#retail">
-                {lang === 'es' ? 'Dónde Comprar' : 'Where to Buy'}
+              <a className="button primary" href="#brochure">
+                {lang === 'es'
+                  ? 'Explorar el Folleto Físico (10 Páginas)'
+                  : 'Explore 10-Page Physical Brochure'}
               </a>
               <a className="button secondary" href="#kits">
                 {t.exploreMaterials}
               </a>
-              <a className="button secondary" href="#crm">
-                {lang === 'es' ? 'Ver CRM y Plataforma Digital' : 'Explore CRM & Digital'}
+              <a className="button secondary" href="#contact">
+                {t.requestInfo}
               </a>
             </div>
 
@@ -186,7 +203,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Clean Publisher Hero Stage: Authentic Book Cover + Inside Curriculum Lesson Card (Zero AI Stock Photos) */}
+          {/* Upgraded Physical Product Hero Stage */}
           <div className="heroPublisherStage" aria-label={t.coverAlt}>
             <div className="heroBookShowcaseCard">
               <span className="heroEditionBadge">
@@ -202,16 +219,32 @@ export default function App() {
               />
               <div className="heroBookMeta">
                 <strong>La Cartilla de Gretel — Libro del alumno</strong>
-                <span>{lang === 'es' ? 'Autora: Leonor Lopetegui · Ilustraciones: Estela de Armas Plasencia' : 'Author: Leonor Lopetegui · Illustrations: Estela de Armas Plasencia'}</span>
+                <span>
+                  {lang === 'es'
+                    ? 'Autora: Leonor Lopetegui · Ilustraciones: Estela de Armas Plasencia'
+                    : 'Author: Leonor Lopetegui · Illustrations: Estela de Armas Plasencia'}
+                </span>
               </div>
             </div>
 
             <div className="heroLessonPreviewCard">
               <div className="heroLessonHeader">
                 <span className="heroLessonTag">
-                  {lang === 'es' ? 'Vista Interior del Método' : 'Inside the Phonetic Method'}
+                  {lang === 'es' ? 'Programa Físico Completo' : 'Complete Physical Program'}
                 </span>
-                <strong>{lang === 'es' ? 'Progresión Controlada (24 Lecciones)' : 'Controlled Progression (24 Lessons)'}</strong>
+                <strong>
+                  {lang === 'es'
+                    ? 'Kit de 10 Componentes y Progresión Fonética'
+                    : '10-Piece Kit & Phonetic Progression'}
+                </strong>
+              </div>
+
+              <div className="heroBundlePreview">
+                <img
+                  src={imagePaths.bundleKit}
+                  alt={t.kitAlt}
+                  className="heroBundleImg"
+                />
               </div>
 
               <div className="heroLessonStep">
@@ -229,7 +262,9 @@ export default function App() {
 
               <div className="heroLessonStep">
                 <span className="heroLessonStepLabel">
-                  {lang === 'es' ? '2. Sílabas Directas Controladas' : '2. Controlled Direct Syllables'}
+                  {lang === 'es'
+                    ? '2. Sílabas Directas → Palabras → Oraciones'
+                    : '2. Direct Syllables → Words → Sentences'}
                 </span>
                 <div className="heroSyllableRow">
                   <span>ma</span>
@@ -238,27 +273,23 @@ export default function App() {
                   <span>mo</span>
                   <span>mu</span>
                 </div>
-              </div>
-
-              <div className="heroLessonStep">
-                <span className="heroLessonStepLabel">
-                  {lang === 'es' ? '3. Palabras y Oraciones Decodificables' : '3. Decodable Words & Sentences'}
-                </span>
-                <p className="heroSampleWords">mamá · mimo · mapa · Ema · Mimi</p>
                 <p className="heroSampleSentence">“Mi mamá me ama.”</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="trustStrip" aria-label={t.trustAria}>
+        <section className="trustStrip no-print" aria-label={t.trustAria}>
           {t.trust.map((item) => (
             <span className="trustItem" key={item}>{item}</span>
           ))}
         </section>
 
+        {/* Redesigned 10-Page Physical-Product Marketing Document */}
+        <CartillaBrochure lang={lang} />
+
         {/* Expanded Program Mechanics & 4-Pillar Differentiation Section */}
-        <section id="program" className="section methodSection">
+        <section id="program" className="section methodSection no-print">
           <div className="sectionIntro">
             <p className="eyebrow">{t.programLabel}</p>
             <h2>{t.methodTitle}</h2>
@@ -266,7 +297,7 @@ export default function App() {
             <p className="methodSecondaryLead">{t.methodText[1]}</p>
             <div className="methodSideCard">
               <img
-                src={imagePaths.cover}
+                src={imagePaths.classroomWelcome}
                 alt={t.coverAlt}
                 className="methodSideCover"
                 loading="lazy"
@@ -306,20 +337,160 @@ export default function App() {
           </div>
         </section>
 
-        {/* Dedicated La Cartilla de Gretel CRM & Digital Platform Presentation */}
-        <CrmShowcase
-          lang={lang}
-          eyebrow={t.crmLabel}
-          title={t.crmTitle}
-          intro={t.crmLead}
-          ctaLabel={t.crmCta}
-          secondaryCtaLabel={t.crmSecondaryCta}
-          ecosystemBadge={t.crmEcosystemBadge}
-        />
+        {/* Transparent Print & Classroom Editions */}
+        <section id="kits" className="section productSection no-print">
+          <div className="buyTop">
+            <div className="buyHeader">
+              <p className="eyebrow">{t.buyLabel}</p>
+              <h2>{t.buyTitle}</h2>
+              <p className="lead">{t.buyLead}</p>
+            </div>
+            <div className="buyCover">
+              <ImageFrame
+                src={imagePaths.easelShowcase}
+                alt={t.coverAlt}
+                label={t.coverLoading}
+                aspect="3 / 4"
+              />
+            </div>
+          </div>
+
+          <div className="routesGrid">
+            {classroomProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                lang={lang}
+                highlighted={product.id === 'combo-classroom'}
+              />
+            ))}
+          </div>
+        </section>
+
+        <section id="package" className="section packageSection no-print">
+          <div className="packageSplitHeader">
+            <div className="sectionIntro">
+              <p className="eyebrow">{t.packageLabel}</p>
+              <h2>{t.includedTitle}</h2>
+              <p className="lead">{t.includedLead}</p>
+            </div>
+            <figure className="packageBundleShowcase">
+              <img
+                src={imagePaths.bundleKit}
+                alt={t.kitAlt}
+                className="kitImage"
+                loading="lazy"
+              />
+              <figcaption>
+                {lang === 'es'
+                  ? 'Paquete físico completo de 10 componentes con rotafolio de 17" × 22", Libro del Alumno de 92 páginas y hojas reproducibles en Blanco y Negro.'
+                  : 'Complete 10-piece physical classroom package with 17" × 22" easel flipchart, 92-page Student Book, and Black & White reproducible sheets.'}
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="packageGroups">
+            {t.packageGroups.map(([group, items], idx) => (
+              <section className={`packageGroup groupAccent-${idx + 1}`} key={group}>
+                <h3>{group}</h3>
+                <ul>
+                  {items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+
+          <div className="packageColorizedStrip" data-testid="package-colorized-strip">
+            <figure className="packageColorizedItem">
+              <img
+                src={imagePaths.heritageCoversPair}
+                alt={
+                  lang === 'es'
+                    ? 'Portadas a color: Guía del Maestro blanca clásica y Libro del Alumno azul rey de 92 páginas'
+                    : 'Full-color covers: Classic white Teacher’s Guide cover and 92-page royal-blue Student Book'
+                }
+                loading="lazy"
+              />
+              <figcaption>
+                {lang === 'es'
+                  ? 'Portadas a Color: Guía Blanca y Libro del Alumno (92 págs.)'
+                  : 'Full-Color Covers: Classic White Guide & 92-Page Student Book'}
+              </figcaption>
+            </figure>
+            <figure className="packageColorizedItem">
+              <img
+                src={imagePaths.studentBookSpread}
+                alt={
+                  lang === 'es'
+                    ? 'Páginas interiores físicas en Blanco y Negro del Libro del Alumno (Vocal E e y asociación de vocales)'
+                    : 'Authentic Black & White physical interior pages of the 92-page Student Book (Vowel E e grid and vowel matching)'
+                }
+                loading="lazy"
+              />
+              <figcaption>
+                {lang === 'es'
+                  ? 'Libro del Alumno (Páginas en B/N): Cuadrícula E e y Asociación'
+                  : 'Student Book (B&W Pages): Vowel E e Grid & Line Matching'}
+              </figcaption>
+            </figure>
+            <figure className="packageColorizedItem">
+              <img
+                src={imagePaths.syllabicCharts}
+                alt={
+                  lang === 'es'
+                    ? 'Tableros de vocales y sílabas reproducibles en Blanco y Negro (a, e, i, o, u / mamá, amo, Mumi)'
+                    : 'Authentic Black & White reproducible vowel and syllabic blackline master charts (a, e, i, o, u / mamá, amo, Mumi)'
+                }
+                loading="lazy"
+              />
+              <figcaption>
+                {lang === 'es'
+                  ? 'Originales Reproducibles (B/N): Tableros de Vocales y Sílabas'
+                  : 'Reproducible Blackline Masters (B&W): Vowel & Syllabic Charts'}
+              </figcaption>
+            </figure>
+            <figure className="packageColorizedItem">
+              <img
+                src={imagePaths.bilingualHomework}
+                alt={
+                  lang === 'es'
+                    ? 'Tarea reproducible bilingüe en Blanco y Negro P p — Mi papá — Rima 3 y CD de audio'
+                    : 'Authentic Black & White bilingual reproducible homework P p — Mi papá — Rima 3 and Audio CD'
+                }
+                loading="lazy"
+              />
+              <figcaption>
+                {lang === 'es'
+                  ? 'Tarea Bilingüe Reproducible en B/N (P p · Mi papá · Rima 3) + CD'
+                  : 'B&W Bilingual Reproducible Homework (P p · Mi papá · Rima 3) + CD'}
+              </figcaption>
+            </figure>
+            <figure className="packageColorizedItem">
+              <img
+                src={imagePaths.evaluationsKey}
+                alt={
+                  lang === 'es'
+                    ? 'Evaluación reproducible en Blanco y Negro M m y clave del maestro impresa en Blanco y Negro'
+                    : 'Authentic Black & White reproducible Evaluación M m and B&W Teacher Answer Key'
+                }
+                loading="lazy"
+              />
+              <figcaption>
+                {lang === 'es'
+                  ? 'Evaluación Reproducible y Clave del Maestro (Impresas en B/N)'
+                  : 'Reproducible Evaluation (M m) & Teacher Key (Printed in B&W)'}
+              </figcaption>
+            </figure>
+          </div>
+
+          <p className="packageNote">{t.packageNote}</p>
+        </section>
 
         {/* Integrated Retailers: Amazon, Audible, Kindle, and Barnes & Noble */}
         {retailers.length > 0 ? (
-          <section id="retail" className="section retailSection">
+          <section id="retail" className="section retailSection no-print">
             <div className="sectionIntro">
               <p className="eyebrow">{t.retailLabel}</p>
               <h2>{t.retailTitle}</h2>
@@ -372,60 +543,8 @@ export default function App() {
           </section>
         ) : null}
 
-        {/* Transparent Print & Classroom Editions (No Misleading AI Packet Image) */}
-        <section id="kits" className="section productSection">
-          <div className="buyTop">
-            <div className="buyHeader">
-              <p className="eyebrow">{t.buyLabel}</p>
-              <h2>{t.buyTitle}</h2>
-              <p className="lead">{t.buyLead}</p>
-            </div>
-            <div className="buyCover">
-              <ImageFrame
-                src={imagePaths.cover}
-                alt={t.coverAlt}
-                label={t.coverLoading}
-                aspect="3 / 4"
-              />
-            </div>
-          </div>
-
-          <div className="routesGrid">
-            {classroomProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                lang={lang}
-                highlighted={product.id === 'combo-classroom'}
-              />
-            ))}
-          </div>
-        </section>
-
-        <section id="package" className="section packageSection">
-          <div className="sectionIntro">
-            <p className="eyebrow">{t.packageLabel}</p>
-            <h2>{t.includedTitle}</h2>
-            <p className="lead">{t.includedLead}</p>
-          </div>
-
-          <div className="packageGroups">
-            {t.packageGroups.map(([group, items], idx) => (
-              <section className={`packageGroup groupAccent-${idx + 1}`} key={group}>
-                <h3>{group}</h3>
-                <ul>
-                  {items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-          <p className="packageNote">{t.packageNote}</p>
-        </section>
-
-        {/* LANY Books Publishing House, Digital CRM Platform & Upcoming Books */}
-        <section id="publishing" className="section publishingSection">
+        {/* LANY Books Publishing House & Ecosystem */}
+        <section id="publishing" className="section publishingSection no-print">
           <div className="publishingHeader">
             <div>
               <p className="eyebrow">{t.publishingLabel}</p>
@@ -453,7 +572,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="schools" className="section schoolsSection">
+        <section id="schools" className="section schoolsSection no-print">
           <div className="schoolsCard">
             <div className="schoolsIntro">
               <p className="eyebrow">{t.schoolsLabel}</p>
@@ -480,7 +599,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="author" className="section legacySection">
+        <section id="author" className="section legacySection no-print">
           <div className="legacyCopy">
             <p className="eyebrow">{t.authorLegacyLabel}</p>
             <h2>{t.authorTitle}</h2>
@@ -490,22 +609,12 @@ export default function App() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-
-            <figure className="dedication">
-              <p className="dedicationLabel">{t.dedicationLabel}</p>
-              <blockquote>
-                {t.dedicationParas.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </blockquote>
-              <figcaption>{t.dedicationAttribution}</figcaption>
-            </figure>
           </div>
 
           <div className="legacySide">
             <div className="legacyGretel" aria-hidden="true">
               <img
-                src={imagePaths.cover}
+                src={imagePaths.libraryPortrait}
                 alt=""
                 loading="lazy"
                 className="legacyBookCover"
@@ -533,7 +642,10 @@ export default function App() {
           </div>
         </section>
 
-        <section id="faq" className="section faqSection">
+        {/* Separate 9-Slide LANY Books CRM & Sales-Management Companion Presentation */}
+        <CrmPresentationDeck lang={lang} />
+
+        <section id="faq" className="section faqSection no-print">
           <p className="eyebrow">{t.faqLabel}</p>
           <h2>{t.faqTitle}</h2>
           <div className="faqList">
@@ -546,7 +658,15 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contact" className="section contactSection">
+        {/* Client Email, WhatsApp & SMS Sharing and Direct Inquiry Session */}
+        <ClientShareSession
+          lang={lang}
+          contactEmail={contactEmail}
+          formEndpoint={formEndpoint}
+          kitAssets={imagePaths}
+        />
+
+        <section id="contact" className="section contactSection no-print">
           <div className="contactIntro">
             <p className="eyebrow">{t.interestFormLabel}</p>
             <h2>{t.contactTitle}</h2>
@@ -622,7 +742,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer>
+      <footer className="no-print">
         <div className="footerBrand">
           <div className="footerLogoRow">
             <img

@@ -343,3 +343,70 @@ footer strong {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 1120px) {
+  .brochure-page-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .brochure-sheet-grid,
+  .crm-deck-slide__body,
+  .packageSplitHeader {
+    grid-template-columns: 1fr;
+  }
+  .brochure-gallery-grid,
+  .brochure-kit-grid,
+  .brochure-ds-swatches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .crm-slide-Minimal-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .brochure-page-selector,
+  .brochure-gallery-grid,
+  .brochure-kit-grid,
+  .brochure-ds-swatches,
+  .brochure-ds-type-grid,
+  .crm-record-grid,
+  .crm-pipeline-grid,
+  .crm-journey-steps,
+  .crm-slide-Minimal-nav {
+    grid-template-columns: 1fr;
+  }
+  .brochure-replacement-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.45in;
+  }
+
+  body,
+  .site,
+  .brochure-section {
+    background: #fff !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .brochure-section {
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .brochure-page-sheet {
+    page-break-after: always;
+    break-after: page;
+    box-shadow: none !important;
+    border: 1.5px solid #12489c !important;
+    padding: 1.1rem !important;
+  }
+}
+

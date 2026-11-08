@@ -1,100 +1,125 @@
-# LANY Books & La Cartilla de Gretel — Realistic Storefront, Retailer Integration & CRM Platform Plan
+# Authentic Kit Colorization, Prompt Studio & Client Email / WhatsApp / SMS Session
 
-Transform the LANY Books storefront into a realistic, production-ready publishing website with a single unified logo, authentic retailer channels (Amazon, Audible, Kindle, Barnes & Noble), 100% accurate book cover imagery, an in-depth pedagogical breakdown of why the phonetic program is unique, and a dedicated presentation for the La Cartilla de Gretel CRM & Digital Platform.
+Redesign and upgrade the *La Cartilla de Gretel* physical-product showcase by replacing the synthetic kit flatlay with colorized, authentic materials from the original `La-Cartilla_ep_42` product page, embedding an interactive **Gretel Reference & Prompt Studio** (anchored to the 3 approved Gretel sample images), and adding a bilingual **Client Email, WhatsApp & SMS Sharing and Inquiry Session** for schools, parents, and distributors.
 
----
-
-## User Review & Critical Decisions
+### User Review & Critical Decisions
 
 > [!IMPORTANT]
-> The following decisions were confirmed directly by the owner during clarification:
-> - **Official Logo**: Single official brand logo is the **open blue book forming an "L" with "any" inside and "Books" below**. The second floral emblem and the temporary switcher bar are completely removed.
-> - **Retailer Integration**: Real interactive **Amazon, Audible, Kindle, and Barnes & Noble** cards with authentic brand glyphs/logos, built to look fully integrated and launch-ready, with an elegant "Coming Soon" notification/request interaction when clicked.
-> - **Photo Accuracy & Removal of Sticker**: The green-background sticker illustration (`pose-7.webp`) at the bottom is removed entirely. The realistic classroom photos are retouched with the exact authentic *La Cartilla de Gretel* student book cover (`wb-cover-hd.webp`) so every photo reflects the real physical book with 100% fidelity.
-> - **Curriculum & Method**: Dedicated section explaining how the controlled phonetic method works step-by-step and why it is fundamentally different and superior to generic Spanish literacy programs.
-> - **CRM & Digital Platform**: Dedicated showcase highlighting **Teacher Classroom Management & Parent Portal**, **Interactive Digital Workbook & Audio Poems**, and **Student Progress Tracking & Phonetic Milestone Assessments**.
+> The following product and design choices have been confirmed from your clarifications and will govern execution:
+
+- **Confirmed Decision 1 — Multi-Channel Client Session**: Support **Email (`mailto:`), WhatsApp (`wa.me`), and SMS (`sms:`)** alongside native Web Share and one-click clipboard copy.
+- **Confirmed Decision 2 — Pre-Filled Packet & Direct Desk Inquiry**: Each client session pre-fills a structured **Brochure Summary, Screen-PDF Link, and 11-Piece Physical Kit Checklist**, and also allows sending a **Direct Inquiry Request** to the LANY Books desk.
+- **Confirmed Decision 3 — Colorized Authentic Replacements & Prompt Studio Tab**: Generate high-resolution colorized replacements for the synthetic kit image and original `La-Cartilla_ep_42` blackline sheets (Student Book vowel matching, *Tablero Silábico*, *Tareas Reproducibles — Mi papá Rima 3*, *Evaluaciones Reproducibles — Evaluación M m*, and the classic white *Teacher's Guide* cover) using the 3 approved Gretel reference images, and expose all reference-anchored prompts in a dedicated **Prompt Studio** tab.
 
 ---
 
-## 1. Overview & Core Concept
+### 1. Overview & Core Concept
 
-- **What It Does**: Presents LANY Books Publishing LLC as the official publisher for *La Cartilla de Gretel* (physical 10-piece course kit, student book, and digital editions) and upcoming works by veteran educator Leonor Lopetegui. It provides schools, teachers, and parents with clear curriculum details, purchase pathways, a preview of the upcoming digital CRM platform, and retailer availability.
-- **Target Audience / Persona**:
-  - Bilingual & Dual-Language Elementary Educators (Kindergarten – 2nd Grade) seeking a proven, structured Spanish reading curriculum.
-  - School Administrators & Literacy Coordinators evaluating classroom packages and district pilots.
-  - Hispanic & Spanish-learning Parents looking for authentic print books, eBooks, audiobooks, and home practice tools.
-- **Key Value**: Bridges 50+ years of proven classroom pedagogy with modern publishing standards, integrating tactile print materials, digital interactive learning, and major retailer distribution channels.
-
----
-
-## 2. User Experience & Visual Design
-
-### A. Brand Identity & Header
-- **Single Official Logo**: Open navy book forming an `"L"` with cursive `"any"` and colorful `"Books"`. Rendered crisply in the sticky top navigation and footer.
-- **Top Bar Contract**: Clean 3-zone layout (single-row, no awkward wraps on mobile):
-  - Zone 1: LANY Books logo + "LANY Books Publishing" wordmark.
-  - Zone 2: Single-line navigation links (`Home`, `Program`, `Materials`, `CRM Platform`, `Retailers`, `Package`, `Schools`, `Author`, `Contact`).
-  - Zone 3: Direct "Request Information" CTA button + Language Toggle (`English` / `Español`).
-
-### B. Retailers Showcase (Amazon, Audible, Kindle, Barnes & Noble)
-- Styled as high-credibility retailer cards with authentic brand typography and SVG logos:
-  - **Amazon**: Physical print editions (Paperback / Hardcover).
-  - **Kindle**: Digital Kindle eBook edition.
-  - **Audible**: Official audiobook edition with recorded poems and pronunciation guides.
-  - **Barnes & Noble**: NOOK eBook and retail bookstore distribution.
-- **Interaction**: Integrated with active click feedback. When clicked, if an environment URL is configured (`VITE_AMAZON_URL`, etc.), it opens the retailer; otherwise, it triggers a polished, branded modal/toast: *"Coming soon to Amazon / Kindle / Audible / B&N — Request early notification"*, seamlessly connecting interested buyers to the inquiry form without dead clicks.
-
-### C. "How the Program Works & Why It's Different" Section
-- Replaces generic marketing copy with a rich pedagogical breakdown:
-  1. **Direct Sound-Syllable Construction (Not English Translation)**: Unlike translated phonics curricula, Spanish reading is syllable-timed. *La Cartilla de Gretel* uses controlled vowel associations ($a, e, i, o, u$) followed by high-frequency consonant patterns ($m, p, s, l, t, n$) that form decodable Spanish words from day one.
-  2. **Multi-Sensory 360° Method**: Children touch felt vowel figures, follow the 17" x 22" classroom presentation easel, listen to rhythmic poem audio, and write in the 92-page student workbook.
-  3. **Zero Frustration Progression**: Every sentence and poem uses *only* previously taught letters and syllables—eliminating guessing and building instant reading confidence.
-  4. **50+ Years of Classroom Testing**: Developed, refined, and proven across five decades of direct classroom teaching by Leonor Lopetegui.
-
-### D. La Cartilla de Gretel CRM & Digital Platform Presentation
-- High-impact interactive showcase section highlighting the modern digital companion:
-  - **Feature 1: Teacher Classroom Management & Parent Home Portal**: Centralized dashboard to assign daily reading lessons, sync homework packets, and send bilingual progress updates home to parents.
-  - **Feature 2: Interactive Digital Workbook & Audio Poem Activities**: Digital touch-enabled student book with native Spanish audio narration, interactive syllable drag-and-drop, and recited poems.
-  - **Feature 3: Student Progress Tracking & Phonetic Milestone Assessments**: Real-time mastery trackers for letter sounds, syllable combinations, and fluency benchmarks aligned to Kindergarten, 1st, and 2nd grade literacy standards.
-
-### E. Visual Assets & Removal of Sticker
-- **Remove `pose-7.webp`**: The cut-out green sticker image at the bottom of the page is deleted from the layout and replaced with clean editorial typography and official credits.
-- **Accurate Book Cover Retouch**: Classroom photos will showcase the real published book cover (`wb-cover-hd.webp`) with realistic lighting and perspective, matching the physical student book 100%.
+- **What It Does**:
+  1. **Replaces the Synthetic Kit Flatlay**: Replaces the earlier AI-hallucinated kit composite with an authentic, colorized **11-Piece Classroom Kit Showcase** and dedicated colorized sheets modeled directly on the 7 original `La-Cartilla_ep_42` product photographs.
+  2. **Gretel Reference & Prompt Studio Tab**: Adds a dedicated tab inside the 10-page brochure suite displaying the **3 Master Gretel Reference Samples** side-by-side with the **7 Original `La-Cartilla_ep_42` Source Crops**, the newly generated colorized replacements, and one-click copyable **Reference-Anchored Generation Prompts**.
+  3. **Client Email, WhatsApp & SMS Session**: Provides an interactive, bilingual (`EN` / `ES`) client outreach and inquiry studio where educators, principals, parents, or sales representatives can customize their recipient details, select specific editions or the 11-piece kit checklist, and immediately launch a pre-formatted **Email**, **WhatsApp message**, **SMS text message**, or **Direct LANY Books Desk Inquiry**.
+- **Target Audience / Persona**: K–2 bilingual teachers, school principals, district literacy directors, parents, and educational distributors evaluating or sharing *La Cartilla de Gretel*.
+- **Key Value**: Eliminates synthetic/inaccurate worksheet graphics in favor of authentic, colorized *La Cartilla de Gretel* materials while making it effortless to share the brochure PDF and kit checklist with clients via Email, WhatsApp, or SMS in seconds.
 
 ---
 
-## 3. Key Product Decisions & Trade-Offs
+### 2. User Experience & Visual Design
 
-| Decision | Chosen Approach | Rationale | Alternatives Rejected |
-| :--- | :--- | :--- | :--- |
-| **Brand Mark** | Single open-book "L + any Books" logo throughout site | Eliminates confusing dual-logo visual noise; aligns with owner's explicit selection | Keeping both logos or using the circular floral badge |
-| **Retailer Cards** | Real Amazon, Kindle, Audible, and Barnes & Noble cards with "Coming Soon" early notification flow | Meets the requirement to look fully integrated and launch-ready without publishing fake or broken links | Leaving them hidden until URLs are set or showing placeholder grey boxes |
-| **CRM Section** | Rich feature presentation cards with live interactive preview tabs | Establishes the connection between the physical books and the digital platform | Simple text bullet points or external link |
-| **Curriculum Depth** | Deep pedagogical comparison highlighting Spanish phonetic mechanics | Answers educator questions on why this method outperforms generic Spanish translations | High-level marketing slogans |
-| **Author Section** | Editorial tribute layout with official credits and dedication | Professional, respectful presentation of Leonor Lopetegui's 50-year legacy without amateurish cutout graphics | Keeping the green-bordered sticker |
+- **Key User Flows**:
+  1. **Authentic Kit & Colorized Worksheet Inspection**: Users view the updated Page 4 (Flipchart), Page 5 (Student Book interior pages), Page 6 (Colorized *Tablero Silábico*, *Tareas Reproducibles — Mi papá*, and *Evaluaciones Reproducibles — Evaluación M m*), and Page 7 (Complete 11-Piece Kit) with toggleable **"Compare with Original `ep_42` Scan"** overlays.
+  2. **Gretel Reference & Prompt Studio**: Users open the **"Prompt Studio & Colorized Kit"** tab to inspect the 3 canonical Gretel reference images alongside the 7 extracted original webpage images, copy the exact reference-anchored prompts with one click, and compare before/after colorizations.
+  3. **Client Email / WhatsApp / SMS Session**: From either the top brochure toolbar (`"Share via Email / WhatsApp / SMS"`) or the dedicated **Client Share & Inquiry Session** panel in the Contact section:
+     - Select audience role (*School / District Leader*, *Classroom Teacher*, *Parent / Family*, or *Distributor / Partner*).
+     - Check which items to include in the summary (*10-Page Brochure PDF Link*, *11-Piece Physical Kit Checklist*, *92-Page Student Book*, *17" × 22" Flipchart & Easel*, *School Demonstration Request*).
+     - Enter optional recipient name, organization, email, or phone/WhatsApp number.
+     - Click **"Send via Email"**, **"Send to WhatsApp"**, **"Send via SMS"**, **"Copy Client Packet"**, or **"Submit Direct Inquiry to LANY Books"**.
+- **Visual Identity & Theme**:
+  - *Aesthetic Direction*: Warm archival storybook & institutional editorial design (`Fraunces` display serif + `Plus Jakarta Sans` instructional sans).
+  - *Color Palette & Mood*: Warm Storybook Paper (`#fffdf8` / `#fef6db`), LANY Royal Blue (`#0b3270` / `#12489c`), Sunny Gold (`#f8c630`), Gretel Ribbon Coral (`#df2c27`), and Meadow Green (`#268d44`).
+  - *Typography & Hierarchy*: Constrained reading measure (`65–75ch`), crisp 1px structural borders, tactile paper elevation beneath physical product sheets, and unboxed typographic metadata with clean separators (`·`).
 
 ---
 
-## 4. Technical Architecture & Invariants
+### 3. Reference-Anchored Master Prompts (Using Your 3 Approved Gretel Samples)
+
+To ensure every generated image stays 100% faithful to **Gretel's approved character design**, the **official LANY Books open-book emblem**, and the **authentic `La-Cartilla_ep_42` educational content**, always attach these **3 Existing Sample Images** as reference inputs:
+
+1. **Reference Image A (Book Cover & Gretel Illustration Anchor)**: Official blue *La Cartilla de Gretel — Libro del alumno* cover (`wb-cover-hd.webp`)
+2. **Reference Image B (Character & LANY Open-Book Logo Anchor)**: Gretel at wooden classroom desk with *"Aprendamos a leer"* chalkboard and official open-book `LANY Books` logo (`image-gen-3_20261030-070235__9b3e6495.png`)
+3. **Reference Image C (Tactile Classroom Tabletop & Lighting Anchor)**: Gretel presenting the standing blue *Libro del alumno* on a warm oak classroom desk (`cada-pagina-cuenta-desk.jpg`)
+
+#### Prompt 1 — Complete 11-Piece Physical Classroom Kit (Replaces Synthetic Kit Image)
+> **Attach References**: Reference A + Reference B + Original `ep_42` Flipchart Crops (`ep42-02` & `ep42-03`)
+>
+> **Prompt**:
+> *"High-resolution editorial product photograph of the complete 11-piece physical 'La Cartilla de Gretel' Spanish literacy kit arranged neatly on a warm cream studio tabletop with soft natural daylight and realistic contact shadows. Back row left: royal-blue canvas carrying tote bag featuring the exact cover artwork of Gretel sitting on a wooden stool reading a red book surrounded by flowers and a yellow butterfly, titled 'La cartilla de Gretel'. Back row center and right: two standing 17x22 inch spiral-bound tabletop flipchart easels with royal-blue frames; the center easel displays the 'Mm' lesson page with a friendly brown cow, a pink crescent listing 'ma, me, mi, mo, mu', and five illustrated vocabulary words ('mamá', 'amo', 'mimo', 'Meme', 'Mumi'); the right easel displays the 'La niña sordita' vowel 'Ee' poem page with a red-haired girl cupping her ear and six illustrated words with red initial 'e' ('elefante', 'espejo', 'Ema', 'estrella', 'erizo', 'escalera'). Front row: the royal-blue hardcover 92-page Student Book ('La cartilla de Gretel — Libro del alumno' by Leonor Lopetegui), the classic white-cover Teacher's Guide ('La Cartilla de Gretel' with Gretel sitting on a stack of books), colorized reproducible syllabic and vowel charts ('a, e, i, o, u' and 'mamá, amo, Mumi, mima, Meme, Memo'), bilingual reproducible homework sheet ('P p — Mi papá — Rima 3'), reproducible evaluation sheet ('Evaluación M m') with a red-ink teacher answer key overlay, a royal-blue Audio CD, and a boxed set of 5 colorful felt vowel finger dolls ('a, e, i, o, u'). Sharp print typography, authentic storybook aesthetic, 8k product photography."*
+
+#### Prompt 2 — Colorized Student Book Interior Spread (Vowel Matching & Picture Grid)
+> **Attach References**: Reference A + Reference C + Original Student Book Crop (`ep42-04-student-book-pages.png`)
+>
+> **Prompt**:
+> *"High-resolution overhead editorial photograph of two open, full-color interior activity pages from the 'La Cartilla de Gretel' Student Book resting on a warm sunlit oak classroom desk next to colored pencils. Left page: 'Instrucciones: Marca con una x los dibujos de las palabras que comienzan con E e' featuring a clean 4x3 grid of warm storybook illustrations (purple spotted elephant 'elefante', igloo, ear of corn 'elote', dwarf 'enano', wooden ladder 'escalera', cloud, bee, broom 'escoba', unicorn, yellow star 'estrella', schoolhouse 'escuela', dress, hand mirror 'espejo'). Right page: 'Instrucciones: Traza una línea de la vocal al dibujo que le corresponde' featuring a central vertical column of the five lowercase Spanish vowels 'o, a, i, e, u' flanked by warm, softly colorized storybook illustrations of a church ('iglesia'), number 8 ('ocho'), spider ('araña'), number 1 ('uno'), and broom ('escoba'). Crisp cream paper texture, exact Spanish text fidelity, warm LANY Books storybook illustration style."*
+
+#### Prompt 3 — Colorized Reproducible Syllabic & Vowel Charts (*Tablero Silábico*)
+> **Attach References**: Reference B + Original Syllabic Chart Crop (`ep42-05-syllabic-charts.png`)
+>
+> **Prompt**:
+> *"High-resolution editorial product photograph of two layered, softly colorized reproducible Spanish phonics activity sheets from 'La Cartilla de Gretel' on a warm cream tabletop. Top-left sheet: 'Instrucciones: Recorta y pega el dibujo que comienza con la vocal del recuadro' showing five framed dashed cut-out vowel boxes ('a', 'e', 'i', 'o', 'u') above a 2x3 grid of colorized storybook picture tiles (airplane/bee, elephant, church/indian, ear/eye, grapes/one) with a small scissors icon on the dashed line. Bottom-right overlapping sheet: 'Completa la oración con una palabra del rectángulo' featuring a clean rectangular word bank containing 'mamá, amo, Mumi, mima, Meme, Memo' and four completed sample sentences ('1- Mamá me ama.', '2- Meme ama a mima.', '3- Mi mamá ama a Memo.', '4- Memo y Mumi aman a Mumi.') with gentle color accents. Authentic Spanish typography, crisp print quality."*
+
+#### Prompt 4 — Colorized Bilingual Reproducible Homework (*Tareas Reproducibles — Rima 3*)
+> **Attach References**: Reference B + Reference C + Original Homework Crop (`ep42-06-reproducible-homework.png`)
+>
+> **Prompt**:
+> *"High-resolution editorial photograph of the 'La Cartilla de Gretel' bilingual reproducible homework sheet ('Rima 3') resting on a warm wooden family study table beside a blue student workbook. The top half of the cream worksheet displays neat bilingual parent instructions in Spanish ('Estimada familia de ___') and English ('Your son/daughter is practicing the syllables pa, pe, pi, po, pu... Together we can make a difference!'). The center features a softly colorized storybook frame with bold header 'P p', underlined title 'Mi papá', and the four-line Spanish poem: 'Yo amo a Pupi / yo amo a papá. / Pipo me ama / a mí y a mamá.' accompanied by a gentle storybook vignette border in LANY Books royal blue and sunny gold, with 'Rima 3' at bottom right."*
+
+#### Prompt 5 — Colorized Reproducible Evaluations & Red Teacher Answer Key (*Evaluación M m*)
+> **Attach References**: Reference C + Original Evaluation Crop (`ep42-07-reproducible-evaluations.png`)
+>
+> **Prompt**:
+> *"High-resolution editorial product photograph of two side-by-side Spanish phonics assessment sheets from 'La Cartilla de Gretel' on a teacher's desk: on the left, the student 'Evaluación M m' worksheet ('Nombre ___ Fecha ___ Completa la oración con una palabra del rectángulo') with a word bank box ('mamá, amo, Mumi, mima, Meme, Memo') and four numbered fill-in-the-blank sentences ('1- Mamá me ___. 2- Meme ama a ___. 3- Mi ___ ama a Memo. 4- Memo y Mumi aman a ___.'); on the right, the matching Teacher's Answer Key ('Clave de Evaluación M m') showing the exact correct Spanish words filled in crisp red teacher ink with subtle colorized header accents."*
+
+#### Prompt 6 — Classic White-Cover *Teacher's Guide* & *Libro del Alumno* Heritage Pair
+> **Attach References**: Reference A + Reference B + Original Cover Crop (`ep42-01-original-cover.png`)
+>
+> **Prompt**:
+> *"High-resolution studio product photograph pairing the two authentic 'La Cartilla de Gretel' book covers side by side on a warm cream surface: on the left, the classic white-cover Teacher's Guide ('La Cartilla de Gretel' in bold black serif type at top left, yellow-and-red butterfly, and classic illustration of blonde Gretel with a red hair bow sitting on a small wooden stool reading a red book in a flower patch); on the right, the royal-blue hardcover Student Book ('La cartilla de Gretel — Libro del alumno' by Leonor Lopetegui) with the official open-book LANY Books emblem. Crisp lighting, realistic bookbinding shadows, 100% faithful artwork."*
+
+---
+
+### 4. Key Product Decisions & Trade-Offs
+
+- **Decision 1 — Dual Presentation of Authentic `ep_42` Scans and Colorized Upgrades**:
+  - *Chosen Approach*: Generate the high-resolution colorized replacements for the brochure and kit showcase while also preserving the 7 extracted original `La-Cartilla_ep_42` crops inside a toggleable **"Original Scan vs. Colorized Upgrade"** view.
+  - *Why*: Honours the strict artwork authenticity rules by proving every colorized worksheet and kit component is grounded in the genuine product while giving the brochure a cohesive, high-resolution LANY Books aesthetic.
+- **Decision 2 — Client Email, WhatsApp & SMS Session Architecture**:
+  - *Chosen Approach*: Combine instant client-side protocol launchers (`mailto:`, `https://wa.me/`, `sms:`) and `navigator.share` / clipboard copy with an integrated LANY Books Desk Inquiry submission flow.
+  - *Why*: Allows either a school/parent visiting the site to email or WhatsApp the brochure packet to themselves/colleagues immediately, or a LANY Books representative to send a tailored product summary and PDF link directly to a client's email or WhatsApp without requiring backend credentials.
+
+---
+
+### 5. Technical Architecture & Data Strategy *(Technical Reference)*
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        LANY Books Storefront                           │
-│  (Tailwind CSS v4 + React 19 + TypeScript + Vite 8 on Cloud Run 3000)  │
-└────────────────────────────────────┬───────────────────────────────────┘
-                                     │
-      ┌──────────────────────────────┼──────────────────────────────┐
-      ▼                              ▼                              ▼
-┌──────────────┐             ┌──────────────┐             ┌───────────────────┐
-│ Brand & Hero │             │ Retailers    │             │ Curriculum & CRM  │
-│ - Single Logo│             │ - Amazon     │             │ - Phonetic Method │
-│ - Real Kit   │             │ - Audible    │             │ - Why Different   │
-│ - Retouched  │             │ - Kindle     │             │ - CRM Management  │
-│   Photos     │             │ - B&N        │             │ - Digital Modules │
-└──────────────┘             └──────────────┘             └───────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                        LANY Books Storefront (App)                         │
+└───────────────────┬────────────────────────────────────┬───────────────────┘
+                    │                                    │
+                    ▼                                    ▼
+┌───────────────────────────────────────┐  ┌─────────────────────────────────┐
+│     CartillaBrochure (6-Tab Suite)    │  │  ClientShareSession (#share)    │
+├───────────────────────────────────────┤  ├─────────────────────────────────┤
+│ 1. Interactive 10-Page Brochure       │  │ • Role & Audience Selector      │
+│ 2. Full 10-Page Print View + 11 Kit   │  │ • Kit & Brochure Packet Builder │
+│ 3. Old → New Image Replacement Map    │  │ • Live Message Preview (EN/ES)  │
+│ 4. Prompt Studio & Colorized ep_42    │  │ • Launchers:                    │
+│    (3 Gretel Refs + 7 ep_42 Crops +   │  │   - Email (mailto: pre-filled)  │
+│     Generated Colorized Replacements) │  │   - WhatsApp (wa.me deep link)  │
+│ 5. Upgraded Asset Gallery + Lightbox  │  │   - SMS Text (sms: body link)   │
+│ 6. Design System & Copy Verification  │  │   - Copy Packet / Direct Desk   │
+└───────────────────────────────────────┘  └─────────────────────────────────┘
 ```
 
-### Smoke Test Invariants (`scripts/smoke-content.mjs` - 39/39 passing):
-- Preserve all strict smoke test rules: No `(555)`, no `(GATE)`, no `bookingPlaceholder`, no `Purchase Now`/`Comprar ahora`, no fake `$150.00` offers, no `online store` / `tienda en línea` claims in copy.
-- Products catalog retains `stripeLink: null` and `getActiveBuyLink(p) === '#contact'`.
-- All env variable references and official credits structure preserved.
+- **Data Model & State**:
+  - **Prompt Studio Store**: Maps each of the 6 master prompts to its 3 Gretel Reference image paths, the extracted original `ep_42` scan crop, the newly generated colorized image path, and one-click copy state.
+  - **Client Share Session State**: Tracks `recipientName`, `recipientOrg`, `recipientEmail`, `recipientPhone`, `audienceType` (`school` | `teacher` | `parent` | `distributor`), `selectedItems` (Brochure PDF link, 11-Piece Kit Checklist, Student Book, Flipchart, Demo Request), and `customNote`, dynamically computing the formatted Email subject/body, WhatsApp URL, and SMS URI in English or Spanish.
