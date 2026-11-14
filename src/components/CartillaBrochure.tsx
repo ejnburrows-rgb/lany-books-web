@@ -278,13 +278,6 @@ export function CartillaBrochure({ lang }: CartillaBrochureProps) {
             {lang === 'es' ? 'Imprimir / Guardar PDF (10 Páginas)' : 'Print / Save 10-Page PDF'}
           </button>
           <a
-            href="/exports/la-cartilla-de-gretel-brochure-screen.pdf"
-            download="La-Cartilla-de-Gretel-LANY-Books-Brochure.pdf"
-            className="button secondary"
-          >
-            {lang === 'es' ? 'Descargar PDF listo para pantalla' : 'Download Screen-Ready PDF'}
-          </a>
-          <a
             href="#client-session"
             className="button gold"
             data-testid="brochure-share-session-link"

@@ -20,8 +20,6 @@ interface PacketOption {
   snippet: { en: string; es: string }
 }
 
-const BROCHURE_PDF_URL =
-  'https://lany-books-web-delta.vercel.app/exports/la-cartilla-de-gretel-brochure-screen.pdf'
 const STOREFRONT_URL = 'https://lany-books-web-delta.vercel.app/'
 const EBAY_REF_URL = 'https://www.ebay.com/itm/227292617053'
 
@@ -70,18 +68,6 @@ export const KIT_CHECKLIST_TEXT = {
 }
 
 const PACKET_OPTIONS: PacketOption[] = [
-  {
-    id: 'brochure-pdf',
-    thumbKey: 'heritageCoversPair',
-    label: {
-      en: '10-Page Physical-Product Brochure URL (Screen PDF Link)',
-      es: 'Enlace al Folleto del Producto Físico de 10 Páginas (PDF)',
-    },
-    snippet: {
-      en: `• 10-Page Physical-Product Brochure (PDF): ${BROCHURE_PDF_URL}`,
-      es: `• Folleto del Producto Físico de 10 Páginas (PDF): ${BROCHURE_PDF_URL}`,
-    },
-  },
   {
     id: 'kit-checklist',
     thumbKey: 'bundleKit',
@@ -179,7 +165,6 @@ export function ClientShareSession({
   const [customNote, setCustomNote] = useState('')
   const [qrMode, setQrMode] = useState<QrEncodeMode>('page-prefilled')
   const [selectedIds, setSelectedIds] = useState<string[]>([
-    'brochure-pdf',
     'kit-checklist',
     'student-book',
     'reproducible-sheets',
@@ -345,13 +330,12 @@ export function ClientShareSession({
     return `La Cartilla de Gretel (LANY Books) · 10-Page Physical Brochure & 10-Piece Kit${orgSuffix}`
   }
 
-  // Dedicated bundled text containing Brochure Link + Kit Checklist Text for instant messaging paste
+  // Dedicated bundled text containing Page Link + Kit Checklist Text for instant messaging paste
   const buildClipboardBundleText = (): string => {
     const pageUrl = getCurrentPageBaseUrl()
     if (msgLang === 'es') {
       return [
         'LA CARTILLA DE GRETEL — LANY Books (K–2 · Autora: Leonor Lopetegui)',
-        `• Enlace al Folleto del Producto Físico (PDF de 10 páginas): ${BROCHURE_PDF_URL}`,
         `• Página Actual / Catálogo Interactivo: ${pageUrl}`,
         '',
         KIT_CHECKLIST_TEXT.es,
@@ -362,7 +346,6 @@ export function ClientShareSession({
     }
     return [
       'LA CARTILLA DE GRETEL — LANY Books (Grades K–2 · Author: Leonor Lopetegui)',
-      `• 10-Page Physical-Product Brochure Link (PDF): ${BROCHURE_PDF_URL}`,
       `• Current Page / Interactive Brochure: ${pageUrl}`,
       '',
       KIT_CHECKLIST_TEXT.en,
@@ -383,7 +366,6 @@ export function ClientShareSession({
         return [
           cleanRecipient ? `Hola ${cleanRecipient}:` : 'Hola:',
           'Le compartimos el Folleto del Producto Físico de La Cartilla de Gretel (LANY Books, K–2 por Leonor Lopetegui) y la Lista del Kit de 10 Componentes:',
-          `• Folleto PDF (10 págs.): ${BROCHURE_PDF_URL}`,
           KIT_CHECKLIST_TEXT.es,
           `• Sitio web: ${STOREFRONT_URL}`,
           customNote.trim() ? `Nota: ${customNote.trim()}` : '',
@@ -395,7 +377,6 @@ export function ClientShareSession({
       return [
         cleanRecipient ? `Hello ${cleanRecipient},` : 'Hello,',
         'Here is the official La Cartilla de Gretel (LANY Books, Grades K–2 by Leonor Lopetegui) Product Brochure URL and 10-Piece Physical Kit Checklist:',
-        `• 10-Page Brochure PDF: ${BROCHURE_PDF_URL}`,
         KIT_CHECKLIST_TEXT.en,
         `• Website: ${STOREFRONT_URL}`,
         customNote.trim() ? `Note: ${customNote.trim()}` : '',
@@ -406,7 +387,7 @@ export function ClientShareSession({
     }
 
     const effectiveIds =
-      selectedIds.length > 0 ? selectedIds : ['brochure-pdf', 'kit-checklist']
+      selectedIds.length > 0 ? selectedIds : ['kit-checklist']
     const activeOptions = PACKET_OPTIONS.filter((opt) =>
       effectiveIds.includes(opt.id)
     )
@@ -509,8 +490,8 @@ export function ClientShareSession({
     const basePageUrl = getCurrentPageBaseUrl()
     const concisePrefilledMsg =
       msgLang === 'es'
-        ? `La Cartilla de Gretel (LANY Books) · Folleto PDF: ${BROCHURE_PDF_URL} · Kit de 10 componentes (Rotafolio 17x22, Libro 92 págs. B/N, Guía, Tableros B/N, Tareas B/N, Evaluaciones B/N, CD, 5 Muñecos)`
-        : `La Cartilla de Gretel (LANY Books) · Brochure PDF: ${BROCHURE_PDF_URL} · 10-Piece Kit (17x22 Flipchart, 92p B&W Student Book, Guide, B&W Syllabic Charts, B&W Homework, B&W Evaluations, Audio CD, 5 Vowel Dolls)`
+        ? `La Cartilla de Gretel (LANY Books) · Kit de 10 componentes (Rotafolio 17x22, Libro 92 págs. B/N, Guía, Tableros B/N, Tareas B/N, Evaluaciones B/N, CD, 5 Muñecos)`
+        : `La Cartilla de Gretel (LANY Books) · 10-Piece Kit (17x22 Flipchart, 92p B&W Student Book, Guide, B&W Syllabic Charts, B&W Homework, B&W Evaluations, Audio CD, 5 Vowel Dolls)`
 
     if (qrMode === 'whatsapp-direct') {
       const waQrText = `${basePageUrl}\n${concisePrefilledMsg}`
@@ -909,22 +890,13 @@ export function ClientShareSession({
               </span>
               <h3>
                 {lang === 'es'
-                  ? 'Enlace al Folleto + Lista del Kit Listos para Pegar o Escanear'
-                  : 'Brochure Link + Kit Checklist Ready to Paste or Scan'}
+                  ? 'Enlace a la Página + Lista del Kit Listos para Pegar o Escanear'
+                  : 'Page Link + Kit Checklist Ready to Paste or Scan'}
               </h3>
             </div>
-            <a
-              href="/exports/la-cartilla-de-gretel-brochure-screen.pdf"
-              download="La-Cartilla-de-Gretel-LANY-Books-Brochure.pdf"
-              className="smallButton gold"
-            >
-              {lang === 'es'
-                ? 'Descargar PDF Adjuntable'
-                : 'Download Attachable PDF'}
-            </a>
           </div>
 
-          {/* Prominent Copy to Clipboard Bar (Brochure Link + 10-Piece Kit Checklist Bundle) */}
+          {/* Prominent Copy to Clipboard Bar (Page Link + 10-Piece Kit Checklist Bundle) */}
           <div
             className="client-clipboard-bundle-bar"
             data-testid="clipboard-bundle-bar"
@@ -932,13 +904,13 @@ export function ClientShareSession({
             <div className="client-clipboard-bundle-copy">
               <strong>
                 {lang === 'es'
-                  ? 'Paquete Rápido para Aplicaciones de Mensajería (URL del Folleto + Lista de 10 Componentes)'
-                  : 'Quick Messaging App Bundle (Brochure Link + 10-Piece Kit Checklist)'}
+                  ? 'Paquete Rápido para Aplicaciones de Mensajería (Enlace a la Página + Lista de 10 Componentes)'
+                  : 'Quick Messaging App Bundle (Page Link + 10-Piece Kit Checklist)'}
               </strong>
               <span>
                 {lang === 'es'
-                  ? 'Copia el enlace directo al PDF de 10 páginas junto con la lista completa del kit en un solo clic.'
-                  : 'Bundles the 10-page brochure PDF link and the 10-piece kit checklist text for instant pasting into any chat app.'}
+                  ? 'Copia el enlace a la página actual junto con la lista completa del kit en un solo clic.'
+                  : 'Bundles the current page link and the 10-piece kit checklist text for instant pasting into any chat app.'}
               </span>
             </div>
             <button
@@ -952,10 +924,10 @@ export function ClientShareSession({
               {copiedState === 'clipboard-bundle'
                 ? lang === 'es'
                   ? '✓ Copiado al Portapapeles (Enlace + Lista del Kit)'
-                  : '✓ Copied to Clipboard (Brochure Link + Kit Checklist)'
+                  : '✓ Copied to Clipboard (Page Link + Kit Checklist)'
                 : lang === 'es'
                 ? 'Copy to Clipboard · Copiar al Portapapeles'
-                : 'Copy to Clipboard (Brochure Link + Kit Checklist)'}
+                : 'Copy to Clipboard (Page Link + Kit Checklist)'}
             </button>
           </div>
 

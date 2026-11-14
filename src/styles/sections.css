@@ -3300,6 +3300,8 @@ footer a {
   display: grid;
   gap: 1.15rem;
   box-shadow: var(--shadow-soft);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .client-session-step {
@@ -3783,6 +3785,9 @@ footer a {
   }
   .client-link-gen-input-group {
     flex-wrap: wrap;
+  }
+  .client-copy-clipboard-main-btn {
+    white-space: normal;
   }
 }
 

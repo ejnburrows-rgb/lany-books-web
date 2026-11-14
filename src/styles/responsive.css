@@ -221,6 +221,7 @@ footer strong {
     left: 0;
     right: 0;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     gap: 0.25rem;
     max-height: 0;
